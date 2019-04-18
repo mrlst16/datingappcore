@@ -3603,11 +3603,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repos\\DatingAppCore2\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
+      "projectUniqueName": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
       "projectName": "DatingAppCore.Dto",
-      "projectPath": "D:\\Repos\\DatingAppCore2\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
+      "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
       "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
-      "outputPath": "D:\\Repos\\DatingAppCore2\\DatingAppCore.Dto\\obj\\",
+      "outputPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3642,6 +3642,7 @@
       "netcoreapp2.1": {
         "dependencies": {
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
