@@ -11,35 +11,41 @@ namespace DatingAppCore.API.Controllers
 {
     public class UserController : ControllerBase
     {
-        [Authorization]
+
+        ILoginOrSignupService loginOrSignupService;
+        IGetUserService getUserService;
+        ISetPropertiesService setPropertiesService;
+        ISetPhotosService setPhotosService;
+
+        [AuthorizationAttribute]
         public async Task<JsonResult> LoginOrSignup(LoginOrSignupRequest request)
         {
-            var service = IOCRegistry.Container.GetInstance<ILoginOrSignupService>();
-            var result = service.LoginOrSignup(request);
+            loginOrSignupService = HttpContext.RequestServices.GetService<ILoginOrSignupService>();
+            var result = loginOrSignupService.LoginOrSignup(request);
             return Json(result);
         }
 
         [Authorization]
         public async Task<JsonResult> GetUser(GetUserRequest request)
         {
-            IGetUserService service = IOCRegistry.Container.GetInstance<IGetUserService>();
-            var result = service.GetUser(request);
+            getUserService = HttpContext.RequestServices.GetService<IGetUserService>();
+            var result = getUserService.GetUser(request);
             return Json(result);
         }
 
         [Authorization]
         public async Task<JsonResult> SetUserSettings(SetPropertiesRequest request)
         {
-            ISetPropertiesService service = IOCRegistry.Container.GetInstance<ISetPropertiesService>();
-            var result = service.Set(request);
+            setPropertiesService = HttpContext.RequestServices.GetService<ISetPropertiesService>();
+            var result = setPropertiesService.Set(request);
             return Json(result);
         }
 
         [Authorization]
         public async Task<JsonResult> SetPhotos(SetPhotosRequest request)
         {
-            ISetPhotosService service = IOCRegistry.Container.GetInstance<ISetPhotosService>();
-            var result = service.Set(request);
+            setPhotosService = HttpContext.RequestServices.GetService<ISetPhotosService>();
+            var result = setPhotosService.Set(request);
             return Json(result);
         }
     }

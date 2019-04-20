@@ -13,11 +13,18 @@ namespace DatingAppCore.API.Controllers
 {
     public class MessagingController : ControllerBase
     {
+        ISendMessageService sendMessageService;
+
+        public MessagingController(ISendMessageService sendMessageService)
+        {
+            this.sendMessageService = sendMessageService;
+        }
+
         [Authorization]
         public async Task<JsonResult> Send(MessageDTO request)
         {
-            var service = IOCRegistry.Container.GetInstance<ISendMessageService>();
-            var result = service.Send(request);
+            sendMessageService = HttpContext.RequestServices.GetService<ISendMessageService>();
+            var result = sendMessageService.Send(request);
             return Json(result);
         }
     }

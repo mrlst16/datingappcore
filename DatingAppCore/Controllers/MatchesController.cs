@@ -11,21 +11,28 @@ namespace DatingAppCore.API.Controllers
 {
     public class MatchesController : ControllerBase
     {
+        private IPotentialMatchesService potentialMatchesService;
         private ISwipeService swipeService;
+
+        public MatchesController(IPotentialMatchesService potentialMatchesService, ISwipeService swipeService)
+        {
+            this.potentialMatchesService = potentialMatchesService;
+            this.swipeService = swipeService;
+        }
 
         [Authorization]
         public async Task<JsonResult> PotentialMatches(FindMatchRequest request)
         {
-            var service = IOCRegistry.Container.GetInstance<IPotentialMatchesService>();
-            var result = service.FindPotentialMatches(request);
+            potentialMatchesService = HttpContext.RequestServices.GetService<IPotentialMatchesService>();
+            var result = potentialMatchesService.FindPotentialMatches(request);
             return Json(result);
         }
 
         [Authorization]
         public async Task<JsonResult> Swipe(SwipeDTO request)
         {
-            var service = IOCRegistry.Container.GetInstance<ISwipeService>();
-            var result = service.Swipe(request);
+            swipeService = HttpContext.RequestServices.GetService<ISwipeService>();
+            var result = swipeService.Swipe(request);
             return Json(result);
         }
     }

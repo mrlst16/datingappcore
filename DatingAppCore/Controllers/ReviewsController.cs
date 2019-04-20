@@ -13,10 +13,18 @@ namespace DatingAppCore.API.Controllers
 {
     public class ReviewsController : ControllerBase
     {
+
+        ISendReviewService sendReviewService;
+
+        public ReviewsController(ISendReviewService sendReviewService)
+        {
+            this.sendReviewService = sendReviewService;
+        }
+
         [Authorization]
         public async Task<JsonResult> Send(ReviewDTO request)
         {
-            var service = IOCRegistry.Container.GetInstance<ISendReviewService>();
+            sendReviewService = HttpContext.RequestServices.GetService<ISendReviewService>();
             var result = service.Send(request);
             return Json(result);
         }

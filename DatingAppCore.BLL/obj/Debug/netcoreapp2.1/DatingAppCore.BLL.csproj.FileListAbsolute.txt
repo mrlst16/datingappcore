@@ -9,6 +9,7 @@ D:\Repos\DatingAppCore2\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.
 D:\Repos\DatingAppCore2\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.AssemblyInfo.cs
 D:\Repos\DatingAppCore2\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.dll
 D:\Repos\DatingAppCore2\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.pdb
+D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.csprojAssemblyReference.cache
 D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.csproj.CoreCompileInputs.cache
 D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.AssemblyInfoInputs.cache
 D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.AssemblyInfo.cs
@@ -23,7 +24,6 @@ D:\Repos\DatingAppCore\DatingAppCore.BLL\bin\Debug\netcoreapp2.1\DatingAppCore.R
 D:\Repos\DatingAppCore\DatingAppCore.BLL\bin\Debug\netcoreapp2.1\CommonCore.pdb
 D:\Repos\DatingAppCore\DatingAppCore.BLL\bin\Debug\netcoreapp2.1\DatingAppCore.Dto.pdb
 D:\Repos\DatingAppCore\DatingAppCore.BLL\bin\Debug\netcoreapp2.1\DatingAppCore.Repo.pdb
-D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.csprojAssemblyReference.cache
 D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.csproj.CopyComplete
 D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.dll
 D:\Repos\DatingAppCore\DatingAppCore.BLL\obj\Debug\netcoreapp2.1\DatingAppCore.BLL.pdb
