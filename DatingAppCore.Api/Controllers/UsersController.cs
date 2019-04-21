@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
-using DatingAppCore.Api.Security;
 using DatingAppCore.BLL.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.BLL.Signup.Requests;
@@ -15,38 +14,65 @@ namespace DatingAppCore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : CommonCore.Mvc.Controller.CommonCoreControllerBase
     {
-        [Authorization]
-        public async Task<string> LoginOrSignup(LoginOrSignupRequest request)
+
+        public UsersController() : base(Program.Container)
         {
-            var service = Program.Container.Resolve<ILoginOrSignupService>();
-            var result = service.LoginOrSignup(request);
-            return JsonConvert.SerializeObject(result);
+
         }
 
-        [Authorization]
-        public async Task<string> GetUser(GetUserRequest request)
+        [HttpPost]
+        [Route("ping")]
+        public async Task<IActionResult> Ping()
         {
-            IGetUserService service = Program.Container.Resolve<IGetUserService>();
-            var result = service.GetUser(request);
-            return JsonConvert.SerializeObject(result);
+            var auth = Request.Headers["Authorization"];
+            return Json(new { Balls = true, Auth = auth });
         }
 
-        [Authorization]
-        public async Task<string> SetUserSettings(SetPropertiesRequest request)
+        [HttpPost]
+        public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
         {
-            ISetPropertiesService service = Program.Container.Resolve<ISetPropertiesService>();
-            var result = service.Set(request);
-            return JsonConvert.SerializeObject(result);
+            return await CallWithAuthAsync(() =>
+            {
+                var service = Program.Container.Resolve<ILoginOrSignupService>();
+                var result = service.LoginOrSignup(request);
+                return Json(result);
+            });
         }
 
-        [Authorization]
-        public async Task<string> SetPhotos(SetPhotosRequest request)
+        [HttpPost]
+        [Route("get_user")]
+        public async Task<IActionResult> GetUser(GetUserRequest request)
         {
-            ISetPhotosService service = Program.Container.Resolve<ISetPhotosService>();
-            var result = service.Set(request);
-            return JsonConvert.SerializeObject(result);
+            return await CallWithAuthAsync(() =>
+            {
+                IGetUserService service = Program.Container.Resolve<IGetUserService>();
+                var result = service.GetUser(request);
+                return Ok(JsonConvert.SerializeObject(result));
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SetUserSettings(SetPropertiesRequest request)
+        {
+            return await CallWithAuthAsync(() =>
+            {
+                ISetPropertiesService service = Program.Container.Resolve<ISetPropertiesService>();
+                var result = service.Set(request);
+                return Json(result);
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SetPhotos(SetPhotosRequest request)
+        {
+            return await CallWithAuthAsync(() =>
+            {
+                ISetPhotosService service = Program.Container.Resolve<ISetPhotosService>();
+                var result = service.Set(request);
+                return Json(result);
+            });
         }
     }
 }

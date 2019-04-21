@@ -42,7 +42,12 @@ namespace DatingAppCore.Api
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller}/{action}/{id?}");
+            });
+
         }
+
     }
 }

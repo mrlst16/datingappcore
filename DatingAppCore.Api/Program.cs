@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using DatingApp.API.Services;
+using DatingApp.API.Services.Interfaces;
 using DatingAppCore.BLL.Services;
 using DatingAppCore.BLL.Services.Interfaces;
 using Microsoft.AspNetCore;
@@ -20,8 +22,9 @@ namespace DatingAppCore.Api
 
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
             SetupIOC();
+
+            CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -39,6 +42,7 @@ namespace DatingAppCore.Api
             builder.RegisterType<SetPhotosService>().As<ISetPhotosService>();
             builder.RegisterType<SetPropertiesService>().As<ISetPropertiesService>();
             builder.RegisterType<SwipeService>().As<ISwipeService>();
+            builder.RegisterType<BasicAuthorizationService>().As<IAuthorizationService>();
             Container = builder.Build();
         }
     }

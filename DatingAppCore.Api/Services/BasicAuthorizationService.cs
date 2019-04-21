@@ -6,21 +6,25 @@ using System.Web;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingApp.API.Services.Interfaces;
-using DatingApp.API.Services.Requests;
 using DatingAppCore.Repo.Clients;
+using Microsoft.AspNetCore.Http;
 
 namespace DatingApp.API.Services
 {
     public class BasicAuthorizationService : IAuthorizationService
     {
-
-        public Response<bool> Authorize(AuthorizationRequest request)
+        public Response<bool> Authorize(IHeaderDictionary headers)
         {
+            var response = new Response<bool>();
+
             try
             {
-                var str = request.Data
+
+                var str = headers?["Authorization"].FirstOrDefault()?
                     .Replace("basic", "")
                     .Trim();
+
+                var clientid = Guid.Parse(headers?["ClientID"].First());
 
                 string decoded = UTF8Encoding.UTF8.GetString(Convert.FromBase64String(str));
 
@@ -30,14 +34,16 @@ namespace DatingApp.API.Services
                 ClientAuth auth = RepoCache
                     .Get<ClientAuth>()
                     .GetQuery()
-                    .FirstOrDefault(x => x.ClientID == request.ClientID);
+                    .FirstOrDefault(x => x.ClientID == clientid);
 
-                return auth.UserName == username && auth.Password == password;
+                response.Result = auth.UserName == username && auth.Password == password;
             }
             catch (Exception e)
             {
-                throw e;
+                response += e;
             }
+
+            return response;
         }
     }
 }

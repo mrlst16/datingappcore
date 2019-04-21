@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DatingAppCore.Api.Security;
 using DatingAppCore.DTO.Reviewing;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,14 +13,19 @@ namespace DatingAppCore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReviewsController : ControllerBase
+    public class ReviewsController : CommonCore.Mvc.Controller.CommonCoreControllerBase
     {
-        [Authorization]
-        public async Task<string> Send(ReviewDTO request)
+        public ReviewsController() : base(Program.Container)
         {
-            var service = Program.Container.Resolve<ISendReviewService>();
-            var result = service.Send(request);
-            return JsonConvert.SerializeObject(result);
+        }
+
+        public async Task<IActionResult> Send(ReviewDTO request)
+        {
+            return await CallWithAuthAsync(()=> {
+                var service = Program.Container.Resolve<ISendReviewService>();
+                var result = service.Send(request);
+                return Ok(result);
+            });
         }
     }
 }
