@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using DatingAppCore.Api.MiddleWare;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +29,9 @@ namespace DatingAppCore.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //services.AddEntityFrameworkNpgsql()
+            //   .AddDbContext<AppContext>()
+            //   .BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +52,30 @@ namespace DatingAppCore.Api
             {
                 routes.MapRoute("default", "{controller}/{action}/{id?}");
             });
+
+            app.Use((context, next) =>
+            {
+                var cultureQuery = context.Request.Query["culture"];
+                if (!string.IsNullOrWhiteSpace(cultureQuery))
+                {
+                    var culture = new CultureInfo(cultureQuery);
+
+                    CultureInfo.CurrentCulture = culture;
+                    CultureInfo.CurrentUICulture = culture;
+                }
+
+                // Call the next delegate/middleware in the pipeline
+                return next();
+            });
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync(
+                    $"Hello {CultureInfo.CurrentCulture.DisplayName}");
+            });
+
+
+            app.UseMiddleware<LoginMiddleware>();
 
         }
 

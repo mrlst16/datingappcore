@@ -1,4 +1,5 @@
 ﻿using System;
+using DatingAppCore.Dto.Members;
 using DatingAppCore.DTO.Members;
 using DatingAppCore.Repo.Clients;
 using DatingAppCore.Repo.Configuration;
@@ -37,13 +38,13 @@ namespace DatingAppCore.Repo
         //Logging
         public DbSet<TraceLog> TraceLogs { get; set; }
 
-        public DbQuery<UserDTO> UserDtos { get; set; }
+        public DbQuery<PotentialMatchDTO> PotentialMatchDTOs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=DatingAppCore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            
+            //optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=DatingAppCore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseNpgsql("Server=db-postgresql-nyc1-83929-do-user-5126117-0.db.ondigitalocean.com;Port=25060;Database=DatingApp;User ID=doadmin;Password=sh1n0rxdsk3cf21p;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
