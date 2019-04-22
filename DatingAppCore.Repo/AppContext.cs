@@ -44,7 +44,7 @@ namespace DatingAppCore.Repo
         {
             base.OnConfiguring(optionsBuilder);
             //optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=DatingAppCore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            optionsBuilder.UseNpgsql("Server=db-postgresql-nyc1-83929-do-user-5126117-0.db.ondigitalocean.com;Port=25060;Database=DatingApp;User ID=doadmin;Password=sh1n0rxdsk3cf21p;");
+            optionsBuilder.UseNpgsql("Server=db-postgresql-nyc1-83929-do-user-5126117-0.db.ondigitalocean.com;Port=25060;Database=DatingApp;User ID=matt;Password=sslmode=Require;Trust Server Certificate=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
