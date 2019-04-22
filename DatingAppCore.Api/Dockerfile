@@ -9,6 +9,7 @@ COPY ["DatingAppCore.Api/DatingAppCore.Api.csproj", "DatingAppCore.Api/"]
 COPY ["DatingAppCore.BLL/DatingAppCore.BLL.csproj", "DatingAppCore.BLL/"]
 COPY ["DatingAppCore.Repo/DatingAppCore.Repo.csproj", "DatingAppCore.Repo/"]
 COPY ["DatingAppCore.Dto/DatingAppCore.Dto.csproj", "DatingAppCore.Dto/"]
+COPY ["CommonCore/CommonCore.csproj", "CommonCore/"]
 RUN dotnet restore "DatingAppCore.Api/DatingAppCore.Api.csproj"
 COPY . .
 WORKDIR "/src/DatingAppCore.Api"

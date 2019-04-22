@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.csproj" />
   </ItemGroup>
-
 </Project>

@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="CommonCore">
-      <HintPath>..\..\commoncore\CommonCore\CommonCore\bin\Debug\netcoreapp2.1\CommonCore.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\CommonCore\CommonCore.csproj" />
   </ItemGroup>
-
 </Project>

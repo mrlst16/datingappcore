@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommonCore.Repo;
+﻿using CommonCore.Repo;
 using DatingAppCore.DTO.Matching;
 using DatingAppCore.Repo.Matching;
 

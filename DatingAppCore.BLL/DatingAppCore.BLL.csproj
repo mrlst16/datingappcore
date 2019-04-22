@@ -11,14 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
+    <ProjectReference Include="..\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.Repo\DatingAppCore.Repo.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="CommonCore">
-      <HintPath>..\..\commoncore\CommonCore\CommonCore\bin\Debug\netcoreapp2.1\CommonCore.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

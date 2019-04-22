@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {}
+    "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {
+    "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj",
+        "projectUniqueName": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj",
         "projectName": "CommonCore",
-        "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj",
-        "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\obj\\",
+        "projectPath": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj",
+        "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
+        "outputPath": "D:\\Repos\\DatingAppCore\\CommonCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

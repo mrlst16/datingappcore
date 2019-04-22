@@ -31,3 +31,14 @@ C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netco
 C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.AssemblyInfo.cs
 C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.dll
 C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.pdb
+D:\Repos\DatingAppCore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.csprojAssemblyReference.cache
+D:\Repos\DatingAppCore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.csproj.CoreCompileInputs.cache
+D:\Repos\DatingAppCore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.AssemblyInfoInputs.cache
+D:\Repos\DatingAppCore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.AssemblyInfo.cs
+D:\Repos\DatingAppCore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.pdb
+D:\Repos\DatingAppCore\CommonCore\bin\Debug\netcoreapp2.1\CommonCore.deps.json
+D:\Repos\DatingAppCore\CommonCore\bin\Debug\netcoreapp2.1\CommonCore.runtimeconfig.json
+D:\Repos\DatingAppCore\CommonCore\bin\Debug\netcoreapp2.1\CommonCore.runtimeconfig.dev.json
+D:\Repos\DatingAppCore\CommonCore\bin\Debug\netcoreapp2.1\CommonCore.dll
+D:\Repos\DatingAppCore\CommonCore\bin\Debug\netcoreapp2.1\CommonCore.pdb
+D:\Repos\DatingAppCore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.dll
