@@ -6,8 +6,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
 COPY ["DatingAppCore.Api/DatingAppCore.Api.csproj", "DatingAppCore.Api/"]
+COPY ["../commoncore/CommonCore/CommonCore/CommonCore.csproj", "../commoncore/CommonCore/CommonCore/"]
 COPY ["DatingAppCore.BLL/DatingAppCore.BLL.csproj", "DatingAppCore.BLL/"]
 COPY ["DatingAppCore.Repo/DatingAppCore.Repo.csproj", "DatingAppCore.Repo/"]
+COPY ["DatingAppCore.Dto/DatingAppCore.Dto.csproj", "DatingAppCore.Dto/"]
 RUN dotnet restore "DatingAppCore.Api/DatingAppCore.Api.csproj"
 COPY . .
 WORKDIR "/src/DatingAppCore.Api"
