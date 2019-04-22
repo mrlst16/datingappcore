@@ -4,74 +4,6 @@
     "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\CommonCore.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\CommonCore.csproj",
-        "projectName": "CommonCore",
-        "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\CommonCore.csproj",
-        "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp2.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp2.1": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp2.1": {
-          "dependencies": {
-            "Autofac": {
-              "target": "Package",
-              "version": "[4.9.2, )"
-            },
-            "Microsoft.AspNetCore.Mvc": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "target": "Package",
-              "version": "[2.2.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[2.2.4, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      }
-    },
     "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -97,14 +29,7 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
-            "projectReferences": {
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\CommonCore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\CommonCore\\CommonCore\\CommonCore.csproj"
-              },
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\CommonCore.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -156,12 +81,6 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\CommonCore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\CommonCore\\CommonCore\\CommonCore.csproj"
-              },
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\commoncore\\CommonCore\\CommonCore\\CommonCore.csproj"
-              },
               "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj": {
                 "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj"
               }
