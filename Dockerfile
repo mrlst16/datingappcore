@@ -1,32 +1,19 @@
-#
-# Ubuntu Dockerfile
-#
-# https://github.com/dockerfile/ubuntu
-#
+FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
+WORKDIR /app
+EXPOSE 80
 
-# Pull base image.
-FROM ubuntu:16.04.06
+FROM microsoft/dotnet:2.2-sdk AS build
+WORKDIR /src
+COPY ["DatingAppCore.Api.csproj", "./"]
+RUN dotnet restore "./DatingAppCore.Api.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "DatingAppCore.Api.csproj" -c Release -o /app
 
-# Install.
-RUN \
-  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-  apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y build-essential && \
-  apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget && \
-  rm -rf /var/lib/apt/lists/*
+FROM build AS publish
+RUN dotnet publish "DatingAppCore.Api.csproj" -c Release -o /app
 
-# Add files.
-ADD root/.bashrc /root/.bashrc
-ADD root/.gitconfig /root/.gitconfig
-ADD root/.scripts /root/.scripts
-
-# Set environment variables.
-ENV HOME /root
-
-# Define working directory.
-WORKDIR /root
-
-# Define default command.
-CMD ["bash"]
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "DatingAppCore.Api.csproj"]
