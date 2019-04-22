@@ -29,9 +29,6 @@ namespace DatingAppCore.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            //services.AddEntityFrameworkNpgsql()
-            //   .AddDbContext<AppContext>()
-            //   .BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,16 +64,6 @@ namespace DatingAppCore.Api
                 // Call the next delegate/middleware in the pipeline
                 return next();
             });
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync(
-                    $"Hello {CultureInfo.CurrentCulture.DisplayName}");
-            });
-
-
-            app.UseMiddleware<LoginMiddleware>();
-
         }
 
     }
