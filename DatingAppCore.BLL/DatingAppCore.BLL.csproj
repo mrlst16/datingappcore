@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CommonCore\CommonCore\CommonCore.csproj" />
+    <ProjectReference Include="..\..\commoncore\CommonCore\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
     <ProjectReference Include="..\DatingAppCore.Repo\DatingAppCore.Repo.csproj" />
   </ItemGroup>
