@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.BLL", "Dating
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Api", "DatingAppCore.Api\DatingAppCore.Api.csproj", "{29853505-DCCC-4896-9D36-B7780D9D98D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore", "..\commoncore\CommonCore\CommonCore\CommonCore.csproj", "{202BFB7E-BFAE-4F65-A063-6187014BA582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore", "CommonCore\CommonCore.csproj", "{6D7940B3-958C-4BB2-A249-B3ADC34E5CFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,16 +37,13 @@ Global
 		{29853505-DCCC-4896-9D36-B7780D9D98D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29853505-DCCC-4896-9D36-B7780D9D98D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29853505-DCCC-4896-9D36-B7780D9D98D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{202BFB7E-BFAE-4F65-A063-6187014BA582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{202BFB7E-BFAE-4F65-A063-6187014BA582}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{202BFB7E-BFAE-4F65-A063-6187014BA582}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{202BFB7E-BFAE-4F65-A063-6187014BA582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7940B3-958C-4BB2-A249-B3ADC34E5CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7940B3-958C-4BB2-A249-B3ADC34E5CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7940B3-958C-4BB2-A249-B3ADC34E5CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7940B3-958C-4BB2-A249-B3ADC34E5CFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{202BFB7E-BFAE-4F65-A063-6187014BA582} = {4904DC1F-DC36-4DA0-B7E1-7B8C46C6BE99}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21004B8A-131D-41B1-AC60-2C2838B2F978}
