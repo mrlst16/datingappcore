@@ -7,7 +7,7 @@ WORKDIR /src
 COPY ["DatingAppCore.Api.csproj", "./"]
 RUN dotnet restore "./DatingAppCore.Api.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/app"
 RUN dotnet build "DatingAppCore.Api.csproj" -c Release -o /app
 
 FROM build AS publish
