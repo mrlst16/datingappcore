@@ -1,39 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using CommonCore.Repo.Repository;
 using DatingApp.API.Services;
 using DatingApp.API.Services.Interfaces;
 using DatingAppCore.BLL.Services;
 using DatingAppCore.BLL.Services.Interfaces;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using DatingAppCore.Test.Tests;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DatingAppCore.Api
+namespace DatingAppCore.Test.Helpers
 {
-    public class Program
+    public class TestSetup
     {
 
-        public static IContainer Container { get; protected set; }
-
-        public static void Main(string[] args)
-        {
-            SetupIOC();
-            SetupDbConexts();
-
-            CreateWebHostBuilder(args).Build().Run();
-        }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-
-        protected static void SetupIOC()
+        public TestSetup SetupIOC()
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<GetUserService>().As<IGetUserService>();
@@ -45,12 +28,14 @@ namespace DatingAppCore.Api
             builder.RegisterType<SetPropertiesService>().As<ISetPropertiesService>();
             builder.RegisterType<SwipeService>().As<ISwipeService>();
             builder.RegisterType<BasicAuthorizationService>().As<IAuthorizationService>();
-            Container = builder.Build();
+            TestClassBase.Container = builder.Build();
+            return this;
         }
 
-        protected static void SetupDbConexts()
+        public TestSetup InitializeRepository()
         {
-            RepoCache.Initialize(typeof(DatingAppCore.Repo.AppContext));
+            RepoCache.Initialize(typeof(AppContext));
+            return this;
         }
     }
 }

@@ -14,5 +14,6 @@ namespace DatingAppCore.BLL.Requests
         public bool IncludeSwipes { get; set; } = false;
         public bool IncludePhotos { get; set; } = false;
         public bool IncludeReviews { get; set; } = false;
+        public bool IncludePermissions { get; set; } = false;
     }
 }

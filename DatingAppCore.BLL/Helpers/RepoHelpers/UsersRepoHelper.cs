@@ -63,6 +63,12 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
                 query = query.Include(x => x.ReviewsSent);
             }
 
+            if (request.IncludePermissions)
+            {
+                query = query.Include(x => x.AsGrantee);
+                query = query.Include(x => x.AsGrantor);
+            }
+
             return query
                 .FirstOrDefault()
                 .ToDto();

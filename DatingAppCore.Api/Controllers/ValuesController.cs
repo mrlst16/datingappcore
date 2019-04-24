@@ -21,7 +21,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return $"value is {id}.  That's what you passed me.";
         }
 
         // POST api/values

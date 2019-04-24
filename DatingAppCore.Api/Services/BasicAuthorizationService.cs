@@ -21,7 +21,8 @@ namespace DatingApp.API.Services
             {
 
                 var str = headers?["Authorization"].FirstOrDefault()?
-                    .Replace("basic", "")
+                    .Split(' ')
+                    .Last()
                     .Trim();
 
                 var clientid = Guid.Parse(headers?["ClientID"].First());

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Api", "Dating
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore", "CommonCore\CommonCore.csproj", "{AC873B93-B6BC-405B-B298-2DA869B43E32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.Tests", "DatingAppCore.Tests\DatingAppCore.Tests.csproj", "{FAD6CF82-3317-4D76-B289-32077BBF6047}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.Test", "DatingAppCore.Test\DatingAppCore.Test.csproj", "{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,10 @@ Global
 		{AC873B93-B6BC-405B-B298-2DA869B43E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC873B93-B6BC-405B-B298-2DA869B43E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC873B93-B6BC-405B-B298-2DA869B43E32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FAD6CF82-3317-4D76-B289-32077BBF6047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FAD6CF82-3317-4D76-B289-32077BBF6047}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FAD6CF82-3317-4D76-B289-32077BBF6047}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FAD6CF82-3317-4D76-B289-32077BBF6047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
