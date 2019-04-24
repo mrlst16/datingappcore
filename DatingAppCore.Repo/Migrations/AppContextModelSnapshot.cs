@@ -3,8 +3,8 @@ using System;
 using DatingAppCore.Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DatingAppCore.Repo.Migrations
 {
@@ -15,9 +15,9 @@ namespace DatingAppCore.Repo.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("DatingAppCore.Repo.Clients.Client", b =>
                 {
@@ -123,6 +123,30 @@ namespace DatingAppCore.Repo.Migrations
                     b.HasIndex("UserToID");
 
                     b.ToTable("Swipes");
+                });
+
+            modelBuilder.Entity("DatingAppCore.Repo.Members.GrantedPermission", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreateDate");
+
+                    b.Property<Guid>("GranteeID");
+
+                    b.Property<Guid>("GrantorID");
+
+                    b.Property<DateTime?>("LastUpdated");
+
+                    b.Property<int>("Permissions");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("GranteeID");
+
+                    b.HasIndex("GrantorID");
+
+                    b.ToTable("GrantedPermissions");
                 });
 
             modelBuilder.Entity("DatingAppCore.Repo.Members.Photo", b =>
@@ -300,6 +324,19 @@ namespace DatingAppCore.Repo.Migrations
                     b.HasOne("DatingAppCore.Repo.Members.User", "UserTo")
                         .WithMany("SwipesReceived")
                         .HasForeignKey("UserToID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DatingAppCore.Repo.Members.GrantedPermission", b =>
+                {
+                    b.HasOne("DatingAppCore.Repo.Members.User", "Grantee")
+                        .WithMany("AsGrantee")
+                        .HasForeignKey("GranteeID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DatingAppCore.Repo.Members.User", "Grantor")
+                        .WithMany("AsGrantor")
+                        .HasForeignKey("GrantorID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

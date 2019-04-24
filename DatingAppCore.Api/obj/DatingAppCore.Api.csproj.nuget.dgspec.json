@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Api\\DatingAppCore.Api.csproj": {}
+    "D:\\Repos\\DatingAppCore\\DatingAppCore.Api\\DatingAppCore.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {
+    "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj",
+        "projectUniqueName": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj",
         "projectName": "CommonCore",
-        "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj",
-        "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\obj\\",
+        "projectPath": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj",
+        "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
+        "outputPath": "D:\\Repos\\DatingAppCore\\CommonCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,20 +72,20 @@
         }
       }
     },
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Api\\DatingAppCore.Api.csproj": {
+    "D:\\Repos\\DatingAppCore\\DatingAppCore.Api\\DatingAppCore.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Api\\DatingAppCore.Api.csproj",
+        "projectUniqueName": "D:\\Repos\\DatingAppCore\\DatingAppCore.Api\\DatingAppCore.Api.csproj",
         "projectName": "DatingAppCore.Api",
-        "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Api\\DatingAppCore.Api.csproj",
-        "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Api\\obj\\",
+        "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Api\\DatingAppCore.Api.csproj",
+        "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
+        "outputPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,11 +98,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj"
+              "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {
+                "projectPath": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj"
               },
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj"
+              "D:\\Repos\\DatingAppCore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj": {
+                "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj"
               }
             }
           }
@@ -115,6 +115,41 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
+          "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[4.9.2, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.4.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
           "imports": [
             "net461"
           ],
@@ -123,20 +158,20 @@
         }
       }
     },
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj": {
+    "D:\\Repos\\DatingAppCore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj",
+        "projectUniqueName": "D:\\Repos\\DatingAppCore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj",
         "projectName": "DatingAppCore.BLL",
-        "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj",
-        "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.BLL\\obj\\",
+        "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.BLL\\DatingAppCore.BLL.csproj",
+        "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
+        "outputPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -149,11 +184,11 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj"
+              "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {
+                "projectPath": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj"
               },
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj"
+              "D:\\Repos\\DatingAppCore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj": {
+                "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj"
               }
             }
           }
@@ -176,6 +211,7 @@
               "version": "[2.2.4, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -189,20 +225,20 @@
         }
       }
     },
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj": {
+    "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
+        "projectUniqueName": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
         "projectName": "DatingAppCore.Dto",
-        "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
-        "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\obj\\",
+        "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
+        "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
+        "outputPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -215,8 +251,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj"
+              "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {
+                "projectPath": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj"
               }
             }
           }
@@ -231,6 +267,7 @@
         "netcoreapp2.1": {
           "dependencies": {
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -244,20 +281,20 @@
         }
       }
     },
-    "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj": {
+    "D:\\Repos\\DatingAppCore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj",
+        "projectUniqueName": "D:\\Repos\\DatingAppCore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj",
         "projectName": "DatingAppCore.Repo",
-        "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj",
-        "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Repo\\obj\\",
+        "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Repo\\DatingAppCore.Repo.csproj",
+        "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
+        "outputPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Repo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -270,11 +307,11 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj"
+              "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {
+                "projectPath": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj"
               },
-              "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj": {
-                "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj"
+              "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj": {
+                "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj"
               }
             }
           }
@@ -301,6 +338,7 @@
               "version": "[2.2.4, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true

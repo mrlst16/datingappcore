@@ -13,6 +13,6 @@ namespace DatingAppCore.DTO.Members
         public int Rank { get; set; }
         public string Url { get; set; }
         public string Caption { get; set; }
-        public AccessLevel Access { get; set; } = AccessLevel.Public;
+        public PhotoAccessLevelEnum Access { get; set; } = PhotoAccessLevelEnum.Public;
     }
 }

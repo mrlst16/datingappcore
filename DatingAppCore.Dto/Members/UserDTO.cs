@@ -13,7 +13,7 @@ namespace DatingAppCore.DTO.Members
         [Required]
         public string UserName { get; set; }
         public string ExternalID { get; set; }
-        public IDType IdType { get; set; }
+        public IDTypeEnum IdType { get; set; }
 
         public Dictionary<string, string> Profile { get; set; } = new Dictionary<string, string>();
         public Dictionary<string, string> Settings { get; set; } = new Dictionary<string, string>();

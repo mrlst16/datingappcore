@@ -37,3 +37,4 @@ C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netco
 C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.dll
 C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.pdb
 C:\Users\MLantz\Documents\PersonalRepos\datingappcore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.csprojAssemblyReference.cache
+D:\Repos\DatingAppCore\CommonCore\obj\Debug\netcoreapp2.1\CommonCore.csprojAssemblyReference.cache

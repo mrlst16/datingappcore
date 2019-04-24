@@ -8222,23 +8222,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MLantz\\.nuget\\packages\\": {},
+    "C:\\Users\\matt\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
+      "projectUniqueName": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
       "projectName": "DatingAppCore.Dto",
-      "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
-      "packagesPath": "C:\\Users\\MLantz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\DatingAppCore.Dto\\obj\\",
+      "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\DatingAppCore.Dto.csproj",
+      "packagesPath": "C:\\Users\\matt\\.nuget\\packages\\",
+      "outputPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Dto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\MLantz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\matt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8251,8 +8251,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj": {
-              "projectPath": "C:\\Users\\MLantz\\Documents\\PersonalRepos\\datingappcore\\CommonCore\\CommonCore.csproj"
+            "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj": {
+              "projectPath": "D:\\Repos\\DatingAppCore\\CommonCore\\CommonCore.csproj"
             }
           }
         }
@@ -8267,6 +8267,7 @@
       "netcoreapp2.1": {
         "dependencies": {
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

@@ -15,7 +15,7 @@ namespace DatingAppCore.Repo.Members
         public string Url { get; set; }
         public string Caption { get; set; }
 
-        public AccessLevel Access { get; set; } = AccessLevel.Public;
+        public PhotoAccessLevelEnum Access { get; set; } = PhotoAccessLevelEnum.Public;
         //Nav Props
         public User User { get; set; }
     }

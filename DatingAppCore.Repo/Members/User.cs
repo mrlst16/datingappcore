@@ -16,7 +16,7 @@ namespace DatingAppCore.Repo.Members
         public string UserName { get; set; }
         public Guid ClientID { get; set; }
         public string ExternalID { get; set; }
-        public IDType IdType { get; set; }
+        public IDTypeEnum IdType { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
 
@@ -34,5 +34,7 @@ namespace DatingAppCore.Repo.Members
 
         public ICollection<Photo> Photos { get; set; }
 
+        public ICollection<GrantedPermission> AsGrantee { get; set; }
+        public ICollection<GrantedPermission> AsGrantor { get; set; }
     }
 }
