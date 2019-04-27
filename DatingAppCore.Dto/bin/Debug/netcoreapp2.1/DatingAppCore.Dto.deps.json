@@ -1,14 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "862cc3d6ded48c31c7c30562cb1bfe233540743c"
+    "signature": "6a9600cee6c9b712cc731399d421c9dd47188b04"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
-          "CommonCore": "1.0.0"
+          "CommonCoreByMattyLantz": "1.0.0"
         },
         "runtime": {
           "DatingAppCore.Dto.dll": {}
@@ -22,7 +22,7 @@
           }
         }
       },
-      "CommonCore/1.0.0": {
+      "CommonCoreByMattyLantz/1.0.0": {
         "dependencies": {
           "Autofac": "4.9.2",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
@@ -1918,12 +1918,12 @@
       "path": "autofac/4.9.2",
       "hashPath": "autofac.4.9.2.nupkg.sha512"
     },
-    "CommonCore/1.0.0": {
+    "CommonCoreByMattyLantz/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TqV7L7/qRWd32+BGFqiKDsupcC5YSzqyHcybqutIFrYszvDJYgqXrmXPRdgMS8vx7JdMqwb1Cop66d4FB/NOcw==",
-      "path": "commoncore/1.0.0",
-      "hashPath": "commoncore.1.0.0.nupkg.sha512"
+      "sha512": "sha512-uOFzT6d1jgGRVrH1JIuaj681Fr3dPU7PDjrDm6hs3QZlnu6+cG0YvwSJuyhSymc18xlQiOpfub2URcJ8cUbyEw==",
+      "path": "commoncorebymattylantz/1.0.0",
+      "hashPath": "commoncorebymattylantz.1.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {
       "type": "package",

@@ -48,7 +48,7 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "CommonCore": {
+            "CommonCoreByMattyLantz": {
               "target": "Package",
               "version": "[1.0.0, )"
             },
@@ -115,7 +115,7 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "CommonCore": {
+            "CommonCoreByMattyLantz": {
               "target": "Package",
               "version": "[1.0.0, )"
             },
@@ -178,7 +178,7 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "CommonCore": {
+            "CommonCoreByMattyLantz": {
               "target": "Package",
               "version": "[1.0.0, )"
             },
