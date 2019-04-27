@@ -6,14 +6,12 @@ D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Test.runtimeconfig.dev.json
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Test.dll
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Test.pdb
-D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\CommonCore.dll
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Api.dll
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.BLL.dll
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Dto.dll
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Repo.dll
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Api.pdb
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.BLL.pdb
-D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\CommonCore.pdb
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Dto.pdb
 D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\DatingAppCore.Repo.pdb
 D:\Repos\DatingAppCore\DatingAppCore.Test\obj\Debug\netcoreapp2.2\DatingAppCore.Test.csprojAssemblyReference.cache

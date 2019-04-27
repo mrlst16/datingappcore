@@ -33,9 +33,7 @@ D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\DatingAppCore.
 D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\DatingAppCore.Repo.runtimeconfig.dev.json
 D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\DatingAppCore.Repo.dll
 D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\DatingAppCore.Repo.pdb
-D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\CommonCore.dll
 D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\DatingAppCore.Dto.dll
-D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\CommonCore.pdb
 D:\Repos\DatingAppCore\DatingAppCore.Repo\bin\Debug\netcoreapp2.1\DatingAppCore.Dto.pdb
 D:\Repos\DatingAppCore\DatingAppCore.Repo\obj\Debug\netcoreapp2.1\DatingAppCore.Repo.csprojAssemblyReference.cache
 D:\Repos\DatingAppCore\DatingAppCore.Repo\obj\Debug\netcoreapp2.1\DatingAppCore.Repo.csproj.CoreCompileInputs.cache

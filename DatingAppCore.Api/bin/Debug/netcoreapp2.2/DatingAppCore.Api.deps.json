@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "92b39e7e248fc9eab447748bfeef930a8c88a268"
+    "signature": "3faddc716a1bbcefcb2bff8a28f4280aaea6e169"
   },
   "compilationOptions": {
     "defines": [
@@ -50,6 +50,23 @@
         },
         "compile": {
           "lib/netstandard2.0/Autofac.dll": {}
+        }
+      },
+      "CommonCore/1.0.0": {
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/CommonCore.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.1/CommonCore.dll": {}
         }
       },
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
@@ -979,20 +996,6 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
-        }
-      },
-      "CommonCore/1.0.0": {
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
-        },
-        "runtime": {
-          "CommonCore.dll": {}
-        },
-        "compile": {
-          "CommonCore.dll": {}
         }
       },
       "DatingAppCore.BLL/1.0.0": {
@@ -4135,6 +4138,13 @@
       "path": "autofac/4.9.2",
       "hashPath": "autofac.4.9.2.nupkg.sha512"
     },
+    "CommonCore/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TqV7L7/qRWd32+BGFqiKDsupcC5YSzqyHcybqutIFrYszvDJYgqXrmXPRdgMS8vx7JdMqwb1Cop66d4FB/NOcw==",
+      "path": "commoncore/1.0.0",
+      "hashPath": "commoncore.1.0.0.nupkg.sha512"
+    },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",
       "serviceable": true,
@@ -4477,11 +4487,6 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
-    },
-    "CommonCore/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "DatingAppCore.BLL/1.0.0": {
       "type": "project",

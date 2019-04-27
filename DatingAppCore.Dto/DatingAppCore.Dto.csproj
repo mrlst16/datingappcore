@@ -7,6 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonCore\CommonCore.csproj" />
+    <PackageReference Include="CommonCore" Version="1.0.0" />
   </ItemGroup>
 </Project>

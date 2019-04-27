@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommonCore" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.Repo\DatingAppCore.Repo.csproj" />
   </ItemGroup>
 </Project>
