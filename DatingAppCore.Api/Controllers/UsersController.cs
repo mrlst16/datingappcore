@@ -27,7 +27,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> Ping()
         {
             var auth = Request.Headers["Authorization"];
-            return Json(new { Balls = true, Auth = auth });
+            return Json(new { Balls = "Hairy", Auth = auth });
         }
 
         [HttpPost]
