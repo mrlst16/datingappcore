@@ -18,6 +18,11 @@ namespace DatingAppCore.Api
 {
     public class Startup
     {
+        string[] origins = new string[] {
+            "http://localhost:3000",
+        };
+        string allowSpecificOrigins = "AllowAllHeaders";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,6 +34,19 @@ namespace DatingAppCore.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(allowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins(origins)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +62,11 @@ namespace DatingAppCore.Api
                 app.UseHsts();
             }
 
+
+
+
             app.UseHttpsRedirection();
+            app.UseCors(allowSpecificOrigins);
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller}/{action}/{id?}");
