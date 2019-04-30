@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Autofac;
 using DatingAppCore.BLL.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -19,13 +20,13 @@ namespace DatingAppCore.Api.Controllers
         {
         }
 
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("send")]
         public async Task<IActionResult> Send(ReviewDTO request)
         {
-            return await CallWithAuthAsync(()=> {
-                var service = Program.Container.Resolve<ISendReviewService>();
-                var result = service.Send(request);
-                return Ok(result);
-            });
+            var service = Program.Container.Resolve<ISendReviewService>();
+            var result = service.Send(request);
+            return Ok(result);
         }
     }
 }

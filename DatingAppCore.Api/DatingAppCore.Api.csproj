@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MiddleWare\BasicAuthorizationHandler.cs" />
+    <Compile Remove="MiddleWare\BasicAuthorizationMiddleware.cs" />
+    <Compile Remove="MiddleWare\BasicAuthorizationRequirement.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Web.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.2" />
     <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />

@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using DatingAppCore.Api.MiddleWare;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,11 +19,6 @@ namespace DatingAppCore.Api
 {
     public class Startup
     {
-        string[] origins = new string[] {
-            "http://localhost:3000",
-        };
-        string allowSpecificOrigins = "AllowAllHeaders";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -35,17 +31,8 @@ namespace DatingAppCore.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy(allowSpecificOrigins,
-                builder =>
-                {
-                    builder.WithOrigins(origins)
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
-                });
+            services.AddAuthentication("Basic").AddScheme<BasicAuthOptions, BasicAuthHandler>("Basic", null, options => {
+                
             });
         }
 
@@ -62,11 +49,13 @@ namespace DatingAppCore.Api
                 app.UseHsts();
             }
 
-
-
-
             app.UseHttpsRedirection();
-            app.UseCors(allowSpecificOrigins);
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller}/{action}/{id?}");

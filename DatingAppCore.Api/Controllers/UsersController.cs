@@ -6,6 +6,7 @@ using Autofac;
 using DatingAppCore.BLL.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.BLL.Signup.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -30,49 +31,48 @@ namespace DatingAppCore.Api.Controllers
             return Json(new { Balls = "Hairy", Auth = auth });
         }
 
-        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("ping2")]
+        public async Task<IActionResult> Ping2()
+        {
+            var auth = Request.Headers["Authorization"];
+            return Json(new { Balls = "Hairy", Auth = auth });
+        }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("login_or_signup")]
         public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
         {
-            return await CallWithAuthAsync(() =>
-            {
-                var service = Program.Container.Resolve<ILoginOrSignupService>();
-                var result = service.LoginOrSignup(request);
-                return Json(result);
-            });
+            var service = Program.Container.Resolve<ILoginOrSignupService>();
+            var result = service.LoginOrSignup(request);
+            return Json(result);
         }
 
-        [HttpPost]
-        [Route("get_user")]
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("get_user")]
         public async Task<IActionResult> GetUser(GetUserRequest request)
         {
-            return await CallWithAuthAsync(() =>
-            {
-                IGetUserService service = Program.Container.Resolve<IGetUserService>();
-                var result = service.GetUser(request);
-                return Ok(JsonConvert.SerializeObject(result));
-            });
+            IGetUserService service = Program.Container.Resolve<IGetUserService>();
+            var result = service.GetUser(request);
+            return Ok(JsonConvert.SerializeObject(result));
         }
 
-        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("set_user_settings")]
         public async Task<IActionResult> SetUserSettings(SetPropertiesRequest request)
         {
-            return await CallWithAuthAsync(() =>
-            {
-                ISetPropertiesService service = Program.Container.Resolve<ISetPropertiesService>();
-                var result = service.Set(request);
-                return Json(result);
-            });
+            ISetPropertiesService service = Program.Container.Resolve<ISetPropertiesService>();
+            var result = service.Set(request);
+            return Json(result);
         }
 
-        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("set_photos")]
         public async Task<IActionResult> SetPhotos(SetPhotosRequest request)
         {
-            return await CallWithAuthAsync(() =>
-            {
-                ISetPhotosService service = Program.Container.Resolve<ISetPhotosService>();
-                var result = service.Set(request);
-                return Json(result);
-            });
+            ISetPhotosService service = Program.Container.Resolve<ISetPhotosService>();
+            var result = service.Set(request);
+            return Json(result);
         }
     }
 }
