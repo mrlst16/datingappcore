@@ -34,7 +34,7 @@ namespace DatingAppCore.Test.Helpers
 
         public TestSetup InitializeRepository()
         {
-            RepoCache.Initialize(typeof(AppContext));
+            RepoCache.Initialize(typeof(DatingAppCore.Repo.AppContext));
             return this;
         }
     }

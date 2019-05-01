@@ -84,10 +84,9 @@ namespace DatingAppCore.BLL.Adapters
                 ExternalID = dto.ExternalID,
                 IdType = dto.IdType,
                 UserName = dto.UserName,
-
             }.EnsureID();
-            result.Photos = dto.Photos.Select(x => x.ToEntity()).ToList();
-            result.Profile = dto.Settings.Select(x =>
+            result.Photos = dto.Photos?.Select(x => x.ToEntity(result.ID)).ToList();
+            result.Profile = dto.Settings?.Select(x =>
             {
                 return new UserProfileField()
                 {
@@ -97,7 +96,7 @@ namespace DatingAppCore.BLL.Adapters
                     IsSetting = true
                 }.EnsureID();
             }).ToList();
-            result.Profile.AddRange(dto.Profile.Select(x =>
+            result.Profile.AddRange(dto.Profile?.Select(x =>
             {
                 return new UserProfileField()
                 {
@@ -107,19 +106,19 @@ namespace DatingAppCore.BLL.Adapters
                     IsSetting = false
                 }.EnsureID();
             }).ToList());
-            result.Inbox = dto.Inbox.Select(x => x.ToEntity()).ToList();
-            result.Sent = dto.Sent.Select(x => x.ToEntity()).ToList();
-            result.SwipesReceived = dto.SwipesReceived.Select(x => x.ToEntity()).ToList();
-            result.SwipesSent = dto.SwipesSent.Select(x => x.ToEntity()).ToList();
-            result.ReviewReceived = dto.ReviewReceived.Select(x => x.ToEntity()).ToList();
-            result.ReviewsSent = dto.ReviewsSent.Select(x => x.ToEntity()).ToList();
-            result.AsGrantee = dto.AsGrantee.Select(x => x.ToEntity()).ToList();
-            result.AsGrantor = dto.AsGrantor.Select(x => x.ToEntity()).ToList();
+            result.Inbox = dto.Inbox?.Select(x => x.ToEntity()).ToList();
+            result.Sent = dto.Sent?.Select(x => x.ToEntity()).ToList();
+            result.SwipesReceived = dto.SwipesReceived?.Select(x => x.ToEntity()).ToList();
+            result.SwipesSent = dto.SwipesSent?.Select(x => x.ToEntity()).ToList();
+            result.ReviewReceived = dto.ReviewReceived?.Select(x => x.ToEntity()).ToList();
+            result.ReviewsSent = dto.ReviewsSent?.Select(x => x.ToEntity()).ToList();
+            result.AsGrantee = dto.AsGrantee?.Select(x => x.ToEntity()).ToList();
+            result.AsGrantor = dto.AsGrantor?.Select(x => x.ToEntity()).ToList();
 
             return result;
         }
 
-        public static Photo ToEntity(this PhotoDTO dto)
+        public static Photo ToEntity(this PhotoDTO dto, Guid userid)
         {
             return new Photo()
             {

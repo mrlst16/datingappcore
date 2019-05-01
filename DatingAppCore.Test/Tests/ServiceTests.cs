@@ -27,23 +27,14 @@ namespace DatingAppCore.Test.Tests
         {
             var service = Container.Resolve<ILoginOrSignupService>();
             Response<LoginOrSignupResponse> response = service.LoginOrSignup(
-                new BLL.Signup.Requests.LoginOrSignupRequest() {
+                new BLL.Signup.Requests.LoginOrSignupRequest()
+                {
                     User = new DTO.Members.UserDTO()
                     {
                         ExternalID = "fb_0000",
-                        IdType = DTO.IDTypeEnum.Facebook,
-                        Photos = new List<DTO.Members.PhotoDTO>()
-                        {
-                            new DTO.Members.PhotoDTO()
-                            {
-                                Access = DTO.PhotoAccessLevelEnum.Public,
-                                Caption = "Balls",
-                                Rank = 0,
-                                Url = "http://static.nfl.com/static/content/public/static/img/fantasy/transparent/200x200/BRA371156.png"
-                            }
-                        }
+                        IdType = DTO.IDTypeEnum.Facebook
                     }
-            });
+                });
 
             Assert.IsNotNull(response);
             Assert.IsTrue(response.Sucess);

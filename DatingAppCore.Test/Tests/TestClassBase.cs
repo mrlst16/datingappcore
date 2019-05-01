@@ -17,6 +17,7 @@ namespace DatingAppCore.Test.Tests
         [TestInitialize]
         public void Setup() => 
             new TestSetup()
-            .SetupIOC();
+            .SetupIOC()
+            .InitializeRepository();
     }
 }

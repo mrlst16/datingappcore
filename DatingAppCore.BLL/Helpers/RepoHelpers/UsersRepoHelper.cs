@@ -76,10 +76,10 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
 
         public static bool SetPhotos(SetPhotosRequest request)
         {
-            var photos = request.Photos.Select(x => x.ToEntity());
+            var photos = request.Photos.Select(x => x.ToEntity(request.UserID));
             RepoCache.Get<Photo>() 
                 .RemoveRange(photos)
-                .AddRange(request.Photos.Select(x => x.ToEntity()))
+                .AddRange(request.Photos.Select(x => x.ToEntity(request.UserID)))
                 .Save();
             return true;
         }
