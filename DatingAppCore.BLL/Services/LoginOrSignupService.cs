@@ -20,10 +20,7 @@ namespace DatingAppCore.BLL.Services
                 if (!validated) return null;
                 var response = new LoginOrSignupResponse();
                 var repo = RepoCache.Get<User>();
-                var user = repo.GetQuery()
-                    .FirstOrDefault(x => x.UserName == request.User.UserName)
-                ?? 
-                repo.GetQuery().FirstOrDefault(x =>
+                var user = repo.GetQuery().FirstOrDefault(x =>
                  x.ExternalID == request.User.ExternalID
                      && x.IdType == request.User.IdType);
 

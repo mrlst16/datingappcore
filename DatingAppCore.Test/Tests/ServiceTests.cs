@@ -31,13 +31,48 @@ namespace DatingAppCore.Test.Tests
                 {
                     User = new DTO.Members.UserDTO()
                     {
-                        ExternalID = "fb_0000",
+                        ExternalID = "fb_0014",
                         IdType = DTO.IDTypeEnum.Facebook
                     }
                 });
 
             Assert.IsNotNull(response);
             Assert.IsTrue(response.Sucess);
+            Assert.IsTrue(response.Result.User.ID != Guid.Empty);
+        }
+
+        [TestMethod]
+        public void FindPotentialMatchesTest()
+        {
+            var service = Container.Resolve<IPotentialMatchesService>();
+            var response = service.FindPotentialMatches(new BLL.Requests.FindMatchRequest()
+            {
+                UserID = Guid.Parse("")
+            });
+            Assert.IsNotNull(response);
+            Assert.IsTrue(response.Sucess);
+        }
+
+        [TestMethod]
+        public void SetUserSettings()
+        {
+            ISetPropertiesService service = Container.Resolve<ISetPropertiesService>();
+            var response = service.Set(new BLL.Requests.SetPropertiesRequest()
+            {
+
+            });
+            Assert.IsNotNull(response);
+            Assert.IsTrue(response.Sucess);
+        }
+
+        [TestMethod]
+        public void SetPhotos()
+        {
+            ISetPhotosService service = Container.Resolve<ISetPhotosService>();
+            var response = service.Set(new BLL.Requests.SetPhotosRequest()
+            {
+
+            });
         }
     }
 }
