@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonCore.Comparers;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Requests;
@@ -37,16 +38,15 @@ namespace DatingAppCore.BLL.Services
                     Value = x.Value
                 }) ?? new List<UserProfileField>();
 
-                Func<UserProfileField, UserProfileField, bool> comparerFunc =
-                (x, y) =>
+                var comparer = new ComparerFunc<UserProfileField>((x, y) =>
                 {
                     return x.Name == y.Name && x.UserID == y.UserID && x.IsSetting == y.IsSetting;
-                };
+                });
 
                 RepoCache
                     .Get<UserProfileField>()
-                    .AddRange(profile, comparerFunc, true)
-                    .AddRange(settings, comparerFunc, true);
+                    .AddRange(profile, comparer, true)
+                    .AddRange(settings, comparer, true);
                 return true;
             });
         }
