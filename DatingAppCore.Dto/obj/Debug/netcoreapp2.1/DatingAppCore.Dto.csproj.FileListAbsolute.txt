@@ -33,6 +33,3 @@ D:\Repos\DatingAppCore\DatingAppCore.Dto\obj\Debug\netcoreapp2.1\DatingAppCore.D
 D:\Repos\DatingAppCore\DatingAppCore.Dto\obj\Debug\netcoreapp2.1\DatingAppCore.Dto.csproj.CoreCompileInputs.cache
 D:\Repos\DatingAppCore\DatingAppCore.Dto\obj\Debug\netcoreapp2.1\DatingAppCore.Dto.dll
 D:\Repos\DatingAppCore\DatingAppCore.Dto\obj\Debug\netcoreapp2.1\DatingAppCore.Dto.pdb
-D:\Repos\DatingAppCore\DatingAppCore.Dto\bin\Debug\netcoreapp2.1\CommonCore.dll
-D:\Repos\DatingAppCore\DatingAppCore.Dto\bin\Debug\netcoreapp2.1\CommonCore.pdb
-D:\Repos\DatingAppCore\DatingAppCore.Dto\obj\Debug\netcoreapp2.1\DatingAppCore.Dto.csproj.CopyComplete

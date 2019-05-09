@@ -21,5 +21,3 @@ D:\Repos\DatingAppCore\DatingAppCore.Test\obj\Debug\netcoreapp2.2\DatingAppCore.
 D:\Repos\DatingAppCore\DatingAppCore.Test\obj\Debug\netcoreapp2.2\DatingAppCore.Test.csproj.CopyComplete
 D:\Repos\DatingAppCore\DatingAppCore.Test\obj\Debug\netcoreapp2.2\DatingAppCore.Test.dll
 D:\Repos\DatingAppCore\DatingAppCore.Test\obj\Debug\netcoreapp2.2\DatingAppCore.Test.pdb
-D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\CommonCore.dll
-D:\Repos\DatingAppCore\DatingAppCore.Test\bin\Debug\netcoreapp2.2\CommonCore.pdb

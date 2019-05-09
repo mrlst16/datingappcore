@@ -7,12 +7,12 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Configuration" Version="4.1.0" />
+    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.2" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonCore\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.Api\DatingAppCore.Api.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.csproj" />
   </ItemGroup>
