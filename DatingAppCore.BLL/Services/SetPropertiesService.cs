@@ -17,22 +17,30 @@ namespace DatingAppCore.BLL.Services
         {
             return Response<bool>.Wrap(() =>
             {
-                RepoCache
-                    .Get<UserProfileField>()
-                    .AddRange(request.Profile.Select(x => new UserProfileField()
+                var profile = request
+                    .Profile
+                    ?.Select(x => new UserProfileField()
                     {
                         UserID = request.UserID,
                         IsSetting = false,
                         Name = x.Key,
                         Value = x.Value
-                    }), true)
-                    .AddRange(request.Settings.Select(x => new UserProfileField()
-                    {
-                        UserID = request.UserID,
-                        IsSetting = true,
-                        Name = x.Key,
-                        Value = x.Value
-                    }), true);
+                    }) ?? new List<UserProfileField>();
+
+                var settings = request
+                .Settings
+                ?.Select(x => new UserProfileField()
+                {
+                    UserID = request.UserID,
+                    IsSetting = true,
+                    Name = x.Key,
+                    Value = x.Value
+                }) ?? new List<UserProfileField>();
+
+                RepoCache
+                    .Get<UserProfileField>()
+                    .AddRange(profile, true)
+                    .AddRange(settings, true);
                 return true;
             });
         }

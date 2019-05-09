@@ -58,7 +58,7 @@ namespace DatingAppCore.Repo.Configuration
 
             mb.Entity<User>()
                 .HasMany(x => x.ReviewsSent)
-                .WithOne(x=>x.Sender)
+                .WithOne(x => x.Sender)
                 .HasForeignKey(x => x.SenderID);
 
             mb.Entity<UserProfileField>()
@@ -78,6 +78,10 @@ namespace DatingAppCore.Repo.Configuration
                 .HasMany(x => x.AsGrantee)
                 .WithOne(x => x.Grantee)
                 .HasForeignKey(x => x.GranteeID);
+
+            mb.Entity<UserProfileField>()
+                .HasIndex(u => new { u.Name, u.UserID, u.IsSetting })
+                .IsUnique();
         }
     }
 }

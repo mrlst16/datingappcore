@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Extensions;
 using CommonCore.Repo;
+using DatingAppCore.BLL.Helpers;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.DTO.Members;
 using DatingAppCore.Repo.Members;
@@ -26,6 +27,7 @@ namespace DatingAppCore.BLL.Adapters
 
     public static class MembersAdapterExtensions
     {
+        private static UserProfileComparer userProfileComparer = new UserProfileComparer();
 
         public static GrantedPermissionsDTO ToDto(this GrantedPermission entity)
         {
@@ -55,8 +57,8 @@ namespace DatingAppCore.BLL.Adapters
                 ExternalID = entity.ExternalID,
                 IdType = entity.IdType,
                 UserName = entity.UserName,
-                Profile = entity.Profile?.Where(x => x.IsSetting == false).ToDictionary(x => x.Name, field => field.Value),
-                Settings = entity.Profile?.Where(x => x.IsSetting == true).ToDictionary(x => x.Name, field => field.Value),
+                Profile = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == false).ToDictionary(x => x.Name, field => field.Value),
+                Settings = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == true).ToDictionary(x => x.Name, field => field.Value),
                 Photos = entity.Photos?.Select(x => x.ToDto()).ToList()
             };
         }

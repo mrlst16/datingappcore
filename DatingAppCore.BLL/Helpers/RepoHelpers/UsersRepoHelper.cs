@@ -71,7 +71,7 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
 
             return query
                 .FirstOrDefault()
-                .ToDto();
+                ?.ToDto();
         }
 
         public static bool SetPhotos(SetPhotosRequest request)
