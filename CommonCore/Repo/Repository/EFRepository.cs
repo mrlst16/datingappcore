@@ -8,23 +8,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CommonCore.Repo.Repository
 {
-    public class Repository<T> : IRepository<T, Repository<T>>, IRepoAdapter
+    public class EFRepository<T> : IRepository<T, EFRepository<T>>, IRepoBridge
         where T : class
     {
         protected DbContext _context { get; set; }
         protected DbSet<T> _set;
         protected IQueryable<T> _query;
 
-        Repository()
+        EFRepository()
         {
         }
 
-        public Repository(DbContext context)
+        public EFRepository(DbContext context)
         {
             _context = context;
         }
 
-        public Repository<T> Add(T item, bool save = true)
+        public EFRepository<T> Add(T item, bool save = true)
         {
             T f = GetSet().FirstOrDefault(x => x == item);
             if (f != null)
@@ -39,7 +39,7 @@ namespace CommonCore.Repo.Repository
             return this;
         }
 
-        public Repository<T> Add(T item, IComparer<T> comparer, bool save)
+        public EFRepository<T> Add(T item, IComparer<T> comparer, bool save)
         {
             T f = GetSet().FirstOrDefault(x => comparer.Compare(x, item) == 1);
             if (f != null)
@@ -54,7 +54,7 @@ namespace CommonCore.Repo.Repository
             return this;
         }
 
-        public Repository<T> AddRange(IEnumerable<T> range, bool save = false)
+        public EFRepository<T> AddRange(IEnumerable<T> range, bool save = false)
         {
             foreach (var item in range)
             {
@@ -77,7 +77,7 @@ namespace CommonCore.Repo.Repository
             return _query ?? (_query = _context.Set<T>().AsQueryable<T>());
         }
 
-        public Repository<T> Save()
+        public EFRepository<T> Save()
         {
             try
             {
@@ -96,12 +96,12 @@ namespace CommonCore.Repo.Repository
         }
 
 
-        public static Repository<T> Create()
+        public static EFRepository<T> Create()
         {
-            return new Repository<T>();
+            return new EFRepository<T>();
         }
 
-        public Repository<T> CreateOrUpdate(IEnumerable<T> range, bool save)
+        public EFRepository<T> CreateOrUpdate(IEnumerable<T> range, bool save)
         {
 
             foreach (var item in range)
@@ -120,7 +120,7 @@ namespace CommonCore.Repo.Repository
             return this;
         }
 
-        public Repository<T> CreateOrUpdate(IEnumerable<T> range, IComparer<T> comparer, bool save = false)
+        public EFRepository<T> CreateOrUpdate(IEnumerable<T> range, IComparer<T> comparer, bool save = false)
         {
 
             foreach (var item in range)
@@ -139,7 +139,7 @@ namespace CommonCore.Repo.Repository
             return this;
         }
 
-        public Repository<T> Remove(T item, bool save = false)
+        public EFRepository<T> Remove(T item, bool save = false)
         {
             GetSet().Remove(item);
 
@@ -147,7 +147,7 @@ namespace CommonCore.Repo.Repository
             return this;
         }
 
-        public Repository<T> RemoveRange(IEnumerable<T> range, bool save = false)
+        public EFRepository<T> RemoveRange(IEnumerable<T> range, bool save = false)
         {
             GetSet().RemoveRange(range);
 

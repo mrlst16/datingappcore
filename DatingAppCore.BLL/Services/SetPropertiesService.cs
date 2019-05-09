@@ -37,10 +37,16 @@ namespace DatingAppCore.BLL.Services
                     Value = x.Value
                 }) ?? new List<UserProfileField>();
 
+                Func<UserProfileField, UserProfileField, bool> comparerFunc =
+                (x, y) =>
+                {
+                    return x.Name == y.Name && x.UserID == y.UserID && x.IsSetting == y.IsSetting;
+                };
+
                 RepoCache
                     .Get<UserProfileField>()
-                    .AddRange(profile, true)
-                    .AddRange(settings, true);
+                    .AddRange(profile, comparerFunc, true)
+                    .AddRange(settings, comparerFunc, true);
                 return true;
             });
         }

@@ -17,3 +17,5 @@ D:\Repos\DatingAppCore\DatingAppCore.Api\obj\Debug\netcoreapp2.2\DatingAppCore.A
 D:\Repos\DatingAppCore\DatingAppCore.Api\obj\Debug\netcoreapp2.2\DatingAppCore.Api.csproj.CopyComplete
 D:\Repos\DatingAppCore\DatingAppCore.Api\obj\Debug\netcoreapp2.2\DatingAppCore.Api.dll
 D:\Repos\DatingAppCore\DatingAppCore.Api\obj\Debug\netcoreapp2.2\DatingAppCore.Api.pdb
+D:\Repos\DatingAppCore\DatingAppCore.Api\bin\Debug\netcoreapp2.2\CommonCore.dll
+D:\Repos\DatingAppCore\DatingAppCore.Api\bin\Debug\netcoreapp2.2\CommonCore.pdb

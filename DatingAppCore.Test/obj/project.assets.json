@@ -24,21 +24,6 @@
           "lib/netstandard2.0/Autofac.Configuration.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
-        },
-        "compile": {
-          "lib/netcoreapp2.1/CommonCore.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/CommonCore.dll": {}
-        }
-      },
       "Microsoft.AspNetCore.Antiforgery/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -3685,6 +3670,22 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "CommonCoreByMattyLantz/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+        },
+        "compile": {
+          "bin/placeholder/CommonCoreByMattyLantz.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CommonCoreByMattyLantz.dll": {}
+        }
+      },
       "DatingAppCore.Api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -3792,18 +3793,6 @@
         "lib/netstandard2.0/Autofac.Configuration.dll",
         "lib/netstandard2.0/Autofac.Configuration.pdb",
         "lib/netstandard2.0/Autofac.Configuration.xml"
-      ]
-    },
-    "CommonCoreByMattyLantz/1.0.0": {
-      "sha512": "uOFzT6d1jgGRVrH1JIuaj681Fr3dPU7PDjrDm6hs3QZlnu6+cG0YvwSJuyhSymc18xlQiOpfub2URcJ8cUbyEw==",
-      "type": "package",
-      "path": "commoncorebymattylantz/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        "commoncorebymattylantz.1.0.0.nupkg.sha512",
-        "commoncorebymattylantz.nuspec",
-        "lib/netcoreapp2.1/CommonCore.dll",
-        "lib/netcoreapp2.1/CommonCore.runtimeconfig.json"
       ]
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {
@@ -11334,6 +11323,11 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
+    "CommonCoreByMattyLantz/1.0.0": {
+      "type": "project",
+      "path": "../../CommonCore/CommonCore/CommonCore.csproj",
+      "msbuildProject": "../../CommonCore/CommonCore/CommonCore.csproj"
+    },
     "DatingAppCore.Api/1.0.0": {
       "type": "project",
       "path": "../DatingAppCore.Api/DatingAppCore.Api.csproj",
@@ -11399,6 +11393,9 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
+            "D:\\Repos\\CommonCore\\CommonCore\\CommonCore.csproj": {
+              "projectPath": "D:\\Repos\\CommonCore\\CommonCore\\CommonCore.csproj"
+            },
             "D:\\Repos\\DatingAppCore\\DatingAppCore.Api\\DatingAppCore.Api.csproj": {
               "projectPath": "D:\\Repos\\DatingAppCore\\DatingAppCore.Api\\DatingAppCore.Api.csproj"
             },
@@ -11420,10 +11417,6 @@
           "Autofac.Configuration": {
             "target": "Package",
             "version": "[4.1.0, )"
-          },
-          "CommonCoreByMattyLantz": {
-            "target": "Package",
-            "version": "[1.0.0, )"
           },
           "MSTest.TestAdapter": {
             "target": "Package",

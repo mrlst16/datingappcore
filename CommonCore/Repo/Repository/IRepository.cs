@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonCore.Repo.Repository
 {
-    public interface IRepoAdapter { }
+    public interface IRepoBridge { }
     public interface IRepository<T, TRepo>
         where TRepo: IRepository<T, TRepo>
     {

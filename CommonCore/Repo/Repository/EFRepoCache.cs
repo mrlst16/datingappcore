@@ -18,10 +18,10 @@ namespace CommonCore.Repo.Repository
         internal Type Type;
         internal DbContext Context;
         internal IEnumerable<string> EntityNames;
-        internal Dictionary<string, IRepoAdapter> RepoAdapters = new Dictionary<string, IRepoAdapter>();
+        internal Dictionary<string, IRepoBridge> RepoAdapters = new Dictionary<string, IRepoBridge>();
     }
 
-    public static class RepoCache
+    public static class EFRepoCache
     {
         private static List<ContextBag> ContextBags = new List<ContextBag>();
 
@@ -57,7 +57,7 @@ namespace CommonCore.Repo.Repository
             return Get<T>().GetQuery();
         }
 
-        public static Repository<T> Get<T>()
+        public static EFRepository<T> Get<T>()
             where T : class, IEntity
         {
             try
@@ -69,8 +69,8 @@ namespace CommonCore.Repo.Repository
                     throw new Exception($"Type {key} could not be found in any of the cached contexts");
 
                 if (!contextBag.RepoAdapters.ContainsKey(key))
-                    contextBag.RepoAdapters[key] = new Repository<T>(contextBag.Context);
-                return (Repository<T>)contextBag.RepoAdapters[key];
+                    contextBag.RepoAdapters[key] = new EFRepository<T>(contextBag.Context);
+                return (EFRepository<T>)contextBag.RepoAdapters[key];
             }
             catch (Exception e)
             {

@@ -36,5 +36,6 @@ namespace DatingAppCore.Repo.Members
 
         public ICollection<GrantedPermission> AsGrantee { get; set; }
         public ICollection<GrantedPermission> AsGrantor { get; set; }
+
     }
 }

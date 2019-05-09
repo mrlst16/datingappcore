@@ -16,5 +16,17 @@ namespace DatingAppCore.Repo.Members
         
         //Nav Props
         public User User { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is UserProfileField)
+            {
+                var pf = obj as UserProfileField;
+                return this.Name == pf.Name
+                    && this.UserID == pf.UserID
+                    && this.IsSetting == pf.IsSetting;
+            }
+            return false;
+        }
     }
 }
