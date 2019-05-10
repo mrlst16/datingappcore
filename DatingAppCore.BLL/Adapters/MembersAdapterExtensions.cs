@@ -27,7 +27,7 @@ namespace DatingAppCore.BLL.Adapters
 
     public static class MembersAdapterExtensions
     {
-        private static UserProfileComparer userProfileComparer = new UserProfileComparer();
+        //private static UserProfileComparer userProfileComparer = new UserProfileComparer();
 
         public static GrantedPermissionsDTO ToDto(this GrantedPermission entity)
         {
@@ -51,7 +51,8 @@ namespace DatingAppCore.BLL.Adapters
 
         public static UserDTO ToDto(this User entity)
         {
-            return new UserDTO()
+            var userProfileComparer = new UserProfileComparer();
+            var result = new UserDTO()
             {
                 ID = entity.ID,
                 ExternalID = entity.ExternalID,
@@ -61,6 +62,7 @@ namespace DatingAppCore.BLL.Adapters
                 Settings = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == true).ToDictionary(x => x.Name, field => field.Value),
                 Photos = entity.Photos?.Select(x => x.ToDto()).ToList()
             };
+            return result;
         }
 
         public static PhotoDTO ToDto(this Photo entity)
