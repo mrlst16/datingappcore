@@ -5,7 +5,7 @@ using System.Text;
 using System.Web;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
-using DatingApp.API.Services.Interfaces;
+using CommonCore.Services.Interfaces;
 using DatingAppCore.Repo.Clients;
 using Microsoft.AspNetCore.Http;
 

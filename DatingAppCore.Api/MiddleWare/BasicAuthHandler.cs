@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CommonCore.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using CommonCore.IOC;
 
 namespace DatingAppCore.Api.MiddleWare
 {
@@ -24,7 +26,7 @@ namespace DatingAppCore.Api.MiddleWare
 
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            var service = Program.Container.Resolve<DatingApp.API.Services.Interfaces.IAuthorizationService>();
+            var service = KeyedDependencyResolver.GetDefaultService<IAuthorizationService>();
             var response = service.Authorize(this.Context.Request.Headers);
             if (response.Result)
                 //THIS WORKS FOR SUCCESS!

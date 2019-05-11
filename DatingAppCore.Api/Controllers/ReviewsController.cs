@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Autofac;
 using DatingAppCore.BLL.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using CommonCore.IOC;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -16,7 +17,7 @@ namespace DatingAppCore.Api.Controllers
     [ApiController]
     public class ReviewsController : CommonCore.Mvc.Controller.CommonCoreControllerBase
     {
-        public ReviewsController() : base(Program.Container)
+        public ReviewsController() : base()
         {
         }
 
@@ -24,7 +25,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("send")]
         public async Task<IActionResult> Send(ReviewDTO request)
         {
-            var service = Program.Container.Resolve<ISendReviewService>();
+            var service = ServiceProvider.GetService<ISendReviewService>();
             var result = await service.Send(request);
             return Ok(result);
         }

@@ -11,7 +11,7 @@
           "lib/netstandard2.0/Autofac.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.2": {
+      "CommonCoreByMattyLantz/1.0.4": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.9.2",
@@ -3357,7 +3357,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.2"
+          "CommonCoreByMattyLantz": "1.0.4"
         },
         "compile": {
           "bin/placeholder/DatingAppCore.Dto.dll": {}
@@ -3389,13 +3389,13 @@
         "lib/netstandard2.0/Autofac.xml"
       ]
     },
-    "CommonCoreByMattyLantz/1.0.2": {
-      "sha512": "cGX0qTeF0v3j0ioIeRU1ibK1g3i3yxF8eAA8tvePkoLGXFAzhDTmsRpZIM2bY8MJ8iGgyB3+8DFVhxHHWwpg7Q==",
+    "CommonCoreByMattyLantz/1.0.4": {
+      "sha512": "+CssaomyupGOSRxY0IJdUBMwJz039gupVtP0ALvazDs71sHshptmzUj/vD1KFfnuQObqF12LvCnf+lQkTJvtDw==",
       "type": "package",
-      "path": "commoncorebymattylantz/1.0.2",
+      "path": "commoncorebymattylantz/1.0.4",
       "files": [
         ".nupkg.metadata",
-        "commoncorebymattylantz.1.0.2.nupkg.sha512",
+        "commoncorebymattylantz.1.0.4.nupkg.sha512",
         "commoncorebymattylantz.nuspec",
         "lib/netcoreapp2.1/CommonCore.dll",
         "lib/netcoreapp2.1/CommonCore.runtimeconfig.json"
@@ -10067,7 +10067,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "CommonCoreByMattyLantz >= 1.0.2",
+      "CommonCoreByMattyLantz >= 1.0.4",
       "DatingAppCore.Dto >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Design >= 2.2.4",
@@ -10127,7 +10127,7 @@
         "dependencies": {
           "CommonCoreByMattyLantz": {
             "target": "Package",
-            "version": "[1.0.2, )"
+            "version": "[1.0.4, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

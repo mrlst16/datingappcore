@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommonCore.Geo;
+using CommonCore.Mathematics;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.DTO.Geo;
 

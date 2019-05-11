@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using CommonCore.IOC;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -18,7 +19,7 @@ namespace DatingAppCore.Api.Controllers
     public class UsersController : CommonCore.Mvc.Controller.CommonCoreControllerBase
     {
 
-        public UsersController() : base(Program.Container)
+        public UsersController() : base()
         {
 
         }
@@ -43,7 +44,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("login_or_signup")]
         public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
         {
-            var service = Program.Container.Resolve<ILoginOrSignupService>();
+            var service = ServiceProvider.GetService<ILoginOrSignupService>();
             var result = await service.LoginOrSignup(request);
             return Json(result);
         }
@@ -52,7 +53,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("get_user")]
         public async Task<IActionResult> GetUser(GetUserRequest request)
         {
-            IGetUserService service = Program.Container.Resolve<IGetUserService>();
+            IGetUserService service = ServiceProvider.GetService<IGetUserService>();
             var result = await service.GetUser(request);
             return Ok(JsonConvert.SerializeObject(result));
         }
@@ -61,7 +62,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_user_settings")]
         public async Task<IActionResult> SetUserSettings(SetPropertiesRequest request)
         {
-            var service = Program.Container.Resolve<ISetSettingsService>();
+            var service = ServiceProvider.GetService<ISetSettingsService>();
             var result = await service.Set(request);
             return Json(result);
         }
@@ -70,7 +71,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_user_profile")]
         public async Task<IActionResult> SetUserProfile(SetPropertiesRequest request)
         {
-            ISetProfileService service = Program.Container.Resolve<ISetProfileService>();
+            ISetProfileService service = ServiceProvider.GetService<ISetProfileService>();
             var result = await service.Set(request);
             return Json(result);
         }
@@ -79,7 +80,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_photos")]
         public async Task<IActionResult> SetPhotos(SetPhotosRequest request)
         {
-            ISetPhotosService service = Program.Container.Resolve<ISetPhotosService>();
+            ISetPhotosService service = ServiceProvider.GetService<ISetPhotosService>();
             var result = await service.Set(request);
             return Json(result);
         }

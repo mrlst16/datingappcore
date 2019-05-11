@@ -10,6 +10,7 @@ using Autofac;
 using DatingAppCore.BLL.Services.Interfaces;
 using CommonCore.Mvc.Controller;
 using Microsoft.AspNetCore.Authorization;
+using CommonCore.IOC;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -17,7 +18,7 @@ namespace DatingAppCore.Api.Controllers
     [ApiController]
     public class MessagingController : CommonCoreControllerBase
     {
-        public MessagingController() : base(Program.Container)
+        public MessagingController() : base()
         {
 
         }
@@ -26,7 +27,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("send")]
         public async Task<IActionResult> Send(MessageDTO request)
         {
-            var service = Program.Container.Resolve<ISendMessageService>();
+            var service = ServiceProvider.GetService<ISendMessageService>();
             var result = await service.Send(request);
             return Json(result);
         }

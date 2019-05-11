@@ -46,7 +46,7 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.2, )"
+              "version": "[1.0.4, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",

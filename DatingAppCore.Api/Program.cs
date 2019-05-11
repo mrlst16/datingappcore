@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using CommonCore.IOC;
 using CommonCore.Repo.Repository;
+using CommonCore.Services.Interfaces;
 using DatingApp.API.Services;
-using DatingApp.API.Services.Interfaces;
 using DatingAppCore.BLL.Services;
 using DatingAppCore.BLL.Services.Interfaces;
 using Microsoft.AspNetCore;
@@ -18,9 +20,6 @@ namespace DatingAppCore.Api
 {
     public class Program
     {
-
-        public static IContainer Container { get; protected set; }
-
         public static void Main(string[] args)
         {
             SetupIOC();
@@ -46,7 +45,9 @@ namespace DatingAppCore.Api
             builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
             builder.RegisterType<SwipeService>().As<ISwipeService>();
             builder.RegisterType<BasicAuthorizationService>().As<IAuthorizationService>();
-            Container = builder.Build();
+            var container = builder.Build();
+
+            KeyedDependencyResolver.InitDefault(new AutofacServiceProvider(container.BeginLifetimeScope()));
         }
 
         protected static void SetupDbConexts()

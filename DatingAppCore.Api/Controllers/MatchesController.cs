@@ -13,6 +13,7 @@ using CommonCore.Mvc.Controller;
 using Microsoft.AspNetCore.Server.HttpSys;
 using System.Net;
 using Microsoft.AspNetCore.Authorization;
+using CommonCore.IOC;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -20,7 +21,7 @@ namespace DatingAppCore.Api.Controllers
     [ApiController]
     public class MatchesController : CommonCoreControllerBase
     {
-        public MatchesController() : base(Program.Container)
+        public MatchesController() : base()
         {
 
         }
@@ -29,7 +30,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("potential_matches")]
         public async Task<IActionResult> PotentialMatches(FindMatchRequest request)
         {
-            var service = Program.Container.Resolve<IPotentialMatchesService>();
+            var service = ServiceProvider.GetService<IPotentialMatchesService>();
             var result = await service.FindPotentialMatches(request);
             return Json(result);
         }
@@ -38,7 +39,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("swipe")]
         public async Task<IActionResult> Swipe(SwipeDTO request)
         {
-            var service = Program.Container.Resolve<ISwipeService>();
+            var service = ServiceProvider.GetService<ISwipeService>();
             var result = await service.Swipe(request);
             return Json(result);
         }

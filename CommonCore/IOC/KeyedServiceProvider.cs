@@ -14,6 +14,7 @@ namespace CommonCore.IOC
         public string Key { get; protected internal set; }
         public IServiceProvider ServiceProvider { get; protected internal set; }
     }
+       
 
     public class KeyedDependencyResolver
     {

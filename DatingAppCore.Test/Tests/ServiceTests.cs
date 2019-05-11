@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using CommonCore.Responses;
-using DatingApp.API.Services.Interfaces;
+using CommonCore.Services.Interfaces;
 using DatingAppCore.BLL.Responses;
 using DatingAppCore.BLL.Services.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

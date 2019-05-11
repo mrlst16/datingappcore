@@ -11,7 +11,20 @@
           "lib/netstandard2.0/Autofac.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.2": {
+      "Autofac.Extensions.DependencyInjection/4.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.9.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "CommonCoreByMattyLantz/1.0.4": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.9.2",
@@ -5282,7 +5295,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.2",
+          "CommonCoreByMattyLantz": "1.0.4",
           "DatingAppCore.Repo": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
@@ -5298,7 +5311,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.2"
+          "CommonCoreByMattyLantz": "1.0.4"
         },
         "compile": {
           "bin/placeholder/DatingAppCore.Dto.dll": {}
@@ -5311,7 +5324,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.2",
+          "CommonCoreByMattyLantz": "1.0.4",
           "DatingAppCore.Dto": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -5349,13 +5362,30 @@
         "lib/netstandard2.0/Autofac.xml"
       ]
     },
-    "CommonCoreByMattyLantz/1.0.2": {
-      "sha512": "cGX0qTeF0v3j0ioIeRU1ibK1g3i3yxF8eAA8tvePkoLGXFAzhDTmsRpZIM2bY8MJ8iGgyB3+8DFVhxHHWwpg7Q==",
+    "Autofac.Extensions.DependencyInjection/4.4.0": {
+      "sha512": "tkNVcEVTG+asY338sZQNbWQIoCrb13I6qOxBrVX7aStu7SGskDDyGT0TrqiJdfEB48GbCd04ZcNz86TdD4cIHg==",
       "type": "package",
-      "path": "commoncorebymattylantz/1.0.2",
+      "path": "autofac.extensions.dependencyinjection/4.4.0",
       "files": [
         ".nupkg.metadata",
-        "commoncorebymattylantz.1.0.2.nupkg.sha512",
+        ".signature.p7s",
+        "autofac.extensions.dependencyinjection.4.4.0.nupkg.sha512",
+        "autofac.extensions.dependencyinjection.nuspec",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.xml"
+      ]
+    },
+    "CommonCoreByMattyLantz/1.0.4": {
+      "sha512": "+CssaomyupGOSRxY0IJdUBMwJz039gupVtP0ALvazDs71sHshptmzUj/vD1KFfnuQObqF12LvCnf+lQkTJvtDw==",
+      "type": "package",
+      "path": "commoncorebymattylantz/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        "commoncorebymattylantz.1.0.4.nupkg.sha512",
         "commoncorebymattylantz.nuspec",
         "lib/netcoreapp2.1/CommonCore.dll",
         "lib/netcoreapp2.1/CommonCore.runtimeconfig.json"
@@ -14537,7 +14567,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Autofac >= 4.9.2",
-      "CommonCoreByMattyLantz >= 1.0.2",
+      "Autofac.Extensions.DependencyInjection >= 4.4.0",
+      "CommonCoreByMattyLantz >= 1.0.4",
       "DatingAppCore.BLL >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
@@ -14599,9 +14630,13 @@
             "target": "Package",
             "version": "[4.9.2, )"
           },
+          "Autofac.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[4.4.0, )"
+          },
           "CommonCoreByMattyLantz": {
             "target": "Package",
-            "version": "[1.0.2, )"
+            "version": "[1.0.4, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",

@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using CommonCore.Repo.Repository;
+using CommonCore.Services.Interfaces;
 using DatingApp.API.Services;
-using DatingApp.API.Services.Interfaces;
 using DatingAppCore.BLL.Services;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Test.Tests;
