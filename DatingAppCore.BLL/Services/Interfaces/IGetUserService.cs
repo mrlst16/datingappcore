@@ -11,6 +11,6 @@ namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface IGetUserService
     {
-        Response<UserDTO> GetUser(GetUserRequest request);
+        Task<Response<UserDTO>> GetUser(GetUserRequest request);
     }
 }

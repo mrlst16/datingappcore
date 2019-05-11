@@ -9,7 +9,6 @@ namespace DatingAppCore.BLL.Requests
     public class SetPropertiesRequest
     {
         public Guid UserID { get; set; }
-        public IDictionary<string, string> Settings { get; set; }
-        public IDictionary<string, string> Profile { get; set; }
+        public IDictionary<string, string> Properties { get; set; }
     }
 }

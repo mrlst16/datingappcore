@@ -10,6 +10,6 @@ namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface ISendReviewService
     {
-        Response<bool> Send(ReviewDTO request);
+        Task<Response<bool>> Send(ReviewDTO request);
     }
 }

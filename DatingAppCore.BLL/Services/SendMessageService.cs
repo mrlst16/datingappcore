@@ -14,7 +14,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class SendMessageService : ISendMessageService
     {
-        public Response<bool> Send(MessageDTO request)
+        public async Task<Response<bool>> Send(MessageDTO request)
         {
             return Response<bool>.Wrap(() =>
             {

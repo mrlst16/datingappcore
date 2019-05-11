@@ -30,7 +30,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> PotentialMatches(FindMatchRequest request)
         {
             var service = Program.Container.Resolve<IPotentialMatchesService>();
-            var result = service.FindPotentialMatches(request);
+            var result = await service.FindPotentialMatches(request);
             return Json(result);
         }
 
@@ -39,7 +39,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> Swipe(SwipeDTO request)
         {
             var service = Program.Container.Resolve<ISwipeService>();
-            var result = service.Swipe(request);
+            var result = await service.Swipe(request);
             return Json(result);
         }
     }

@@ -14,7 +14,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class SwipeService : ISwipeService
     {
-        public Response<bool> Swipe(SwipeDTO request)
+        public  async Task<Response<bool>> Swipe(SwipeDTO request)
         {
             return Response<bool>.Wrap((r) =>
             {

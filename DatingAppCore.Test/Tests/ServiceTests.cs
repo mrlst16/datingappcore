@@ -23,10 +23,10 @@ namespace DatingAppCore.Test.Tests
         }
 
         [TestMethod]
-        public void LoginOrSignupTest()
+        public async void LoginOrSignupTest()
         {
             var service = Container.Resolve<ILoginOrSignupService>();
-            Response<LoginOrSignupResponse> response = service.LoginOrSignup(
+            Response<LoginOrSignupResponse> response = await service.LoginOrSignup(
                 new BLL.Signup.Requests.LoginOrSignupRequest()
                 {
                     User = new DTO.Members.UserDTO()
@@ -42,10 +42,10 @@ namespace DatingAppCore.Test.Tests
         }
 
         [TestMethod]
-        public void FindPotentialMatchesTest()
+        public async void FindPotentialMatchesTest()
         {
             var service = Container.Resolve<IPotentialMatchesService>();
-            var response = service.FindPotentialMatches(new BLL.Requests.FindMatchRequest()
+            var response = await service.FindPotentialMatches(new BLL.Requests.FindMatchRequest()
             {
                 UserID = Guid.Parse("")
             });
@@ -54,10 +54,10 @@ namespace DatingAppCore.Test.Tests
         }
 
         [TestMethod]
-        public void SetUserSettings()
+        public async void SetUserSettings()
         {
-            ISetPropertiesService service = Container.Resolve<ISetPropertiesService>();
-            var response = service.Set(new BLL.Requests.SetPropertiesRequest()
+            ISetProfileService service = Container.Resolve<ISetProfileService>();
+            var response = await service.Set(new BLL.Requests.SetPropertiesRequest()
             {
 
             });

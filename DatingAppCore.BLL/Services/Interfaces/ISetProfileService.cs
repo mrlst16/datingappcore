@@ -8,8 +8,8 @@ using DatingAppCore.BLL.Requests;
 
 namespace DatingAppCore.BLL.Services.Interfaces
 {
-    public interface ISetPropertiesService
+    public interface ISetProfileService
     {
-        Response<bool> Set(SetPropertiesRequest request);
+        Task<Response<bool>> Set(SetPropertiesRequest request);
     }
 }

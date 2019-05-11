@@ -27,7 +27,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> Send(MessageDTO request)
         {
             var service = Program.Container.Resolve<ISendMessageService>();
-            var result = service.Send(request);
+            var result = await service.Send(request);
             return Json(result);
         }
     }

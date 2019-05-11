@@ -11,6 +11,6 @@ namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface IPotentialMatchesService
     {
-        Response<IEnumerable<UserDTO>> FindPotentialMatches(FindMatchRequest request);
+        Task<Response<IEnumerable<UserDTO>>> FindPotentialMatches(FindMatchRequest request);
     }
 }

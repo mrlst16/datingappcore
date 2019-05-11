@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
@@ -12,7 +13,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class LoginOrSignupService : ILoginOrSignupService
     {
-        public Response<LoginOrSignupResponse> LoginOrSignup(LoginOrSignupRequest request)
+        public async Task<Response<LoginOrSignupResponse>> LoginOrSignup(LoginOrSignupRequest request)
         {
             return Response<LoginOrSignupResponse>.Wrap(() =>
             {

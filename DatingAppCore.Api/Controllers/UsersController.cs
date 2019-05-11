@@ -44,7 +44,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
         {
             var service = Program.Container.Resolve<ILoginOrSignupService>();
-            var result = service.LoginOrSignup(request);
+            var result = await service.LoginOrSignup(request);
             return Json(result);
         }
 
@@ -53,7 +53,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> GetUser(GetUserRequest request)
         {
             IGetUserService service = Program.Container.Resolve<IGetUserService>();
-            var result = service.GetUser(request);
+            var result = await service.GetUser(request);
             return Ok(JsonConvert.SerializeObject(result));
         }
 
@@ -61,8 +61,17 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_user_settings")]
         public async Task<IActionResult> SetUserSettings(SetPropertiesRequest request)
         {
-            ISetPropertiesService service = Program.Container.Resolve<ISetPropertiesService>();
-            var result = service.Set(request);
+            var service = Program.Container.Resolve<ISetSettingsService>();
+            var result = await service.Set(request);
+            return Json(result);
+        }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("set_user_profile")]
+        public async Task<IActionResult> SetUserProfile(SetPropertiesRequest request)
+        {
+            ISetProfileService service = Program.Container.Resolve<ISetProfileService>();
+            var result = await service.Set(request);
             return Json(result);
         }
 
@@ -71,7 +80,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> SetPhotos(SetPhotosRequest request)
         {
             ISetPhotosService service = Program.Container.Resolve<ISetPhotosService>();
-            var result = service.Set(request);
+            var result = await service.Set(request);
             return Json(result);
         }
     }

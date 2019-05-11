@@ -13,6 +13,6 @@ namespace DatingAppCore.BLL.Services
 {
     public class GetUserService : IGetUserService
     {
-        public Response<UserDTO> GetUser(GetUserRequest request) => Response<UserDTO>.Wrap(() => UsersRepoHelper.GetUser(request));
+        public async Task<Response<UserDTO>> GetUser(GetUserRequest request) => Response<UserDTO>.Wrap(() => UsersRepoHelper.GetUser(request));
     }
 }

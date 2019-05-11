@@ -25,7 +25,7 @@ namespace DatingAppCore.Test.Helpers
             builder.RegisterType<SendMessageService>().As<ISendMessageService>();
             builder.RegisterType<SendReviewService>().As<ISendReviewService>();
             builder.RegisterType<SetPhotosService>().As<ISetPhotosService>();
-            builder.RegisterType<SetPropertiesService>().As<ISetPropertiesService>();
+            builder.RegisterType<SetPropertiesService>().As<ISetProfileService>();
             builder.RegisterType<SwipeService>().As<ISwipeService>();
             builder.RegisterType<BasicAuthorizationService>().As<IAuthorizationService>();
             TestClassBase.Container = builder.Build();

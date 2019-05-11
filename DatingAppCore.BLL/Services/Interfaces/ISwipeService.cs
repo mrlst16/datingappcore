@@ -10,6 +10,6 @@ namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface ISwipeService
     {
-        Response<bool> Swipe(SwipeDTO request);
+        Task<Response<bool>> Swipe(SwipeDTO request);
     }
 }

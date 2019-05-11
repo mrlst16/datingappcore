@@ -14,7 +14,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class SendReviewService : ISendReviewService
     {
-        public Response<bool> Send(ReviewDTO request)
+        public async Task<Response<bool>> Send(ReviewDTO request)
         {
             return Response<bool>.Wrap(() =>
             {

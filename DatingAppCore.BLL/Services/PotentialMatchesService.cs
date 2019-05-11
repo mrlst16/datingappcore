@@ -18,7 +18,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class PotentialMatchesService : IPotentialMatchesService
     {
-        Response<IEnumerable<UserDTO>> IPotentialMatchesService.FindPotentialMatches(FindMatchRequest request)
+        async Task<Response<IEnumerable<UserDTO>>> IPotentialMatchesService.FindPotentialMatches(FindMatchRequest request)
         {
             return Response<IEnumerable<UserDTO>>.Wrap(y =>
             {
@@ -37,7 +37,7 @@ namespace DatingAppCore.BLL.Services
                 );
 
                 return UsersRepoHelper
-                    .GetUsersIn(users.Select(x=>x.ID).ToList())
+                    .GetUsersIn(users.Select(x => x.ID).ToList())
                     .Select(x => x.ToDto());
             });
         }

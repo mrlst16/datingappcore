@@ -13,7 +13,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class SetPhotosService : ISetPhotosService
     {
-        public Response<bool> Set(SetPhotosRequest request)
+        public async Task<Response<bool>> Set(SetPhotosRequest request)
         {
             return Response<bool>.Wrap(() =>
             {

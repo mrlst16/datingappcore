@@ -25,7 +25,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> Send(ReviewDTO request)
         {
             var service = Program.Container.Resolve<ISendReviewService>();
-            var result = service.Send(request);
+            var result = await service.Send(request);
             return Ok(result);
         }
     }

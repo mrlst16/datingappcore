@@ -12,7 +12,7 @@ using DatingAppCore.Repo.Members;
 
 namespace DatingAppCore.BLL.Services
 {
-    public class SetPropertiesService : ISetProfileService
+    public class SetProfileService : ISetProfileService
     {
         public async Task<Response<bool>> Set(SetPropertiesRequest request)
         {
@@ -20,6 +20,7 @@ namespace DatingAppCore.BLL.Services
             {
                 var properties = request
                     .Properties
+                    ?.Where(x=> !string.IsNullOrWhiteSpace(x.Value))
                     ?.Select(x => new UserProfileField()
                     {
                         UserID = request.UserID,
@@ -27,6 +28,11 @@ namespace DatingAppCore.BLL.Services
                         Name = x.Key,
                         Value = x.Value
                     }) ?? new List<UserProfileField>();
+
+                var removeThese = RepoCache.GetQuery<UserProfileField>()
+                    .Where(x => x.UserID == request.UserID && x.IsSetting == false);
+
+                RepoCache.Get<UserProfileField>().RemoveRange(removeThese);
 
                 var comparer = new ComparerFunc<UserProfileField>((x, y) =>
                 {

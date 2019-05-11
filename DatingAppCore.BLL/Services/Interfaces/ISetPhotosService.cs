@@ -10,6 +10,6 @@ namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface ISetPhotosService
     {
-        Response<bool> Set(SetPhotosRequest request);
+        Task<Response<bool>> Set(SetPhotosRequest request);
     }
 }
