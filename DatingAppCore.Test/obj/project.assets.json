@@ -37,7 +37,7 @@
           "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.4": {
+      "CommonCoreByMattyLantz/1.0.4.1": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.9.2",
@@ -3704,7 +3704,7 @@
         "dependencies": {
           "Autofac": "4.9.2",
           "Autofac.Extensions.DependencyInjection": "4.4.0",
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.BLL": "1.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.4.10",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
@@ -3721,7 +3721,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.Repo": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
@@ -3737,7 +3737,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4"
+          "CommonCoreByMattyLantz": "1.0.4.1"
         },
         "compile": {
           "bin/placeholder/DatingAppCore.Dto.dll": {}
@@ -3750,7 +3750,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.Dto": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -3825,13 +3825,13 @@
         "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.xml"
       ]
     },
-    "CommonCoreByMattyLantz/1.0.4": {
-      "sha512": "+CssaomyupGOSRxY0IJdUBMwJz039gupVtP0ALvazDs71sHshptmzUj/vD1KFfnuQObqF12LvCnf+lQkTJvtDw==",
+    "CommonCoreByMattyLantz/1.0.4.1": {
+      "sha512": "PP/v2Ov45uEm4sC3M6rGLHZtvL0AgUwBIo6Ld1yRl/Zn9iYnI3wdwJ+xjqcPWcorOJ+KYgKcMiq0CIMncnfBPw==",
       "type": "package",
-      "path": "commoncorebymattylantz/1.0.4",
+      "path": "commoncorebymattylantz/1.0.4.1",
       "files": [
         ".nupkg.metadata",
-        "commoncorebymattylantz.1.0.4.nupkg.sha512",
+        "commoncorebymattylantz.1.0.4.1.nupkg.sha512",
         "commoncorebymattylantz.nuspec",
         "lib/netcoreapp2.1/CommonCore.dll",
         "lib/netcoreapp2.1/CommonCore.runtimeconfig.json"
@@ -11389,7 +11389,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Autofac.Configuration >= 4.1.0",
-      "CommonCoreByMattyLantz >= 1.0.4",
+      "CommonCoreByMattyLantz >= 1.0.4.1",
       "DatingAppCore.Api >= 1.0.0",
       "DatingAppCore.BLL >= 1.0.0",
       "MSTest.TestAdapter >= 1.4.0",
@@ -11454,7 +11454,7 @@
           },
           "CommonCoreByMattyLantz": {
             "target": "Package",
-            "version": "[1.0.4, )"
+            "version": "[1.0.4.1, )"
           },
           "MSTest.TestAdapter": {
             "target": "Package",

@@ -7,6 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.4" />
+    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.4.1" />
   </ItemGroup>
 </Project>

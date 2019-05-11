@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "15881084c7e96a607d6287c6dcf09f83664df274"
+    "signature": "c0e1c415a694a60883d289cc41e3110561b2eb48"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,7 @@
         "dependencies": {
           "Autofac": "4.9.2",
           "Autofac.Extensions.DependencyInjection": "4.4.0",
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.BLL": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -68,7 +68,7 @@
           "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.4": {
+      "CommonCoreByMattyLantz/1.0.4.1": {
         "dependencies": {
           "Autofac": "4.9.2",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
@@ -1016,7 +1016,7 @@
       },
       "DatingAppCore.BLL/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.Repo": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
@@ -1030,7 +1030,7 @@
       },
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4"
+          "CommonCoreByMattyLantz": "1.0.4.1"
         },
         "runtime": {
           "DatingAppCore.Dto.dll": {}
@@ -1041,7 +1041,7 @@
       },
       "DatingAppCore.Repo/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.Dto": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -4161,12 +4161,12 @@
       "path": "autofac.extensions.dependencyinjection/4.4.0",
       "hashPath": "autofac.extensions.dependencyinjection.4.4.0.nupkg.sha512"
     },
-    "CommonCoreByMattyLantz/1.0.4": {
+    "CommonCoreByMattyLantz/1.0.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+CssaomyupGOSRxY0IJdUBMwJz039gupVtP0ALvazDs71sHshptmzUj/vD1KFfnuQObqF12LvCnf+lQkTJvtDw==",
-      "path": "commoncorebymattylantz/1.0.4",
-      "hashPath": "commoncorebymattylantz.1.0.4.nupkg.sha512"
+      "sha512": "sha512-PP/v2Ov45uEm4sC3M6rGLHZtvL0AgUwBIo6Ld1yRl/Zn9iYnI3wdwJ+xjqcPWcorOJ+KYgKcMiq0CIMncnfBPw==",
+      "path": "commoncorebymattylantz/1.0.4.1",
+      "hashPath": "commoncorebymattylantz.1.0.4.1.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",

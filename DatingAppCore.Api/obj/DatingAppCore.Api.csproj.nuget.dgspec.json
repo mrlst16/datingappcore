@@ -58,7 +58,7 @@
             },
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4, )"
+              "version": "[1.0.4.1, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
@@ -144,7 +144,7 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4, )"
+              "version": "[1.0.4.1, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
@@ -211,7 +211,7 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4, )"
+              "version": "[1.0.4.1, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
@@ -274,7 +274,7 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4, )"
+              "version": "[1.0.4.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

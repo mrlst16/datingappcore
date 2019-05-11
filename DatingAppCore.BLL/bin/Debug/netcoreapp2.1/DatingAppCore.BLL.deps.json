@@ -1,14 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "0ee61d912e1c125127a11729b80a5c93d1698aaa"
+    "signature": "0ed4bd8036e386a8670dbbb76d0b0285ee016618"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "DatingAppCore.BLL/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.Repo": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
@@ -25,7 +25,7 @@
           }
         }
       },
-      "CommonCoreByMattyLantz/1.0.4": {
+      "CommonCoreByMattyLantz/1.0.4.1": {
         "dependencies": {
           "Autofac": "4.9.2",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
@@ -2451,7 +2451,7 @@
       },
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4"
+          "CommonCoreByMattyLantz": "1.0.4.1"
         },
         "runtime": {
           "DatingAppCore.Dto.dll": {}
@@ -2459,7 +2459,7 @@
       },
       "DatingAppCore.Repo/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4",
+          "CommonCoreByMattyLantz": "1.0.4.1",
           "DatingAppCore.Dto": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -2486,12 +2486,12 @@
       "path": "autofac/4.9.2",
       "hashPath": "autofac.4.9.2.nupkg.sha512"
     },
-    "CommonCoreByMattyLantz/1.0.4": {
+    "CommonCoreByMattyLantz/1.0.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+CssaomyupGOSRxY0IJdUBMwJz039gupVtP0ALvazDs71sHshptmzUj/vD1KFfnuQObqF12LvCnf+lQkTJvtDw==",
-      "path": "commoncorebymattylantz/1.0.4",
-      "hashPath": "commoncorebymattylantz.1.0.4.nupkg.sha512"
+      "sha512": "sha512-PP/v2Ov45uEm4sC3M6rGLHZtvL0AgUwBIo6Ld1yRl/Zn9iYnI3wdwJ+xjqcPWcorOJ+KYgKcMiq0CIMncnfBPw==",
+      "path": "commoncorebymattylantz/1.0.4.1",
+      "hashPath": "commoncorebymattylantz.1.0.4.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {
       "type": "package",
