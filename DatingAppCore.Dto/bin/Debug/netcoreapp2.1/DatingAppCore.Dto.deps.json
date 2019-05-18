@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "a5ec1681919fbdb6bb8fba72eac38dfb4cd31eb5"
+    "signature": "9795e0e68959731cdac135ca953d4b5d699efc0e"
   },
   "compilationOptions": {},
   "targets": {
@@ -21,20 +21,6 @@
           "lib/netstandard2.0/Autofac.dll": {
             "assemblyVersion": "4.9.2.0",
             "fileVersion": "4.9.2.0"
-          }
-        }
-      },
-      "CommonCoreByMattyLantz/1.0.5": {
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/CommonCore.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
           }
         }
       },
@@ -2246,6 +2232,17 @@
           "System.Xml.XDocument": "4.3.0",
           "System.Xml.XPath": "4.3.0"
         }
+      },
+      "CommonCoreByMattyLantz/1.0.5": {
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+        },
+        "runtime": {
+          "CommonCore.dll": {}
+        }
       }
     }
   },
@@ -2261,13 +2258,6 @@
       "sha512": "sha512-lfCcNOzU97f2WFtdo/+SkR0XtpdH20QA5Ob/T2Iv027wFMvDk7EZZ2oj6ERtWL+LBfPTOrbk9zyLj6Okx2CoHA==",
       "path": "autofac/4.9.2",
       "hashPath": "autofac.4.9.2.nupkg.sha512"
-    },
-    "CommonCoreByMattyLantz/1.0.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Kj8U1VHY0dkJRzqHEFIDlzDHN+UF4DhER7+4DCiUyP+mkewghmGUelh2vP1bqakeWaYg/57keQoOU+JjZO8Uhg==",
-      "path": "commoncorebymattylantz/1.0.5",
-      "hashPath": "commoncorebymattylantz.1.0.5.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.2.0": {
       "type": "package",
@@ -3633,6 +3623,11 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "CommonCoreByMattyLantz/1.0.5": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

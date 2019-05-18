@@ -11,21 +11,6 @@
           "lib/netstandard2.0/Autofac.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.5": {
-        "type": "package",
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
-        },
-        "compile": {
-          "lib/netcoreapp2.1/CommonCore.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/CommonCore.dll": {}
-        }
-      },
       "Microsoft.AspNetCore/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -3075,6 +3060,22 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "CommonCoreByMattyLantz/1.0.5": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+        },
+        "compile": {
+          "bin/placeholder/CommonCoreByMattyLantz.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CommonCoreByMattyLantz.dll": {}
+        }
       }
     }
   },
@@ -3097,18 +3098,6 @@
         "lib/netstandard2.0/Autofac.dll",
         "lib/netstandard2.0/Autofac.pdb",
         "lib/netstandard2.0/Autofac.xml"
-      ]
-    },
-    "CommonCoreByMattyLantz/1.0.5": {
-      "sha512": "Kj8U1VHY0dkJRzqHEFIDlzDHN+UF4DhER7+4DCiUyP+mkewghmGUelh2vP1bqakeWaYg/57keQoOU+JjZO8Uhg==",
-      "type": "package",
-      "path": "commoncorebymattylantz/1.0.5",
-      "files": [
-        ".nupkg.metadata",
-        "commoncorebymattylantz.1.0.5.nupkg.sha512",
-        "commoncorebymattylantz.nuspec",
-        "lib/netcoreapp2.1/CommonCore.dll",
-        "lib/netcoreapp2.1/CommonCore.runtimeconfig.json"
       ]
     },
     "Microsoft.AspNetCore/2.2.0": {
@@ -9003,6 +8992,11 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "CommonCoreByMattyLantz/1.0.5": {
+      "type": "project",
+      "path": "../../CommonCore/CommonCore/CommonCore.csproj",
+      "msbuildProject": "../../CommonCore/CommonCore/CommonCore.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9045,7 +9039,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Repos\\CommonCore\\CommonCore\\CommonCore.csproj": {
+              "projectPath": "D:\\Repos\\CommonCore\\CommonCore\\CommonCore.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -9057,10 +9055,6 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "CommonCoreByMattyLantz": {
-            "target": "Package",
-            "version": "[1.0.5, )"
-          },
           "Microsoft.AspNetCore": {
             "target": "Package",
             "version": "[2.2.0, )"
