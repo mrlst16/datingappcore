@@ -13,9 +13,11 @@ using System.Threading.Tasks;
 
 namespace DatingAppCore.BLL.Services
 {
-    public class SaveFormFilesToDatabaseService : ISaveFormFilesService
+    public class SavePhotoToFileService : SaveFormFilesToDatabaseService
     {
-        public virtual async Task<Response<bool>> Save(SaveFilesRequest request)
+        public const string USER_PHOTOS_FOLDER = "userphotos";
+
+        public override async Task<Response<bool>> Save(SaveFilesRequest request)
         {
             return Response<bool>.Wrap((response) =>
             {
@@ -48,6 +50,13 @@ namespace DatingAppCore.BLL.Services
         {
             return Response<object>.Wrap(() =>
             {
+                var userDirPath = Path.Combine(USER_PHOTOS_FOLDER, userid.ToString().ToLowerInvariant());
+                if (!Directory.Exists(USER_PHOTOS_FOLDER)) Directory.CreateDirectory(USER_PHOTOS_FOLDER);
+                if (!Directory.Exists(userDirPath)) Directory.CreateDirectory(userDirPath);
+
+                var filePath = Path.Combine(userDirPath, formFile.FileName);
+                File.WriteAllBytes(filePath, GetBtyes(formFile));
+
                 var photoID = Guid.NewGuid();
                 Photo photo = new Photo()
                 {
@@ -55,12 +64,12 @@ namespace DatingAppCore.BLL.Services
                     Access = DTO.PhotoAccessLevelEnum.Private,
                     Rank = -1,
                     UserID = userid,
+                    FileName = formFile.FileName,
                     ContentType = formFile.ContentType,
                     Data = new PhotoData()
                     {
                         ID = Guid.NewGuid(),
-                        Data = GetBtyes(formFile),
-                        PhotoID = photoID
+                        CreateDate = DateTime.UtcNow,
                     }
                 };
 
@@ -70,13 +79,6 @@ namespace DatingAppCore.BLL.Services
 
                 return new { };
             });
-        }
-
-        protected byte[] GetBtyes(IFormFile formFile)
-        {
-            MemoryStream mstream = new MemoryStream();
-            formFile.OpenReadStream().CopyTo(mstream);
-            return mstream.ToArray();
         }
     }
 }

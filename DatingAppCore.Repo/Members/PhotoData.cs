@@ -9,7 +9,6 @@ namespace DatingAppCore.Repo.Members
     {
         public Guid PhotoID { get; set; }
         public Byte[] Data { get; set; }
-        public string ContentType { get; set; }
 
         public Photo Photo { get; set; }
     }

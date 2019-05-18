@@ -4,14 +4,16 @@ using DatingAppCore.Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DatingAppCore.Repo.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20190518204930_PhotoFileName")]
+    partial class PhotoFileName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,8 +160,6 @@ namespace DatingAppCore.Repo.Migrations
 
                     b.Property<string>("Caption");
 
-                    b.Property<string>("ContentType");
-
                     b.Property<DateTime?>("CreateDate");
 
                     b.Property<string>("FileName");
@@ -181,6 +181,8 @@ namespace DatingAppCore.Repo.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ContentType");
 
                     b.Property<DateTime?>("CreateDate");
 

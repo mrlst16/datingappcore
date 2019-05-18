@@ -13,7 +13,7 @@ using System.Text;
 
 namespace DatingAppCore.BLL.Services
 {
-    public class GetPhotoStreamFromContextService : IGetPhotoStreamService
+    public class GetPhotosFromFileService : IGetPhotoStreamService
     {
         public Response<PhotoStreamResponse> GetPhotoAsStream(GetPhotoStreamRequest request)
         {
@@ -27,7 +27,9 @@ namespace DatingAppCore.BLL.Services
                 if (photo == null || photo.Data == null)
                     return null;
 
-                MemoryStream ms = new MemoryStream(photo.Data.Data);
+                var path = Path.Combine(SavePhotoToFileService.USER_PHOTOS_FOLDER, photo.UserID.ToString().ToLowerInvariant(), photo.FileName);
+
+                MemoryStream ms = new MemoryStream(File.ReadAllBytes(path));
                 return new PhotoStreamResponse()
                 {
                     ContentType = photo.ContentType,

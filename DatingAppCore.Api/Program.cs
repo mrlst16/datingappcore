@@ -38,11 +38,11 @@ namespace DatingAppCore.Api
             builder.RegisterType<GetUserService>().As<IGetUserService>();
             builder.RegisterType<LoginOrSignupService>().As<ILoginOrSignupService>();
             builder.RegisterType<PotentialMatchesService>().As<IPotentialMatchesService>();
-            builder.RegisterType<SaveFormFilesToDatabaseService>().As<ISaveFormFilesService>();
+            builder.RegisterType<SavePhotoToFileService>().As<ISaveFormFilesService>();
             builder.RegisterType<SendMessageService>().As<ISendMessageService>();
             builder.RegisterType<SendReviewService>().As<ISendReviewService>();
             builder.RegisterType<SetPhotosService>().As<ISetPhotosService>();
-            builder.RegisterType<GetPhotoStreamFromContextService>().As<IGetPhotoStreamService>();
+            builder.RegisterType<GetPhotosFromFileService>().As<IGetPhotoStreamService>();
             builder.RegisterType<SetProfileService>().As<ISetProfileService>();
             builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
             builder.RegisterType<SwipeService>().As<ISwipeService>();

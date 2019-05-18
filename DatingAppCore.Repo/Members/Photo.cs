@@ -13,7 +13,10 @@ namespace DatingAppCore.Repo.Members
         public Guid UserID { get; set; }
         public int Rank { get; set; }
         public string Caption { get; set; }
+        public string FileName { get; set; }
         public PhotoAccessLevelEnum Access { get; set; } = PhotoAccessLevelEnum.Public;
+        public string ContentType { get; set; }
+
         //Nav Props
         public User User { get; set; }
         public PhotoData Data { get; set; }
