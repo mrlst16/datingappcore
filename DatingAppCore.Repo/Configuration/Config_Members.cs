@@ -17,12 +17,14 @@ namespace DatingAppCore.Repo.Configuration
             mb.Entity<Match>().ToTable("Matches");
             mb.Entity<UserProfileField>().ToTable("UserProfileField");
             mb.Entity<Photo>().ToTable("Photos");
+            mb.Entity<PhotoData>().ToTable("PhotoData");
             mb.Entity<GrantedPermission>().ToTable("GrantedPermissions");
 
             mb.Entity<Match>().HasKey(x => x.ID);
             mb.Entity<User>().HasKey(x => x.ID);
             mb.Entity<UserProfileField>().HasKey(x => x.ID);
             mb.Entity<Photo>().HasKey(x => x.ID);
+            mb.Entity<PhotoData>().HasKey(x => x.ID);
             mb.Entity<GrantedPermission>().HasKey(x => x.ID);
 
             mb.Entity<User>()
@@ -82,6 +84,10 @@ namespace DatingAppCore.Repo.Configuration
             mb.Entity<UserProfileField>()
                 .HasIndex(u => new { u.Name, u.UserID, u.IsSetting })
                 .IsUnique();
+
+            mb.Entity<Photo>()
+                .HasOne(x => x.Data)
+                .WithOne(x => x.Photo);
         }
     }
 }

@@ -164,8 +164,6 @@ namespace DatingAppCore.Repo.Migrations
 
                     b.Property<int>("Rank");
 
-                    b.Property<string>("Url");
-
                     b.Property<Guid>("UserID");
 
                     b.HasKey("ID");
@@ -173,6 +171,29 @@ namespace DatingAppCore.Repo.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("Photos");
+                });
+
+            modelBuilder.Entity("DatingAppCore.Repo.Members.PhotoData", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ContentType");
+
+                    b.Property<DateTime?>("CreateDate");
+
+                    b.Property<byte[]>("Data");
+
+                    b.Property<DateTime?>("LastUpdated");
+
+                    b.Property<Guid>("PhotoID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("PhotoID")
+                        .IsUnique();
+
+                    b.ToTable("PhotoData");
                 });
 
             modelBuilder.Entity("DatingAppCore.Repo.Members.User", b =>
@@ -349,6 +370,14 @@ namespace DatingAppCore.Repo.Migrations
                     b.HasOne("DatingAppCore.Repo.Members.User", "User")
                         .WithMany("Photos")
                         .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DatingAppCore.Repo.Members.PhotoData", b =>
+                {
+                    b.HasOne("DatingAppCore.Repo.Members.Photo", "Photo")
+                        .WithOne("Data")
+                        .HasForeignKey("DatingAppCore.Repo.Members.PhotoData", "PhotoID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

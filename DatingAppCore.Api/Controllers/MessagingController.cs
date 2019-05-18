@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Autofac;
 using DatingAppCore.BLL.Services.Interfaces;
-using CommonCore.Mvc.Controller;
 using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
 
@@ -16,7 +15,7 @@ namespace DatingAppCore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MessagingController : CommonCoreControllerBase
+    public class MessagingController : ControllerBase
     {
         public MessagingController() : base()
         {

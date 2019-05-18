@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Configuration" Version="4.1.0" />
-    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.4.1" />
+    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.5" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
   </ItemGroup>

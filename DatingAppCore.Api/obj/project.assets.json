@@ -24,7 +24,7 @@
           "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.4.1": {
+      "CommonCoreByMattyLantz/1.0.5": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.9.2",
@@ -688,7 +688,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Html.Abstractions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http/2.2.0": {
+      "Microsoft.AspNetCore.Http/2.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -5295,8 +5295,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4.1",
+          "CommonCoreByMattyLantz": "1.0.5",
           "DatingAppCore.Repo": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
         },
@@ -5311,7 +5312,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4.1"
+          "CommonCoreByMattyLantz": "1.0.5",
+          "Microsoft.AspNetCore": "2.2.0",
+          "Microsoft.AspNetCore.Http": "2.2.2"
         },
         "compile": {
           "bin/placeholder/DatingAppCore.Dto.dll": {}
@@ -5324,7 +5327,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.4.1",
+          "CommonCoreByMattyLantz": "1.0.5",
           "DatingAppCore.Dto": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -5379,13 +5382,13 @@
         "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.xml"
       ]
     },
-    "CommonCoreByMattyLantz/1.0.4.1": {
-      "sha512": "PP/v2Ov45uEm4sC3M6rGLHZtvL0AgUwBIo6Ld1yRl/Zn9iYnI3wdwJ+xjqcPWcorOJ+KYgKcMiq0CIMncnfBPw==",
+    "CommonCoreByMattyLantz/1.0.5": {
+      "sha512": "Kj8U1VHY0dkJRzqHEFIDlzDHN+UF4DhER7+4DCiUyP+mkewghmGUelh2vP1bqakeWaYg/57keQoOU+JjZO8Uhg==",
       "type": "package",
-      "path": "commoncorebymattylantz/1.0.4.1",
+      "path": "commoncorebymattylantz/1.0.5",
       "files": [
         ".nupkg.metadata",
-        "commoncorebymattylantz.1.0.4.1.nupkg.sha512",
+        "commoncorebymattylantz.1.0.5.nupkg.sha512",
         "commoncorebymattylantz.nuspec",
         "lib/netcoreapp2.1/CommonCore.dll",
         "lib/netcoreapp2.1/CommonCore.runtimeconfig.json"
@@ -5853,16 +5856,16 @@
         "microsoft.aspnetcore.html.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http/2.2.0": {
-      "sha512": "YogBSMotWPAS/X5967pZ+yyWPQkThxhmzAwyCHCSSldzYBkW5W5d6oPfBaPqQOnSHYTpSOSOkpZoAce0vwb6+A==",
+    "Microsoft.AspNetCore.Http/2.2.2": {
+      "sha512": "BAibpoItxI5puk7YJbIGj95arZueM8B8M5xT1fXBn3hb3L2G3ucrZcYXv1gXdaroLbntUs8qeV8iuBrpjQsrKw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http/2.2.0",
+      "path": "microsoft.aspnetcore.http/2.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.xml",
-        "microsoft.aspnetcore.http.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
         "microsoft.aspnetcore.http.nuspec"
       ]
     },
@@ -14568,10 +14571,14 @@
     ".NETCoreApp,Version=v2.2": [
       "Autofac >= 4.9.2",
       "Autofac.Extensions.DependencyInjection >= 4.4.0",
-      "CommonCoreByMattyLantz >= 1.0.4.1",
+      "CommonCoreByMattyLantz >= 1.0.5",
       "DatingAppCore.BLL >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
+      "Microsoft.AspNetCore.Mvc.Abstractions >= 2.2.0",
+      "Microsoft.AspNetCore.Mvc.ViewFeatures >= 2.2.0",
+      "Microsoft.AspNetCore.Razor >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+      "Microsoft.AspNetCore.WebUtilities >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.4.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.3",
@@ -14636,7 +14643,7 @@
           },
           "CommonCoreByMattyLantz": {
             "target": "Package",
-            "version": "[1.0.4.1, )"
+            "version": "[1.0.5, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
@@ -14644,8 +14651,24 @@
             "version": "[2.2.0, )",
             "autoReferenced": true
           },
+          "Microsoft.AspNetCore.Mvc.Abstractions": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.AspNetCore.Razor": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.AspNetCore.WebUtilities": {
             "target": "Package",
             "version": "[2.2.0, )"
           },

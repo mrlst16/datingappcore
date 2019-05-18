@@ -15,7 +15,7 @@ namespace DatingAppCore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReviewsController : CommonCore.Mvc.Controller.CommonCoreControllerBase
+    public class ReviewsController : ControllerBase
     {
         public ReviewsController() : base()
         {

@@ -46,7 +46,15 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4.1, )"
+              "version": "[1.0.5, )"
+            },
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
@@ -109,7 +117,7 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4.1, )"
+              "version": "[1.0.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

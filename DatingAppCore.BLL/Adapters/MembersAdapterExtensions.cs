@@ -73,8 +73,7 @@ namespace DatingAppCore.BLL.Adapters
                 UserID = entity.UserID,
                 Access = entity.Access,
                 Caption = entity.Caption,
-                Rank = entity.Rank,
-                Url = entity.Url
+                Rank = entity.Rank
             };
         }
 
@@ -130,7 +129,6 @@ namespace DatingAppCore.BLL.Adapters
                 UserID = dto.UserID,
                 Access = dto.Access,
                 Caption = dto.Caption,
-                Url = dto.Url,
                 Rank = dto.Rank,
                 LastUpdated = DateTime.UtcNow
             }.EnsureID();

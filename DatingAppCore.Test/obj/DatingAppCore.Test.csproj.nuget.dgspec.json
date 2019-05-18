@@ -58,7 +58,7 @@
             },
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4.1, )"
+              "version": "[1.0.5, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
@@ -66,8 +66,24 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Razor": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.WebUtilities": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
@@ -144,7 +160,11 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4.1, )"
+              "version": "[1.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.4, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
@@ -211,7 +231,15 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4.1, )"
+              "version": "[1.0.5, )"
+            },
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
@@ -274,7 +302,7 @@
           "dependencies": {
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4.1, )"
+              "version": "[1.0.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -364,7 +392,7 @@
             },
             "CommonCoreByMattyLantz": {
               "target": "Package",
-              "version": "[1.0.4.1, )"
+              "version": "[1.0.5, )"
             },
             "MSTest.TestAdapter": {
               "target": "Package",
