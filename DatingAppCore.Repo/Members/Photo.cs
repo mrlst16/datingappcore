@@ -20,5 +20,14 @@ namespace DatingAppCore.Repo.Members
         //Nav Props
         public User User { get; set; }
         public PhotoData Data { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Photo)) return false;
+            var photo = obj as Photo;
+
+            return this.UserID == photo.UserID
+                && this.FileName == this.FileName;
+        }
     }
 }
