@@ -3723,7 +3723,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.5": {
+      "CommonCoreByMattyLantz/1.0.5.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
@@ -3743,7 +3743,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.5",
+          "CommonCoreByMattyLantz": "1.0.5.1",
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.2"
         },
@@ -10833,7 +10833,7 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "CommonCoreByMattyLantz/1.0.5": {
+    "CommonCoreByMattyLantz/1.0.5.1": {
       "type": "project",
       "path": "../../CommonCore/CommonCore/CommonCore.csproj",
       "msbuildProject": "../../CommonCore/CommonCore/CommonCore.csproj"

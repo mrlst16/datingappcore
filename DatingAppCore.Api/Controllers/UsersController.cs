@@ -19,12 +19,33 @@ namespace DatingAppCore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : Controller
     {
+        private readonly ILoginOrSignupService _loginOrSignupService;
+        private readonly IGetUserService _getUserService;
+        private readonly ISetSettingsService _setSettingsService;
+        private readonly ISetProfileService _setProfileService;
+        private readonly ISetPhotosService _setPhotosService;
+        private readonly ISaveFormFilesService _saveFormFilesService;
+        private readonly IGetPhotoStreamService _getPhotoStreamService;
 
-        public UsersController() : base()
+        public UsersController(
+            ILoginOrSignupService loginOrSignupService,
+            IGetUserService getUserService,
+            ISetSettingsService setSettingsService,
+            ISetProfileService setProfileService,
+            ISetPhotosService setPhotosService,
+            ISaveFormFilesService saveFormFilesService,
+            IGetPhotoStreamService getPhotoStreamService
+            )
         {
-
+            _loginOrSignupService = loginOrSignupService;
+            _getUserService = getUserService;
+            _setSettingsService = setSettingsService;
+            _setProfileService = setProfileService;
+            _setPhotosService = setPhotosService;
+            _saveFormFilesService = saveFormFilesService;
+            _getPhotoStreamService = getPhotoStreamService;
         }
 
         [HttpPost]
@@ -47,8 +68,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("login_or_signup")]
         public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
         {
-            var service = ServiceProvider.GetService<ILoginOrSignupService>();
-            var result = await service.LoginOrSignup(request);
+            var result = await _loginOrSignupService.LoginOrSignup(request);
             return Json(result);
         }
 
@@ -56,8 +76,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("get_user")]
         public async Task<IActionResult> GetUser(GetUserRequest request)
         {
-            IGetUserService service = ServiceProvider.GetService<IGetUserService>();
-            var result = await service.GetUser(request);
+            var result = await _getUserService.GetUser(request);
             return Ok(JsonConvert.SerializeObject(result));
         }
 
@@ -65,8 +84,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_user_settings")]
         public async Task<IActionResult> SetUserSettings(SetPropertiesRequest request)
         {
-            var service = ServiceProvider.GetService<ISetSettingsService>();
-            var result = await service.Set(request);
+            var result = await _setSettingsService.Set(request);
             return Json(result);
         }
 
@@ -74,8 +92,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_user_profile")]
         public async Task<IActionResult> SetUserProfile(SetPropertiesRequest request)
         {
-            ISetProfileService service = ServiceProvider.GetService<ISetProfileService>();
-            var result = await service.Set(request);
+            var result = await _setProfileService.Set(request);
             return Json(result);
         }
 
@@ -83,8 +100,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_photos")]
         public async Task<IActionResult> SetPhotos(SetPhotosRequest request)
         {
-            ISetPhotosService service = ServiceProvider.GetService<ISetPhotosService>();
-            var result = await service.Set(request);
+            var result = await _setPhotosService.Set(request);
             return Json(result);
         }
 
@@ -99,8 +115,7 @@ namespace DatingAppCore.Api.Controllers
 
             if (Guid.TryParse(Request.Headers["userid"], out Guid userid))
             {
-                ISaveFormFilesService service = ServiceProvider.GetService<ISaveFormFilesService>();
-                result = await service.Save(new SaveFilesRequest()
+                result = await _saveFormFilesService.Save(new SaveFilesRequest()
                 {
                     Files = files,
                     UserID = userid
@@ -110,10 +125,9 @@ namespace DatingAppCore.Api.Controllers
         }
 
         [HttpGet("photo")]
-        public IActionResult ViewImage(Guid id)
+        public async Task<IActionResult> ViewImage(Guid id)
         {
-            IGetPhotoStreamService service = ServiceProvider.GetService<IGetPhotoStreamService>();
-            var response = service.GetPhotoAsStream(new GetPhotoStreamRequest()
+            var response = await _getPhotoStreamService.GetPhotoAsStream(new GetPhotoStreamRequest()
             {
                 PhotoID = id
             });

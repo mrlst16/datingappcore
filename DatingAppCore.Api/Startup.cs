@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using CommonCore.IOC;
+using CommonCore.Repo.Repository;
+using DatingApp.API.Services;
 using DatingAppCore.Api.MiddleWare;
+using DatingAppCore.BLL.Services;
+using DatingAppCore.BLL.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,13 +34,20 @@ namespace DatingAppCore.Api
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddAuthentication("Basic").AddScheme<BasicAuthOptions, BasicAuthHandler>("Basic", null, options => {
                 
             });
+
+            SetupDbConexts();
+            var container = SetupIOC(services);
+            var asp = new AutofacServiceProvider(container);
+            KeyedDependencyResolver.InitDefault(asp);
+
+            return asp;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,5 +76,29 @@ namespace DatingAppCore.Api
             });
         }
 
+        private IContainer SetupIOC(IServiceCollection services)
+        {
+            var builder = new ContainerBuilder();
+            builder.Populate(services);
+            builder.RegisterType<GetUserService>().As<IGetUserService>();
+            builder.RegisterType<LoginOrSignupService>().As<ILoginOrSignupService>();
+            builder.RegisterType<PotentialMatchesService>().As<IPotentialMatchesService>();
+            builder.RegisterType<SavePhotoToFileService>().As<ISaveFormFilesService>();
+            builder.RegisterType<SendMessageService>().As<ISendMessageService>();
+            builder.RegisterType<SendReviewService>().As<ISendReviewService>();
+            builder.RegisterType<SetPhotosUpdateOrderOnlyService>().As<ISetPhotosService>();
+            builder.RegisterType<GetPhotosFromFileService>().As<IGetPhotoStreamService>();
+            builder.RegisterType<SetProfileService>().As<ISetProfileService>();
+            builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
+            builder.RegisterType<SwipeService>().As<ISwipeService>();
+            builder.RegisterType<BasicAuthorizationService>().As<CommonCore.Services.Interfaces.IAuthorizationService>();
+            var container = builder.Build();
+            return container;
+        }
+
+        private static void SetupDbConexts()
+        {
+            RepoCache.Initialize(typeof(DatingAppCore.Repo.AppContext));
+        }
     }
 }

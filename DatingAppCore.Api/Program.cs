@@ -22,16 +22,18 @@ namespace DatingAppCore.Api
     {
         public static void Main(string[] args)
         {
-            SetupIOC();
+            //SetupIOC();
             SetupDbConexts();
 
-            CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args)
+                .Build()
+                .Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
-
+        
         protected static void SetupIOC()
         {
             var builder = new ContainerBuilder();
@@ -41,7 +43,7 @@ namespace DatingAppCore.Api
             builder.RegisterType<SavePhotoToFileService>().As<ISaveFormFilesService>();
             builder.RegisterType<SendMessageService>().As<ISendMessageService>();
             builder.RegisterType<SendReviewService>().As<ISendReviewService>();
-            builder.RegisterType<SetPhotosService>().As<ISetPhotosService>();
+            builder.RegisterType<SetPhotosUpdateOrderOnlyService>().As<ISetPhotosService>();
             builder.RegisterType<GetPhotosFromFileService>().As<IGetPhotoStreamService>();
             builder.RegisterType<SetProfileService>().As<ISetProfileService>();
             builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();

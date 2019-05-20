@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonCore.Repo.Repository;
 using CommonCore.Responses;
-using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.BLL.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Repo.Members;
@@ -17,7 +17,19 @@ namespace DatingAppCore.BLL.Services
         {
             return Response<bool>.Wrap(() =>
             {
-                UsersRepoHelper.SetPhotos(request);
+                var photos = request.Photos.Select(x =>
+                {
+                    x.UserID = request.UserID;
+                    return x;
+                });
+                RepoCache.Get<Photo>()
+                    .RemoveRange(photos)
+                    .AddRange(request.Photos.Select(x =>
+                    {
+                        x.UserID = request.UserID;
+                        return x;
+                    }))
+                    .Save();
                 return true;
             });
         }

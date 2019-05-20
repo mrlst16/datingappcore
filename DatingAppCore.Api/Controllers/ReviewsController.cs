@@ -15,18 +15,20 @@ namespace DatingAppCore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReviewsController : ControllerBase
+    public class ReviewsController : Controller
     {
-        public ReviewsController() : base()
+        private readonly ISendReviewService _sendReviewService;
+
+        public ReviewsController(ISendReviewService sendReviewService)
         {
+            _sendReviewService = sendReviewService;
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("send")]
         public async Task<IActionResult> Send(ReviewDTO request)
         {
-            var service = ServiceProvider.GetService<ISendReviewService>();
-            var result = await service.Send(request);
+            var result = await _sendReviewService.Send(request);
             return Ok(result);
         }
     }

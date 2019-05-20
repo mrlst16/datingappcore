@@ -2779,7 +2779,7 @@
           }
         }
       },
-      "CommonCoreByMattyLantz/1.0.5": {
+      "CommonCoreByMattyLantz/1.0.5.1": {
         "dependencies": {
           "Autofac": "4.9.2",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
@@ -2792,7 +2792,7 @@
       },
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.5",
+          "CommonCoreByMattyLantz": "1.0.5.1",
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.2"
         },
@@ -4348,7 +4348,7 @@
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
     },
-    "CommonCoreByMattyLantz/1.0.5": {
+    "CommonCoreByMattyLantz/1.0.5.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

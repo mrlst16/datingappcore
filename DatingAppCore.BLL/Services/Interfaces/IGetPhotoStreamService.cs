@@ -11,6 +11,6 @@ namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface IGetPhotoStreamService
     {
-        Response<PhotoStreamResponse> GetPhotoAsStream(GetPhotoStreamRequest request);
+        Task<Response<PhotoStreamResponse>> GetPhotoAsStream(GetPhotoStreamRequest request);
     }
 }

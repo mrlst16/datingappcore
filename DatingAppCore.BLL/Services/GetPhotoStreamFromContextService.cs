@@ -10,12 +10,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DatingAppCore.BLL.Services
 {
     public class GetPhotoStreamFromContextService : IGetPhotoStreamService
     {
-        public Response<PhotoStreamResponse> GetPhotoAsStream(GetPhotoStreamRequest request)
+        public async Task<Response<PhotoStreamResponse>> GetPhotoAsStream(GetPhotoStreamRequest request)
         {
             return Response<PhotoStreamResponse>.Wrap(() =>
             {

@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\Repos\\CommonCore\\CommonCore\\CommonCore.csproj": {
-      "version": "1.0.5",
+      "version": "1.0.5.1",
       "restore": {
         "projectUniqueName": "D:\\Repos\\CommonCore\\CommonCore\\CommonCore.csproj",
         "projectName": "CommonCoreByMattyLantz",
@@ -126,6 +126,10 @@
             "Autofac.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[4.4.0, )"
+            },
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",

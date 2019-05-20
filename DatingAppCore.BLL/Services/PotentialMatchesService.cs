@@ -7,12 +7,12 @@ using CommonCore.Repo.Repository;
 using CommonCore.Repo.Requests;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
-using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.BLL.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.DTO.Members;
 using DatingAppCore.Repo;
 using DatingAppCore.Repo.Members;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatingAppCore.BLL.Services
 {
@@ -36,9 +36,19 @@ namespace DatingAppCore.BLL.Services
                     }
                 );
 
-                return UsersRepoHelper
-                    .GetUsersIn(users.Select(x => x.ID).ToList())
-                    .Select(x => x.ToDto());
+                try
+                {
+                    var ids = users.Select(x => x.ID).ToList();
+                    return RepoCache.GetQuery<User>()
+                        .Where(x => ids.Contains(x.ID))
+                        .Include(x => x.Profile)
+                        .ToList()
+                        .Select(x => x.ToDto());
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
             });
         }
     }

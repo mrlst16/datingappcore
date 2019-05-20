@@ -62,7 +62,7 @@ namespace DatingAppCore.BLL.Services
                 {
                     ID = photoID,
                     Access = DTO.PhotoAccessLevelEnum.Private,
-                    Rank = -1,
+                    Rank = RepoCache.Get<Photo>().GetQuery().Count(x=> x.UserID == userid),
                     UserID = userid,
                     FileName = formFile.FileName,
                     ContentType = formFile.ContentType,

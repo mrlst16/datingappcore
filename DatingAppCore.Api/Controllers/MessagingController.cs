@@ -15,19 +15,20 @@ namespace DatingAppCore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MessagingController : ControllerBase
+    public class MessagingController : Controller
     {
-        public MessagingController() : base()
-        {
+        private readonly ISendMessageService _sendMessageService;
 
+        public MessagingController(ISendMessageService sendMessageService)
+        {
+            _sendMessageService = sendMessageService;
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("send")]
         public async Task<IActionResult> Send(MessageDTO request)
         {
-            var service = ServiceProvider.GetService<ISendMessageService>();
-            var result = await service.Send(request);
+            var result = await _sendMessageService.Send(request);
             return Json(result);
         }
     }
