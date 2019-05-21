@@ -25,8 +25,9 @@ namespace DatingAppCore.Repo.Members
         {
             if (!(obj is Photo)) return false;
             var photo = obj as Photo;
+            if (this.ID == Guid.Empty && photo.ID == Guid.Empty) return false;
 
-            return this.UserID == photo.UserID
+            return (this.ID == photo.ID) || this.UserID == photo.UserID
                 && this.FileName == this.FileName;
         }
     }

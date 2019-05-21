@@ -33,7 +33,7 @@ namespace DatingAppCore.BLL.Services
 
                 RepoCache
                     .Get<Photo>()
-                    .RemoveRange(updateThis)
+                    .RemoveRange(x => x.UserID == request.UserID)
                     .AddRange(updateThis)
                     .Save();
                 return true;
