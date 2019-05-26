@@ -62,7 +62,7 @@ namespace DatingAppCore.BLL.Services
                     .FirstOrDefault()
                     ?.ToDto();
 
-                result.Photos = result.Photos.OrderBy(x => x.Rank).ToList();
+                result.Photos = result.Photos?.OrderBy(x => x.Rank).ToList() ?? null;
 
                 return result;
             });

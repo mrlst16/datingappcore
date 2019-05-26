@@ -106,8 +106,8 @@ namespace DatingAppCore.Api.Controllers
 
 
         [Authorize(AuthenticationSchemes = "Basic")]
-        [HttpPost("UploadFiles")]
-        public async Task<IActionResult> Upload(List<IFormFile> files)
+        [HttpPost("upload_photo")]
+        public async Task<IActionResult> UploadPhoto(List<IFormFile> files)
         {
             Response<bool> result =
                 new Response<bool>()
@@ -124,7 +124,7 @@ namespace DatingAppCore.Api.Controllers
             return Json(result);
         }
 
-        [HttpGet("photo")]
+        [HttpGet("get_photo")]
         public async Task<IActionResult> ViewImage(Guid id)
         {
             var response = await _getPhotoStreamService.GetPhotoAsStream(new GetPhotoStreamRequest()
