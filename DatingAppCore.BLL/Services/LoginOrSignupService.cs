@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using CommonCore.Repo;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
@@ -32,8 +33,9 @@ namespace DatingAppCore.BLL.Services
                 }
                 else
                 {
-                    repo.Add(request.User?.ToEntity());
-                    response.User = request.User;
+                    var resultUser = request.User?.ToEntity().EnsureID();
+                    repo.Add(resultUser);
+                    response.User = resultUser.ToDto();
                 }
                 repo.Save();
                 return response;

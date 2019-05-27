@@ -28,6 +28,7 @@ namespace DatingAppCore.Api.Controllers
         private readonly ISetPhotosService _setPhotosService;
         private readonly ISaveFormFilesService _saveFormFilesService;
         private readonly IGetPhotoStreamService _getPhotoStreamService;
+        private readonly IRecordUserLocationService _recordUserLocationService;
 
         public UsersController(
             ILoginOrSignupService loginOrSignupService,
@@ -36,7 +37,8 @@ namespace DatingAppCore.Api.Controllers
             ISetProfileService setProfileService,
             ISetPhotosService setPhotosService,
             ISaveFormFilesService saveFormFilesService,
-            IGetPhotoStreamService getPhotoStreamService
+            IGetPhotoStreamService getPhotoStreamService,
+            IRecordUserLocationService recordUserLocationService
             )
         {
             _loginOrSignupService = loginOrSignupService;
@@ -46,6 +48,7 @@ namespace DatingAppCore.Api.Controllers
             _setPhotosService = setPhotosService;
             _saveFormFilesService = saveFormFilesService;
             _getPhotoStreamService = getPhotoStreamService;
+            _recordUserLocationService = recordUserLocationService;
         }
 
         [HttpPost]
@@ -132,6 +135,14 @@ namespace DatingAppCore.Api.Controllers
                 PhotoID = id
             });
             return File(response.Result.Stream, response.Result.ContentType);
+        }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("record_user_location")]
+        public async Task<IActionResult> RecordUserLocation(UserLocation request)
+        {
+            var result = await _recordUserLocationService.Record(request);
+            return Json(result);
         }
     }
 }
