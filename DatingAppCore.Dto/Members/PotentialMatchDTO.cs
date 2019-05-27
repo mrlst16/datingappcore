@@ -5,7 +5,8 @@ using System.Text;
 
 namespace DatingAppCore.Dto.Members
 {
-    public class PotentialMatchDTO : DtoBase
+    public class PotentialMatchDTO
     {
+        public Guid userid { get; set; }
     }
 }

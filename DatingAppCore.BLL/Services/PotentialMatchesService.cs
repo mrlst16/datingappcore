@@ -9,6 +9,7 @@ using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Members;
 using DatingAppCore.DTO.Members;
 using DatingAppCore.Repo;
 using DatingAppCore.Repo.Members;
@@ -18,11 +19,11 @@ namespace DatingAppCore.BLL.Services
 {
     public class PotentialMatchesService : IPotentialMatchesService
     {
-        async Task<Response<IEnumerable<UserDTO>>> IPotentialMatchesService.FindPotentialMatches(FindMatchRequest request)
+        public async Task<Response<IEnumerable<UserDTO>>> FindPotentialMatches(FindMatchRequest request)
         {
             return Response<IEnumerable<UserDTO>>.Wrap(y =>
             {
-                var users = RepoCache.RunSproc<UserDTO>(
+                var users = RepoCache.RunSproc<PotentialMatchDTO>(
                     new RunSprocRequest()
                     {
                         ContextType = typeof(Repo.AppContext),
@@ -36,19 +37,12 @@ namespace DatingAppCore.BLL.Services
                     }
                 );
 
-                try
-                {
-                    var ids = users.Select(x => x.ID).ToList();
-                    return RepoCache.GetQuery<User>()
-                        .Where(x => ids.Contains(x.ID))
-                        .Include(x => x.Profile)
-                        .ToList()
-                        .Select(x => x.ToDto());
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
+                var ids = users.Select(x => x.userid).ToList();
+                return RepoCache.GetQuery<User>()
+                    .Where(x => ids.Contains(x.ID))
+                    .Include(x => x.Profile)
+                    .ToList()
+                    .Select(x => x.ToDto());
             });
         }
     }
