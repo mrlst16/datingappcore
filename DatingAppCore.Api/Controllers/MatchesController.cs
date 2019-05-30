@@ -46,5 +46,13 @@ namespace DatingAppCore.Api.Controllers
             var result = await _swipeService.Swipe(request);
             return Json(result);
         }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("matches")]
+        public async Task<IActionResult> Matches(SwipeDTO request)
+        {
+            var result = await _swipeService.Swipe(request);
+            return Json(result);
+        }
     }
 }
