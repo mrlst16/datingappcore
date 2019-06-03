@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Server.HttpSys;
 using System.Net;
 using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
+using DatingAppCore.Dto.Members;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -22,13 +23,16 @@ namespace DatingAppCore.Api.Controllers
     {
         private readonly IPotentialMatchesService _potentialMatchesService;
         private readonly ISwipeService _swipeService;
+        private readonly IMatchesService _matchesService;
 
         public MatchesController(
             IPotentialMatchesService potentialMatchesService, 
-            ISwipeService swipeService)
+            ISwipeService swipeService,
+            IMatchesService matchesService)
         {
             _potentialMatchesService = potentialMatchesService;
             _swipeService = swipeService;
+            _matchesService = matchesService;
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
@@ -49,9 +53,9 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("matches")]
-        public async Task<IActionResult> Matches(SwipeDTO request)
+        public async Task<IActionResult> Matches(MatchDTO reques)
         {
-            var result = await _swipeService.Swipe(request);
+            var result = await _matchesService.GetMatches(reques.UserID);
             return Json(result);
         }
     }

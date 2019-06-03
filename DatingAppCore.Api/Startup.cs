@@ -91,6 +91,7 @@ namespace DatingAppCore.Api
             builder.RegisterType<SetProfileService>().As<ISetProfileService>();
             builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
             builder.RegisterType<SwipeService>().As<ISwipeService>();
+            builder.RegisterType<MatchesService>().As<IMatchesService>();
             builder.RegisterType<RecordUserLocationService>().As<IRecordUserLocationService>();
             builder.RegisterType<BasicAuthorizationService>().As<CommonCore.Services.Interfaces.IAuthorizationService>();
             var container = builder.Build();

@@ -26,21 +26,26 @@ namespace DatingAppCore.BLL.Services
         {
             return Response<IEnumerable<UserDTO>>.Wrap(() =>
             {
-                var result = new List<UserDTO>();
                 var resultUsers = new List<Guid>();
 
                 var repo = RepoCache.Get<Swipe>();
-                var swipesFrom = repo.GetQuery().Where(x => x.UserFromID == userid && x.IsLike);
-                var swipesTo = repo.GetQuery().Where(x => x.UserToID == userid && x.IsLike);
+                var peopleTheUserSwipedOn = repo.GetQuery()
+                    .Where(x => x.UserFromID == userid && x.IsLike)
+                    .Select(x => x.UserToID)
+                    .Distinct();
 
-                var swipesToUserIds = swipesTo.Select(x => x.UserToID);
-                foreach (var swipeFrom in swipesFrom)
+                var peopleWhoSwipedOnTheUser = repo.GetQuery()
+                    .Where(x => x.UserToID == userid && x.IsLike)
+                    .Select(x => x.UserFromID)
+                    .Distinct();
+
+                foreach (var personTheUserSwipedOn in peopleTheUserSwipedOn)
                 {
-                    if (swipesToUserIds.Contains(swipeFrom.UserFromID))
-                        resultUsers.Add(swipeFrom.UserFromID);
+                    if (peopleWhoSwipedOnTheUser.Contains(personTheUserSwipedOn))
+                        resultUsers.Add(personTheUserSwipedOn);
                 }
 
-                var users = resultUsers.Select(x => RepoCache.Get<User>().GetUser(new Requests.GetUserRequest()
+                return resultUsers.Select(x => RepoCache.Get<User>().GetUser(new Requests.GetUserRequest()
                 {
                     UserID = userid,
                     IncludeMessages = true,
@@ -48,8 +53,6 @@ namespace DatingAppCore.BLL.Services
                     IncludeProfile = true,
                     IncludeReviews = true
                 }));
-
-                return result;
             });
         }
     }

@@ -6,6 +6,6 @@ namespace DatingAppCore.Dto.Members
 {
     public class MatchDTO
     {
-        public Guid userid { get; set; }
+        public Guid UserID { get; set; }
     }
 }
