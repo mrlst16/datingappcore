@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace DatingAppCore.BLL.Services.Interfaces
 {
-    public interface IMatchesService
+    public interface IGetMatchesService
     {
         Task<Response<IEnumerable<UserDTO>>> GetMatches(Guid userid);
+
+        Task<Response<bool>> IsMatch(Guid user1id, Guid user2id);
     }
 }
