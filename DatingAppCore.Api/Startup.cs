@@ -38,8 +38,9 @@ namespace DatingAppCore.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddAuthentication("Basic").AddScheme<BasicAuthOptions, BasicAuthHandler>("Basic", null, options => {
-                
+            services.AddAuthentication("Basic").AddScheme<BasicAuthOptions, BasicAuthHandler>("Basic", null, options =>
+            {
+
             });
 
             SetupDbConexts();

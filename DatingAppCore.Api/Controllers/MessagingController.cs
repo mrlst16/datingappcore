@@ -20,13 +20,15 @@ namespace DatingAppCore.Api.Controllers
     {
         private readonly ISendMessageService _sendMessageService;
         private readonly IReadMessageService _readMessageService;
-        public MessagingController(
+        
+		public MessagingController(
             ISendMessageService sendMessageService,
             IReadMessageService readMessageService
             )
         {
             _sendMessageService = sendMessageService;
             _readMessageService = readMessageService;
+
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
