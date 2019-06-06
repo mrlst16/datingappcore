@@ -58,5 +58,13 @@ namespace DatingAppCore.Api.Controllers
             var result = await _getMatchesService.GetMatches(reques.UserID);
             return Json(result);
         }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("is_match")]
+        public async Task<IActionResult> IsMatch(IsMatchRequest request)
+        {
+            var result = await _getMatchesService.IsMatch(request.User1ID, request.User2ID);
+            return Json(result);
+        }
     }
 }

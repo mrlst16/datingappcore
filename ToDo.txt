@@ -1,0 +1,5 @@
+Figure out the swipe bug
+	Not swiping properly, incorrect swipe to recorded and removed.  
+Potential Matches sproc bug
+	Dogs is not matching up
+	
