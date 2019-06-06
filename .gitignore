@@ -36,3 +36,12 @@
 *.ide*
 *.ide
 *.suo
+*.cache
+*.pdb
+*.lock
+
+#folders
+Packages/*
+packages/*
+*/obj/*
+.vs/*

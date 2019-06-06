@@ -33,15 +33,15 @@ namespace DatingAppCore.BLL.Services
                     .Select(x => x.UserFromID)
                     .Distinct();
 
-                foreach (var personTheUserSwipedOn in peopleTheUserSwipedOn)
+                foreach (var personWhoSwipedOnTheUsed in peopleWhoSwipedOnTheUser)
                 {
-                    if (peopleWhoSwipedOnTheUser.Contains(personTheUserSwipedOn))
-                        resultUsers.Add(personTheUserSwipedOn);
+                    if (peopleTheUserSwipedOn.Contains(personWhoSwipedOnTheUsed))
+                        resultUsers.Add(personWhoSwipedOnTheUsed);
                 }
 
                 return resultUsers.Select(x => RepoCache.Get<User>().GetUser(new Requests.GetUserRequest()
                 {
-                    UserID = userid,
+                    UserID = x,
                     IncludeMessages = true,
                     IncludePhotos = true,
                     IncludeProfile = true,
