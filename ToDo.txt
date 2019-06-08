@@ -1,5 +1,10 @@
-Figure out the swipe bug
-	Not swiping properly, incorrect swipe to recorded and removed.  
 Potential Matches sproc bug
 	Dogs is not matching up
+	
+Refactoring
+	Move interfaces to thier own assembly
+	Make all requests live in a project called Model
+	Make a DTO object for each reop object used, even if it's just a copy, we should seperate entities from DTOs and use dtos in the logic/interfaces
+	Make all repo calls extension methods and plug them into the services
+	fix gitignore, forcepush to master
 	

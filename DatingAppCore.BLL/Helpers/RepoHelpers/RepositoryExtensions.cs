@@ -1,8 +1,10 @@
 ﻿using CommonCore.Repo.Repository;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Requests;
+using DatingAppCore.Dto.Messages;
 using DatingAppCore.DTO.Members;
 using DatingAppCore.Repo.Members;
+using DatingAppCore.Repo.Messaging;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -60,6 +62,15 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
             result.Photos = result.Photos?.OrderBy(x => x.Rank).ToList() ?? null;
 
             return result;
+        }
+
+        public static IEnumerable<Message> GetMessagesByUserID(this Repository<Message> repo, LookupByUserIDRequest request)
+        {
+            return repo.GetQuery()
+                .Where(x => x.SenderID == request.UserID
+                    && x.ReceiverID == request.UserID)
+                .Skip(request.Skip)
+                .Take(request.Take);
         }
     }
 }

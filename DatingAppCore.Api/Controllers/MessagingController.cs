@@ -10,6 +10,7 @@ using Autofac;
 using DatingAppCore.BLL.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
+using DatingAppCore.Dto.Messages;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -18,10 +19,14 @@ namespace DatingAppCore.Api.Controllers
     public class MessagingController : Controller
     {
         private readonly ISendMessageService _sendMessageService;
-
-        public MessagingController(ISendMessageService sendMessageService)
+        private readonly IReadMessageService _readMessageService;
+        public MessagingController(
+            ISendMessageService sendMessageService,
+            IReadMessageService readMessageService
+            )
         {
             _sendMessageService = sendMessageService;
+            _readMessageService = readMessageService;
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
@@ -29,6 +34,14 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> Send(MessageDTO request)
         {
             var result = await _sendMessageService.Send(request);
+            return Json(result);
+        }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("read")]
+        public async Task<IActionResult> Read(LookupByUserIDRequest request)
+        {
+            var result = await _readMessageService.ReadMessages(request);
             return Json(result);
         }
     }
