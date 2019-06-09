@@ -3,6 +3,9 @@ Potential Matches sproc bug
 
 Refactoring
 	Move interfaces to thier own assembly
-	Make all requests live in a project called Model
+	Make all requests live in a project called DTO
 	Make a DTO object for each reop object used, even if it's just a copy, we should seperate entities from DTOs and use dtos in the logic/interfaces
-	Make all repo calls extension methods and plug them into the services
+	Make all repo calls extension methods and plug them into the services where applicable
+	Make an abstract service class (use the template pattern) to include validation
+		So, Make validators
+	Make mappers but use the IConverter interface

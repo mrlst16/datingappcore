@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
+using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.BLL.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Repo.Members;
@@ -15,23 +16,7 @@ namespace DatingAppCore.BLL.Services
     {
         public async Task<Response<bool>> Set(SetPhotosRequest request)
         {
-            return Response<bool>.Wrap(() =>
-            {
-                var photos = request.Photos.Select(x =>
-                {
-                    x.UserID = request.UserID;
-                    return x;
-                });
-                RepoCache.Get<Photo>()
-                    .RemoveRange(photos)
-                    .AddRange(request.Photos.Select(x =>
-                    {
-                        x.UserID = request.UserID;
-                        return x;
-                    }))
-                    .Save();
-                return true;
-            });
+            return Response<bool>.Wrap(() => RepoCache.Get<Photo>().SavePhotos(request));
         }
     }
 }

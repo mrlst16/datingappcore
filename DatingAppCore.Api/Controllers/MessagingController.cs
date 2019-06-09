@@ -28,7 +28,6 @@ namespace DatingAppCore.Api.Controllers
         {
             _sendMessageService = sendMessageService;
             _readMessageService = readMessageService;
-
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]

@@ -1,5 +1,6 @@
 ﻿using CommonCore.Repo.Repository;
 using CommonCore.Responses;
+using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.BLL.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.DTO.Members;
@@ -16,28 +17,7 @@ namespace DatingAppCore.BLL.Services
     {
         public async Task<Response<bool>> Set(SetPhotosRequest request)
         {
-            return Response<bool>.Wrap(() =>
-            {
-                List<Photo> updateThis = new List<Photo>();
-                var queryAble = RepoCache.GetQuery<Photo>();
-                for (int i = 0; i < request.Photos.Count; i++)
-                {
-                    var photo = request.Photos[i];
-                    photo = queryAble.FirstOrDefault(x => x == photo);
-                    if (photo == null) photo = request.Photos[i];
-
-                    photo.UserID = request.UserID;
-                    photo.Rank = i;
-                    updateThis.Add(photo);
-                }
-
-                RepoCache
-                    .Get<Photo>()
-                    .RemoveRange(x => x.UserID == request.UserID)
-                    .AddRange(updateThis)
-                    .Save();
-                return true;
-            });
+            return Response<bool>.Wrap(() => RepoCache.Get<Photo>().SavePhotosOrer(request));
         }
     }
 }

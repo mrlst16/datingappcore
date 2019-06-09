@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Test", "Datin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore", "..\CommonCore\CommonCore\CommonCore.csproj", "{1ABFFCFE-87D3-42EC-A80B-C4F85EFDC1AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.BLL.Interfaces", "DatingAppCore.BLL.Interfaces\DatingAppCore.BLL.Interfaces.csproj", "{5DFB0207-6707-4573-853F-3D1CD3CB9864}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{1ABFFCFE-87D3-42EC-A80B-C4F85EFDC1AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ABFFCFE-87D3-42EC-A80B-C4F85EFDC1AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ABFFCFE-87D3-42EC-A80B-C4F85EFDC1AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DFB0207-6707-4573-853F-3D1CD3CB9864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DFB0207-6707-4573-853F-3D1CD3CB9864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DFB0207-6707-4573-853F-3D1CD3CB9864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DFB0207-6707-4573-853F-3D1CD3CB9864}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
