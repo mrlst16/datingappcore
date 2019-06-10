@@ -1,11 +1,13 @@
-﻿using System;
+﻿using CommonCore.DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DatingAppCore.Dto.Members
 {
-    public class MatchDTO
+    public class MatchDTO : DtoBase
     {
-        public Guid UserID { get; set; }
+        public Guid LeftID { get; set; }
+        public Guid RightID { get; set; }
     }
 }

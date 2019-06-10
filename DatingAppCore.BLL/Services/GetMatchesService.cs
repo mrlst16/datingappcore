@@ -1,9 +1,10 @@
 ﻿using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
-using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Members;
+using DatingAppCore.Dto.Requests;
 using DatingAppCore.DTO.Members;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Matching;
 using DatingAppCore.Repo.Members;
 using System;
@@ -16,7 +17,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class GetMatchesService : IGetMatchesService
     {
-        public async Task<Response<IEnumerable<UserDTO>>> GetMatches(Guid userid)
+        public async Task<Response<IEnumerable<UserDTO>>> GetMatches(LookupByUserIDRequest userid)
         {
             return Response<IEnumerable<UserDTO>>.Wrap(() => RepoCache.Get<Swipe>().GetMatches(userid));
         }

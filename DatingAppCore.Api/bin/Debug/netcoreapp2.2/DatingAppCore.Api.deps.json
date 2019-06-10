@@ -1102,6 +1102,7 @@
       },
       "DatingAppCore.BLL/1.0.0": {
         "dependencies": {
+          "DatingAppCore.Interfaces": "1.0.0",
           "DatingAppCore.Repo": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -1125,6 +1126,17 @@
         },
         "compile": {
           "DatingAppCore.Dto.dll": {}
+        }
+      },
+      "DatingAppCore.Interfaces/1.0.0": {
+        "dependencies": {
+          "DatingAppCore.Dto": "1.0.0"
+        },
+        "runtime": {
+          "DatingAppCore.Interfaces.dll": {}
+        },
+        "compile": {
+          "DatingAppCore.Interfaces.dll": {}
         }
       },
       "DatingAppCore.Repo/1.0.0": {
@@ -4624,6 +4636,11 @@
       "sha512": ""
     },
     "DatingAppCore.Dto/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DatingAppCore.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -7,8 +7,8 @@ using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
-using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.DTO.Matching;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Matching;
 
 namespace DatingAppCore.BLL.Services

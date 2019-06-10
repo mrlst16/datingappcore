@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DatingAppCore.BLL.Requests;
-using DatingAppCore.BLL.Services.Interfaces;
+﻿using System.Threading.Tasks;
 using DatingAppCore.DTO.Matching;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Autofac;
-using Microsoft.AspNetCore.Server.HttpSys;
-using System.Net;
 using Microsoft.AspNetCore.Authorization;
-using CommonCore.IOC;
 using DatingAppCore.Dto.Members;
+using DatingAppCore.Interfaces;
+using DatingAppCore.Dto.Requests;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -53,9 +45,9 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("matches")]
-        public async Task<IActionResult> Matches(MatchDTO reques)
+        public async Task<IActionResult> Matches(LookupByUserIDRequest request)
         {
-            var result = await _getMatchesService.GetMatches(reques.UserID);
+            var result = await _getMatchesService.GetMatches(request);
             return Json(result);
         }
 

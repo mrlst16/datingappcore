@@ -1,8 +1,9 @@
 ﻿using Autofac;
 using CommonCore.Responses;
 using CommonCore.Services.Interfaces;
-using DatingAppCore.BLL.Responses;
-using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Requests;
+using DatingAppCore.Dto.Responses;
+using DatingAppCore.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace DatingAppCore.Test.Tests
         {
             var service = Container.Resolve<ILoginOrSignupService>();
             Response<LoginOrSignupResponse> response = await service.LoginOrSignup(
-                new BLL.Signup.Requests.LoginOrSignupRequest()
+                new LoginOrSignupRequest()
                 {
                     User = new DTO.Members.UserDTO()
                     {
@@ -45,7 +46,7 @@ namespace DatingAppCore.Test.Tests
         public async void FindPotentialMatchesTest()
         {
             var service = Container.Resolve<IPotentialMatchesService>();
-            var response = await service.FindPotentialMatches(new BLL.Requests.FindMatchRequest()
+            var response = await service.FindPotentialMatches(new FindMatchRequest()
             {
                 UserID = Guid.Parse("")
             });
@@ -57,7 +58,7 @@ namespace DatingAppCore.Test.Tests
         public async void SetUserSettings()
         {
             ISetProfileService service = Container.Resolve<ISetProfileService>();
-            var response = await service.Set(new BLL.Requests.SetPropertiesRequest()
+            var response = await service.Set(new SetPropertiesRequest()
             {
 
             });
@@ -69,7 +70,7 @@ namespace DatingAppCore.Test.Tests
         public void SetPhotos()
         {
             ISetPhotosService service = Container.Resolve<ISetPhotosService>();
-            var response = service.Set(new BLL.Requests.SetPhotosRequest()
+            var response = service.Set(new SetPhotosRequest()
             {
 
             });

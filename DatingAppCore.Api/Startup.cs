@@ -10,7 +10,7 @@ using CommonCore.Repo.Repository;
 using DatingApp.API.Services;
 using DatingAppCore.Api.MiddleWare;
 using DatingAppCore.BLL.Services;
-using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

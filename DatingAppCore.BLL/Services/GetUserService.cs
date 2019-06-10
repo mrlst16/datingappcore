@@ -7,9 +7,9 @@ using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
-using DatingAppCore.BLL.Requests;
-using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Requests;
 using DatingAppCore.DTO.Members;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Members;
 using Microsoft.EntityFrameworkCore;
 

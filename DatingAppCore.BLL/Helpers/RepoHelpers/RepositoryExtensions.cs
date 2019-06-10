@@ -1,9 +1,7 @@
 ﻿using CommonCore.Comparers;
 using CommonCore.Repo.Repository;
 using DatingAppCore.BLL.Adapters;
-using DatingAppCore.BLL.Requests;
-using DatingAppCore.BLL.Responses;
-using DatingAppCore.Dto.Messages;
+using DatingAppCore.Dto.Requests;
 using DatingAppCore.DTO.Matching;
 using DatingAppCore.DTO.Members;
 using DatingAppCore.DTO.Messages;
@@ -80,17 +78,21 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
                 .Take(request.Take);
         }
 
-        public static IEnumerable<UserDTO> GetMatches(this Repository<Swipe> repo, Guid userid)
+        public static IEnumerable<UserDTO> GetMatches(this Repository<Swipe> repo, LookupByUserIDRequest request)
         {
             var resultUsers = new List<Guid>();
 
             var peopleTheUserSwipedOn = repo.GetQuery()
-                .Where(x => x.UserFromID == userid && x.IsLike)
+                .Where(x => x.UserFromID == request.UserID && x.IsLike)
+                .Skip(request.Skip)
+                .Take(request.Take)
                 .Select(x => x.UserToID)
                 .Distinct();
 
             var peopleWhoSwipedOnTheUser = repo.GetQuery()
-                .Where(x => x.UserToID == userid && x.IsLike)
+                .Where(x => x.UserToID == request.UserID && x.IsLike)
+                .Skip(request.Skip)
+                .Take(request.Take)
                 .Select(x => x.UserFromID)
                 .Distinct();
 
@@ -100,7 +102,7 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
                     resultUsers.Add(personWhoSwipedOnTheUsed);
             }
 
-            return resultUsers.Select(x => RepoCache.Get<User>().GetUser(new Requests.GetUserRequest()
+            return resultUsers.Select(x => RepoCache.Get<User>().GetUser(new GetUserRequest()
             {
                 UserID = x,
                 IncludeMessages = true,
@@ -162,14 +164,14 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
             var photos = request.Photos.Select(x =>
             {
                 x.UserID = request.UserID;
-                return x;
+                return x.ToEntity();
             });
             repository
                 .RemoveRange(photos)
                 .AddRange(request.Photos.Select(x =>
                 {
                     x.UserID = request.UserID;
-                    return x;
+                    return x.ToEntity();
                 }))
                 .Save();
             return true;
@@ -178,11 +180,12 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
         public static bool SavePhotosOrer(this Repository<Photo> repository, SetPhotosRequest request)
         {
             List<Photo> updateThis = new List<Photo>();
+
             for (int i = 0; i < request.Photos.Count; i++)
             {
-                var photo = request.Photos[i];
+                var photo = request.Photos[i].ToEntity();
                 photo = repository.GetQuery().FirstOrDefault(x => x == photo);
-                if (photo == null) photo = request.Photos[i];
+                if (photo == null) photo = request.Photos[i].ToEntity();
 
                 photo.UserID = request.UserID;
                 photo.Rank = i;
@@ -261,7 +264,7 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
 
             var removeThese = repository
                 .GetQuery()
-                .Where(x => x.UserID == request.UserID 
+                .Where(x => x.UserID == request.UserID
                     && x.IsSetting == true);
 
             repository.RemoveRange(removeThese);

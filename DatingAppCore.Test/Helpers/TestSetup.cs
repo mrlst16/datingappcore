@@ -3,7 +3,7 @@ using CommonCore.Repo.Repository;
 using CommonCore.Services.Interfaces;
 using DatingApp.API.Services;
 using DatingAppCore.BLL.Services;
-using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Test.Tests;
 using System;
 using System.Collections.Generic;

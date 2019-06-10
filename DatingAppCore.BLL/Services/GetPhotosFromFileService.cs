@@ -1,8 +1,8 @@
 ﻿using CommonCore.Repo.Repository;
 using CommonCore.Responses;
-using DatingAppCore.BLL.Requests;
-using DatingAppCore.BLL.Responses;
-using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Requests;
+using DatingAppCore.Dto.Responses;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Members;
 using Microsoft.EntityFrameworkCore;
 using System;

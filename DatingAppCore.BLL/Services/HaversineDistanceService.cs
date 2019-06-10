@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Mathematics;
-using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.DTO.Geo;
+using DatingAppCore.Interfaces;
 
 namespace DatingAppCore.BLL.Services
 {
@@ -13,7 +13,6 @@ namespace DatingAppCore.BLL.Services
     {
         public double Calculate(GeoPoint one, GeoPoint two, bool km = false)
         {
-
             var R = km ? 6373 : 3961;
 
             var φ1 = one.Latitude.ToRadians();

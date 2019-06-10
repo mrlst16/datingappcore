@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
-using DatingAppCore.BLL.Requests;
-using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Requests;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Members;
 
 namespace DatingAppCore.BLL.Services

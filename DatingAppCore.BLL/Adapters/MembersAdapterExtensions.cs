@@ -17,7 +17,7 @@ namespace DatingAppCore.BLL.Adapters
     {
         public static ICollection<T> AddRange<T>(this ICollection<T> collection, ICollection<T> add)
         {
-            foreach(var item in add)
+            foreach (var item in add)
             {
                 collection.Add(item);
             }
@@ -46,7 +46,7 @@ namespace DatingAppCore.BLL.Adapters
                 GranteeID = dto.GranteeID,
                 GrantorID = dto.GrantorID,
                 Permissions = dto.Permissions
-            };
+            }.EnsureID();
         }
 
         public static UserDTO ToDto(this User entity)
@@ -121,7 +121,7 @@ namespace DatingAppCore.BLL.Adapters
             return result;
         }
 
-        public static Photo ToEntity(this PhotoDTO dto, Guid userid)
+        public static Photo ToEntity(this PhotoDTO dto)
         {
             return new Photo()
             {
@@ -132,6 +132,43 @@ namespace DatingAppCore.BLL.Adapters
                 Rank = dto.Rank,
                 LastUpdated = DateTime.UtcNow
             }.EnsureID();
+        }
+
+        public static Photo ToEntity(this PhotoDTO dto, Guid userid)
+        {
+            return new Photo()
+            {
+                ID = dto.ID,
+                UserID = userid,
+                Access = dto.Access,
+                Caption = dto.Caption,
+                Rank = dto.Rank,
+                LastUpdated = DateTime.UtcNow
+            }.EnsureID();
+        }
+
+        public static UserLocation ToEntity(this UserLocationDTO dto)
+        {
+            return new UserLocation()
+            {
+                ID = dto.ID,
+                CreateDate = DateTime.UtcNow,
+                LastUpdated = DateTime.UtcNow,
+                Lat = dto.Lat,
+                Lon = dto.Lon,
+                UserID = dto.UserID
+            }.EnsureID();
+        }
+
+        public static UserLocationDTO ToDto(this UserLocation entity)
+        {
+            return new UserLocationDTO()
+            {
+                ID = entity.ID,
+                Lat = entity.Lat,
+                Lon = entity.Lon,
+                UserID = entity.UserID
+            };
         }
     }
 }

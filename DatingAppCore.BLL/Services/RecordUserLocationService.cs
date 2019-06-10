@@ -1,7 +1,9 @@
 ﻿using CommonCore.Repo.Repository;
 using CommonCore.Responses;
+using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
-using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Members;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Members;
 using System;
 using System.Collections.Generic;
@@ -13,9 +15,9 @@ namespace DatingAppCore.BLL.Services
 {
     public class RecordUserLocationService : IRecordUserLocationService
     {
-        public async Task<Response<bool>> Record(UserLocation userLocation)
+        public async Task<Response<bool>> Record(UserLocationDTO userLocation)
         {
-            return Response<bool>.Wrap(() => RepoCache.Get<User>().UpdateUserLocation(userLocation));
+            return Response<bool>.Wrap(() => RepoCache.Get<User>().UpdateUserLocation(userLocation.ToEntity()));
         }
     }
 }

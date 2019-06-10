@@ -5,9 +5,9 @@ using CommonCore.Repo;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
-using DatingAppCore.BLL.Responses;
-using DatingAppCore.BLL.Services.Interfaces;
-using DatingAppCore.BLL.Signup.Requests;
+using DatingAppCore.Dto.Requests;
+using DatingAppCore.Dto.Responses;
+using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Members;
 
 namespace DatingAppCore.BLL.Services

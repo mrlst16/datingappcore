@@ -1,6 +1,8 @@
 ﻿using CommonCore.Repo;
+using DatingAppCore.Dto.Members;
 using DatingAppCore.DTO.Matching;
 using DatingAppCore.Repo.Matching;
+using System;
 
 namespace DatingAppCore.BLL.Adapters
 {
@@ -25,6 +27,29 @@ namespace DatingAppCore.BLL.Adapters
                 UserFromID = swipe.UserFromID,
                 UserToID = swipe.UserToID,
                 IsLike = swipe.IsLike
+            };
+        }
+
+        public static Match ToEntity(this MatchDTO dto)
+        {
+            return new Match()
+            {
+                ID = dto.ID,
+                CreateDate = DateTime.UtcNow,
+                LastUpdated = DateTime.UtcNow,
+                LeftID = dto.LeftID,
+                RightID = dto.RightID
+            }
+            .EnsureID();
+        }
+
+        public static MatchDTO ToDto(this Match entity)
+        {
+            return new MatchDTO()
+            {
+                ID = entity.ID,
+                LeftID = entity.LeftID,
+                RightID = entity.RightID
             };
         }
 

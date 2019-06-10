@@ -23,5 +23,16 @@ namespace DatingAppCore.BLL.Adapters
                 SenderID = message.From
             }.EnsureID();
         }
+
+        public static MessageDTO ToDto(this Message message)
+        {
+            return new MessageDTO()
+            {
+                ID = message.ID,
+                From = message.SenderID, 
+                To = message.ReceiverID,
+                Message = message.Content
+            };
+        }
     }
 }

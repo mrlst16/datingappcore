@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingAppCore.Dto.Messages
+namespace DatingAppCore.Dto.Requests
 {
     public class LookupByUserIDRequest
     {

@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
-using DatingAppCore.BLL.Requests;
-using DatingAppCore.BLL.Services.Interfaces;
-using DatingAppCore.BLL.Signup.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +11,9 @@ using CommonCore.IOC;
 using System.IO;
 using CommonCore.Responses;
 using DatingAppCore.Repo.Members;
+using DatingAppCore.Interfaces;
+using DatingAppCore.Dto.Requests;
+using DatingAppCore.Dto.Members;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -28,7 +28,7 @@ namespace DatingAppCore.Api.Controllers
         private readonly ISetPhotosService _setPhotosService;
         private readonly ISaveFormFilesService _saveFormFilesService;
         private readonly IGetPhotoStreamService _getPhotoStreamService;
-        private readonly IRecordUserLocationService _recordUserLocationService;
+        private readonly Interfaces.IRecordUserLocationService _recordUserLocationService;
 
         public UsersController(
             ILoginOrSignupService loginOrSignupService,
@@ -38,7 +38,7 @@ namespace DatingAppCore.Api.Controllers
             ISetPhotosService setPhotosService,
             ISaveFormFilesService saveFormFilesService,
             IGetPhotoStreamService getPhotoStreamService,
-            IRecordUserLocationService recordUserLocationService
+            Interfaces.IRecordUserLocationService recordUserLocationService
             )
         {
             _loginOrSignupService = loginOrSignupService;
@@ -139,7 +139,7 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("record_user_location")]
-        public async Task<IActionResult> RecordUserLocation(UserLocation request)
+        public async Task<IActionResult> RecordUserLocation(UserLocationDTO request)
         {
             var result = await _recordUserLocationService.Record(request);
             return Json(result);
