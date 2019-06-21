@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace DatingAppCore.Interfaces
 {
-    public interface IGetConversationService
+    public interface ILookupConversationService
     {
-        Task<Response<ConversationDTO>> ReadMessages(GetConversationRequest request);
+        Task<Response<ConversationDTO>> Lookup(GetConversationRequest request);
     }
 }

@@ -25,6 +25,14 @@ namespace DatingAppCore.Api.Controllers
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("get_client_badges")]
+        public async Task<IActionResult> GetClientBadges(ReviewDTO request)
+        {
+            var result = await _sendReviewService.Send(request);
+            return Ok(result);
+        }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("send")]
         public async Task<IActionResult> Send(ReviewDTO request)
         {

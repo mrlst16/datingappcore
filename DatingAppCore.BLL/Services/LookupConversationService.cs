@@ -14,9 +14,9 @@ using DatingAppCore.Dto.Messages;
 
 namespace DatingAppCore.BLL.Services
 {
-    public class GetConversationService : IGetConversationService
+    public class LookupConversationService : ILookupConversationService
     {
-        public async Task<Response<ConversationDTO>> ReadMessages(GetConversationRequest request)
+        public async Task<Response<ConversationDTO>> Lookup(GetConversationRequest request)
         {
             return Response<ConversationDTO>.Wrap(() =>
             {

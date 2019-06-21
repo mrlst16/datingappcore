@@ -19,11 +19,11 @@ namespace DatingAppCore.Api.Controllers
     public class MessagingController : Controller
     {
         private readonly ISendMessageService _sendMessageService;
-        private readonly IGetConversationService _readMessageService;
+        private readonly ILookupConversationService _readMessageService;
         
 		public MessagingController(
             ISendMessageService sendMessageService,
-            IGetConversationService readMessageService
+            ILookupConversationService readMessageService
             )
         {
             _sendMessageService = sendMessageService;
@@ -42,7 +42,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("read")]
         public async Task<IActionResult> Read(GetConversationRequest request)
         {
-            var result = await _readMessageService.ReadMessages(request);
+            var result = await _readMessageService.Lookup(request);
             return Json(result);
         }
     }
