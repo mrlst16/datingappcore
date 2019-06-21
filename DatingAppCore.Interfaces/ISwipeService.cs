@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Responses;
-using DatingAppCore.DTO.Matching;
+using DatingAppCore.Dto.Matching;
 
 namespace DatingAppCore.Interfaces
 {

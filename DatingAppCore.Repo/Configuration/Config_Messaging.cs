@@ -12,11 +12,16 @@ namespace DatingAppCore.Repo.Configuration
     {
         public static void Apply(ModelBuilder mb)
         {
+            mb.Entity<Conversation>().ToTable("Conversations");
             mb.Entity<Message>().ToTable("Messages");
 
+            mb.Entity<Conversation>().HasKey(x => x.ID);
             mb.Entity<Message>().HasKey(x => x.ID);
 
-
+            mb.Entity<Conversation>()
+                .HasMany<Message>()
+                .WithOne(x => x.Conversation)
+                .HasForeignKey(x => x.ConversationID);
         }
     }
 }

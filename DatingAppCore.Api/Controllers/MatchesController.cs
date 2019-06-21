@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using DatingAppCore.DTO.Matching;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Requests;
+using DatingAppCore.Dto.Matching;
 
 namespace DatingAppCore.Api.Controllers
 {

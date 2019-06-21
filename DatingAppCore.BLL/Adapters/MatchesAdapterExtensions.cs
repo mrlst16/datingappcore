@@ -1,6 +1,6 @@
 ﻿using CommonCore.Repo;
+using DatingAppCore.Dto.Matching;
 using DatingAppCore.Dto.Members;
-using DatingAppCore.DTO.Matching;
 using DatingAppCore.Repo.Matching;
 using System;
 

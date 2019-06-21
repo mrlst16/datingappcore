@@ -34,7 +34,7 @@ namespace DatingAppCore.Repo.Migrations
                         column: x => x.PhotoID,
                         principalTable: "Photos",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(

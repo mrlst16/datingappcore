@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using CommonCore.Responses;
 using CommonCore.Services.Interfaces;
+using DatingAppCore.Dto;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Responses;
 using DatingAppCore.Interfaces;
@@ -30,10 +31,10 @@ namespace DatingAppCore.Test.Tests
             Response<LoginOrSignupResponse> response = await service.LoginOrSignup(
                 new LoginOrSignupRequest()
                 {
-                    User = new DTO.Members.UserDTO()
+                    User = new Dto.Members.UserDTO()
                     {
                         ExternalID = "fb_0014",
-                        IdType = DTO.IDTypeEnum.Facebook
+                        IdType = IDTypeEnum.Facebook
                     }
                 });
 

@@ -1,7 +1,6 @@
 ﻿using CommonCore.Responses;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.DTO.Members;
 using System;
 using System.Collections.Generic;
 using System.Text;

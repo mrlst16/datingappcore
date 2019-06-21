@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DatingAppCore.DTO.Reviewing;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -10,6 +9,7 @@ using Autofac;
 using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
 using DatingAppCore.Interfaces;
+using DatingAppCore.Dto.Reviewing;
 
 namespace DatingAppCore.Api.Controllers
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Mathematics;
-using DatingAppCore.DTO.Geo;
+using DatingAppCore.Dto.Geo;
 using DatingAppCore.Interfaces;
 
 namespace DatingAppCore.BLL.Services

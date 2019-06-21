@@ -4,8 +4,9 @@ using System.Text;
 
 namespace DatingAppCore.Dto.Requests
 {
-    public class LookupByUserIDRequest : PaginatedRequest
+    public class GetConversationRequest
     {
-        public Guid UserID { get; set; }
+        public Guid User1ID { get; set; }
+        public Guid User2ID { get; set; }
     }
 }

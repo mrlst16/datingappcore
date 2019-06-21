@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo;
-using DatingAppCore.DTO.Messages;
+using DatingAppCore.Dto.Messages;
 using DatingAppCore.Repo.Messaging;
 
 namespace DatingAppCore.BLL.Adapters
@@ -29,9 +29,20 @@ namespace DatingAppCore.BLL.Adapters
             return new MessageDTO()
             {
                 ID = message.ID,
-                From = message.SenderID, 
+                From = message.SenderID,
                 To = message.ReceiverID,
                 Message = message.Content
+            };
+        }
+
+        public static ConversationDTO ToDto(this Conversation entity)
+        {
+            if (entity == null) return null;
+            return new ConversationDTO()
+            {
+                User1ID = entity.User1ID,
+                User2ID = entity.User2ID,
+                Messages = entity.Messages?.Select(x => x.ToDto()).ToList()
             };
         }
     }

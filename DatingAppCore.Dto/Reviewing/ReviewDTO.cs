@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.DTO.Reviewing
+namespace DatingAppCore.Dto.Reviewing
 {
     public class ReviewDTO : DtoBase
     {

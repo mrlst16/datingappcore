@@ -9,7 +9,6 @@ using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.DTO.Members;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Repo;
 using DatingAppCore.Repo.Members;

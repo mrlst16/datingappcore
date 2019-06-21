@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo;
-using DatingAppCore.DTO.Reviewing;
+using DatingAppCore.Dto.Reviewing;
 using DatingAppCore.Repo.Reviewing;
 
 namespace DatingAppCore.BLL.Adapters

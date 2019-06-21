@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DatingAppCore.Dto.Members;
 
 namespace DatingAppCore.Dto.Responses
 {
     public class LoginOrSignupResponse
     {
         public bool Existed { get; set; }
-        public DatingAppCore.DTO.Members.UserDTO User { get; set; }
+        public UserDTO User { get; set; }
     }
 }

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Responses;
+using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.DTO.Members;
 
 namespace DatingAppCore.Interfaces
 {

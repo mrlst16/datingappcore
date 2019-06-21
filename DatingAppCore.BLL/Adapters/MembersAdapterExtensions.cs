@@ -7,9 +7,8 @@ using CommonCore.Extensions;
 using CommonCore.Repo;
 using DatingAppCore.BLL.Helpers;
 using DatingAppCore.Dto.Members;
-using DatingAppCore.DTO.Members;
 using DatingAppCore.Repo.Members;
-using UserDTO = DatingAppCore.DTO.Members.UserDTO;
+using UserDTO = DatingAppCore.Dto.Members.UserDTO;
 
 namespace DatingAppCore.BLL.Adapters
 {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DatingAppCore.DTO.Messages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Interfaces;
+using DatingAppCore.Dto.Messages;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -19,11 +19,11 @@ namespace DatingAppCore.Api.Controllers
     public class MessagingController : Controller
     {
         private readonly ISendMessageService _sendMessageService;
-        private readonly IReadMessageService _readMessageService;
+        private readonly IGetConversationService _readMessageService;
         
 		public MessagingController(
             ISendMessageService sendMessageService,
-            IReadMessageService readMessageService
+            IGetConversationService readMessageService
             )
         {
             _sendMessageService = sendMessageService;
@@ -40,7 +40,7 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("read")]
-        public async Task<IActionResult> Read(LookupByUserIDRequest request)
+        public async Task<IActionResult> Read(GetConversationRequest request)
         {
             var result = await _readMessageService.ReadMessages(request);
             return Json(result);

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.DTO.Members
+namespace DatingAppCore.Dto.Members
 {
     public class PhotoDTO : DtoBase
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo.Entities;
-using DatingAppCore.DTO;
+using DatingAppCore.Dto;
 
 namespace DatingAppCore.Repo.Members
 {

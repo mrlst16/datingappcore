@@ -1,11 +1,11 @@
 ﻿using CommonCore.Comparers;
 using CommonCore.Repo.Repository;
 using DatingAppCore.BLL.Adapters;
+using DatingAppCore.Dto.Matching;
+using DatingAppCore.Dto.Members;
+using DatingAppCore.Dto.Messages;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.DTO.Matching;
-using DatingAppCore.DTO.Members;
-using DatingAppCore.DTO.Messages;
-using DatingAppCore.DTO.Reviewing;
+using DatingAppCore.Dto.Reviewing;
 using DatingAppCore.Repo.Matching;
 using DatingAppCore.Repo.Members;
 using DatingAppCore.Repo.Messaging;
@@ -69,11 +69,25 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
             return result;
         }
 
-        public static IEnumerable<Message> GetMessagesByUserID(this Repository<Message> repo, LookupByUserIDRequest request)
+        public static Conversation GetConversation(this Repository<Conversation> repo, GetConversationRequest request)
+        {
+            var result = repo
+                .GetQuery()
+                .Where(x => Conversation.AreEqual(x, request.User1ID, request.User2ID))
+                .FirstOrDefault();
+            result.Messages = RepoCache
+                .GetQuery<Message>()
+                .Where(x => x.ConversationID == result.ID)
+                .ToList();
+            return result;
+        }
+
+        public static IEnumerable<Message> GetMessagesBetween(this Repository<Message> repo, LookupByUserIDRequest request)
         {
             return repo.GetQuery()
-                .Where(x => x.SenderID == request.UserID
-                    && x.ReceiverID == request.UserID)
+                .Where(x =>
+                    x.SenderID == request.UserID
+                    || x.ReceiverID == request.UserID)
                 .Skip(request.Skip)
                 .Take(request.Take);
         }
@@ -145,10 +159,38 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
 
         public static bool SendMessage(this Repository<Message> repository, MessageDTO request)
         {
+            Conversation conversation = RepoCache.Get<Conversation>()
+                .RegisterOrLogin(request.From, request.To);
+
+            var entity = request.ToEntity();
+            entity.ConversationID = conversation.ID;
             repository
-                    .Add(request.ToEntity())
+                    .Add(entity)
                     .Save();
             return true;
+        }
+
+        public static Conversation RegisterOrLogin(this Repository<Conversation> repository, Guid user1, Guid user2)
+        {
+            Conversation conversation = repository.GetQuery()
+                .FirstOrDefault(x =>
+                    Conversation.AreEqual(x, user1, user2)
+            );
+
+            if (conversation != null) return conversation;
+
+            conversation = new Conversation()
+            {
+                ID = Guid.NewGuid(),
+                User1ID = user1,
+                User2ID = user2
+            };
+
+            repository
+                .Add(conversation)
+                .Save();
+
+            return conversation;
         }
 
         public static bool SendReview(this Repository<Review> repository, ReviewDTO request)

@@ -7,7 +7,7 @@ using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
-using DatingAppCore.DTO.Messages;
+using DatingAppCore.Dto.Messages;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Messaging;
 

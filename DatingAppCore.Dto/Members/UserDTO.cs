@@ -1,16 +1,10 @@
 ﻿using CommonCore.DTO;
-using DatingAppCore.Dto.Members;
-using DatingAppCore.DTO.Matching;
-using DatingAppCore.DTO.Messages;
-using DatingAppCore.DTO.Reviewing;
-using System;
+using DatingAppCore.Dto.Matching;
+using DatingAppCore.Dto.Messages;
+using DatingAppCore.Dto.Reviewing;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DatingAppCore.DTO.Members
+namespace DatingAppCore.Dto.Members
 {
     public class UserDTO : DtoBase
     {

@@ -3,7 +3,6 @@ using CommonCore.Responses;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.DTO.Members;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Matching;
 using DatingAppCore.Repo.Members;

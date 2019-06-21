@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.DTO.Messages
+namespace DatingAppCore.Dto.Messages
 {
     public class MessageDTO : DtoBase
     {

@@ -2,7 +2,7 @@
 using CommonCore.Responses;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.DTO.Members;
+using DatingAppCore.Dto.Members;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Members;
 using System;

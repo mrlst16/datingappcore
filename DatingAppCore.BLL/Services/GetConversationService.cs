@@ -7,20 +7,23 @@ using System.Threading.Tasks;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.DTO.Messages;
 using DatingAppCore.Repo.Messaging;
 using System.Linq;
 using DatingAppCore.BLL.Adapters;
+using DatingAppCore.Dto.Messages;
 
 namespace DatingAppCore.BLL.Services
 {
-    public class ReadMessagesService : IReadMessageService
+    public class GetConversationService : IGetConversationService
     {
-        public async Task<Response<IEnumerable<MessageDTO>>> ReadMessages(LookupByUserIDRequest request)
+        public async Task<Response<ConversationDTO>> ReadMessages(GetConversationRequest request)
         {
-            return Response<IEnumerable<MessageDTO>>.Wrap(() =>
+            return Response<ConversationDTO>.Wrap(() =>
             {
-                return RepoCache.Get<Message>().GetMessagesByUserID(request).Select(x => x.ToDto());
+                var conversation = RepoCache.Get<Conversation>()
+                    .GetConversation(request)
+                    .ToDto();
+                return conversation;
             });
         }
     }

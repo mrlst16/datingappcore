@@ -1,6 +1,5 @@
 ﻿using System;
 using DatingAppCore.Dto.Members;
-using DatingAppCore.DTO.Members;
 using DatingAppCore.Repo.Clients;
 using DatingAppCore.Repo.Configuration;
 using DatingAppCore.Repo.Logging;
@@ -20,7 +19,8 @@ namespace DatingAppCore.Repo
         public DbSet<UserProfileField> UserProfileFields { get; set; }
         public DbSet<Photo> Photos { get; set; }
 
-        //Messagin
+        //Messaging
+        public DbSet<Conversation> Conversations { get; set; }
         public DbSet<Message> Messages { get; set; }
 
         //Reviews

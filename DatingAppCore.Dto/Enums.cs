@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.DTO
+namespace DatingAppCore.Dto
 {
     public enum IDTypeEnum
     {

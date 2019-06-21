@@ -1,4 +1,4 @@
-﻿using DatingAppCore.DTO.Geo;
+﻿using DatingAppCore.Dto.Geo;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -52,7 +52,7 @@ namespace DatingAppCore.BLL.Services
                 Photo photo = new Photo()
                 {
                     ID = photoID,
-                    Access = DTO.PhotoAccessLevelEnum.Private,
+                    Access = Dto.PhotoAccessLevelEnum.Private,
                     Rank = -1,
                     UserID = userid,
                     ContentType = formFile.ContentType,

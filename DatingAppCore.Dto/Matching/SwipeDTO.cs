@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.DTO.Matching
+namespace DatingAppCore.Dto.Matching
 {
     public class SwipeDTO : DtoBase
     {
