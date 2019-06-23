@@ -189,7 +189,7 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
             return conversation;
         }
 
-        public static bool SendReview(this Repository<Review> repository, ReviewDTO request)
+        public static bool SendReview(this Repository<Review> repository, SaveReviewRequest request)
         {
             repository
                     .Add(request.ToEntity())

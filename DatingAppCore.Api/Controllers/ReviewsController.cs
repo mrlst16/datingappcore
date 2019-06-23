@@ -11,6 +11,7 @@ using CommonCore.IOC;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Reviewing;
 using CommonCore.Responses;
+using DatingAppCore.Dto.Requests;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -45,7 +46,7 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("send")]
-        public async Task<IActionResult> Send(ReviewDTO request)
+        public async Task<IActionResult> Send(SaveReviewRequest request)
         {
             if (!request.Badges.Any())
             {

@@ -7,6 +7,7 @@ using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
+using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Reviewing;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Reviewing;
@@ -15,7 +16,7 @@ namespace DatingAppCore.BLL.Services
 {
     public class SendReviewService : ISendReviewService
     {
-        public async Task<Response<bool>> Send(ReviewDTO request)
+        public async Task<Response<bool>> Send(SaveReviewRequest request)
         {
             return Response<bool>.Wrap(() => RepoCache.Get<Review>().SendReview(request));
         }

@@ -13,6 +13,6 @@ namespace DatingAppCore.Dto.Reviewing
         public Guid ReceiverID { get; set; }
         public double Rating { get; set; }
 
-        public ICollection<ReviewBadgeTemplateDTO> Badges { get; set; }
+        public ICollection<UserReviewBadgeDTO> Badges { get; set; }
     }
 }
