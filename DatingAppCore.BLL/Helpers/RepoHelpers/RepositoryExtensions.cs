@@ -268,10 +268,9 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
                 updateThis.Add(photo);
             }
 
-            repository
-                .RemoveRange(x => x.UserID == request.UserID)
-                .AddRange(updateThis)
-                .Save();
+            repository.RemoveRange(x => x.UserID == request.UserID);
+            repository.AddRange(updateThis);
+            repository.Save();
             return true;
         }
 
