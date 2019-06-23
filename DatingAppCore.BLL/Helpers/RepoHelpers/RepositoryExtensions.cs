@@ -5,6 +5,7 @@ using DatingAppCore.Dto.Matching;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Messages;
 using DatingAppCore.Dto.Requests;
+using DatingAppCore.Dto.Responses;
 using DatingAppCore.Dto.Reviewing;
 using DatingAppCore.Repo.Matching;
 using DatingAppCore.Repo.Members;
@@ -20,6 +21,8 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
 {
     public static class RepositoryExtensions
     {
+        private const string NO_REVIEW_FOUND_MESSAGE = "No review found.";
+
         public static UserDTO GetUser(this Repository<User> repository, GetUserRequest request)
         {
             var query = repository
@@ -197,11 +200,39 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
             return true;
         }
 
-        public static Review GetReviewOfUser(this Repository<Review> repository, Guid userid)
+        public static GetReviewResponse GetReviewOfUser(this Repository<Review> repository, Guid userid)
         {
-            return repository
+            var reviewIds = repository
                 .GetQuery()
-                .FirstOrDefault(x => x.ReceiverID == userid);
+                .Where(x =>
+                        x.ReceiverID == userid
+                    )
+                .Select(x => x.ID)
+                .ToList();
+            if (!reviewIds?.Any() ?? false) throw new Exception(NO_REVIEW_FOUND_MESSAGE);
+
+            return new GetReviewResponse()
+            {
+                BadgesTable = RepoCache
+                .GetQuery<UserReviewBadge>()
+                .Where(x => reviewIds.Contains(x.ReviewID))
+                .GroupBy(x => x.ReviewBadgeTemplateID)
+                .Select(group => new
+                {
+                    BadgeTemplateID = group.Key,
+                    Count = group.Count()
+                }
+                )
+                .Join(
+                    RepoCache.GetQuery<ReviewBadgeTemplate>().ToList(),
+                    a => a.BadgeTemplateID,
+                    b => b.ID,
+                    (a, b) => new BadgeAndCount
+                    {
+                        Name = b.Name,
+                        Count = a.Count
+                    })
+            };
         }
 
         public static bool SavePhotos(this Repository<Photo> repository, SetPhotosRequest request)

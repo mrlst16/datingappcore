@@ -23,13 +23,17 @@ namespace DatingAppCore.Api.Controllers
 
         private readonly ISendReviewService _sendReviewService;
         private readonly IGetClientReviewBadgesService _getClientReviewBadgesService;
+        private readonly IGetReviewService _getReviewService;
+
         public ReviewsController(
             ISendReviewService sendReviewService,
-            IGetClientReviewBadgesService getClientReviewBadgesService
+            IGetClientReviewBadgesService getClientReviewBadgesService,
+            IGetReviewService getReviewService
             )
         {
             _sendReviewService = sendReviewService;
             _getClientReviewBadgesService = getClientReviewBadgesService;
+            _getReviewService = getReviewService;
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
@@ -57,6 +61,14 @@ namespace DatingAppCore.Api.Controllers
             }
             var result = await _sendReviewService.Send(request);
             return Ok(result);
+        }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpGet("get_review")]
+        public async Task<IActionResult> GetReview(Guid userid)
+        {
+            var response = await _getReviewService.GetReview(userid);
+            return Ok(response);
         }
     }
 }
