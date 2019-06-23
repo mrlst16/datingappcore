@@ -71,15 +71,11 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
 
         public static Conversation GetConversation(this Repository<Conversation> repo, GetConversationRequest request)
         {
-            var result = repo
+            return repo
                 .GetQuery()
                 .Where(x => Conversation.AreEqual(x, request.User1ID, request.User2ID))
+                .Include(x => x.Messages)
                 .FirstOrDefault();
-            result.Messages = RepoCache
-                .GetQuery<Message>()
-                .Where(x => x.ConversationID == result.ID)
-                .ToList();
-            return result;
         }
 
         public static IEnumerable<Message> GetMessagesBetween(this Repository<Message> repo, LookupByUserIDRequest request)
@@ -199,6 +195,13 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
                     .Add(request.ToEntity())
                     .Save();
             return true;
+        }
+
+        public static Review GetReviewOfUser(this Repository<Review> repository, Guid userid)
+        {
+            return repository
+                .GetQuery()
+                .FirstOrDefault(x => x.ReceiverID == userid);
         }
 
         public static bool SavePhotos(this Repository<Photo> repository, SetPhotosRequest request)
@@ -324,6 +327,12 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
         {
             repository.Add(request.ToEntity(), true);
             return true;
+        }
+
+        public static IEnumerable<ReviewBadgeTemplate> GetClientReviewBadges(this Repository<ReviewBadgeTemplate> repository, Guid clientID)
+        {
+            return repository.GetQuery()
+                .Where(x => x.ClientID == clientID);
         }
     }
 }

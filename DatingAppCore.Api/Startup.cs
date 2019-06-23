@@ -85,6 +85,7 @@ namespace DatingAppCore.Api
             builder.RegisterType<LoginOrSignupService>().As<ILoginOrSignupService>();
             builder.RegisterType<PotentialMatchesService>().As<IPotentialMatchesService>();
             builder.RegisterType<SavePhotoToFileService>().As<ISaveFormFilesService>();
+            builder.RegisterType<GetClientReviewBadgesService>().As<IGetClientReviewBadgesService>();
             builder.RegisterType<SendMessageService>().As<ISendMessageService>();
             builder.RegisterType<LookupConversationService>().As<ILookupConversationService>();
             builder.RegisterType<SendReviewService>().As<ISendReviewService>();

@@ -19,7 +19,7 @@ namespace DatingAppCore.Repo.Configuration
             mb.Entity<Message>().HasKey(x => x.ID);
 
             mb.Entity<Conversation>()
-                .HasMany<Message>()
+                .HasMany<Message>(x => x.Messages)
                 .WithOne(x => x.Conversation)
                 .HasForeignKey(x => x.ConversationID);
         }

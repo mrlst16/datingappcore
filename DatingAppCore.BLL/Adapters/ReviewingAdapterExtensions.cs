@@ -25,13 +25,35 @@ namespace DatingAppCore.BLL.Adapters
                 .Badges
                 .Select(x => new UserReviewBadge()
                 {
-                    ID = x.ID,
-                    Name = x.Name,
-                    ReviewID = result.ID
+                    ID = Guid.NewGuid(),
+                    ReviewID = result.ID,
+                    CreateDate = DateTime.UtcNow,
+                    LastUpdated = DateTime.UtcNow,
+                    ReviewBadgeTemplateID = x.ID
                 })
                 .ToList();
 
             return result;
+        }
+
+        public static ReviewBadgeTemplateDTO ToDto(this ReviewBadgeTemplate entity)
+        {
+            return new ReviewBadgeTemplateDTO()
+            {
+                ID = entity.ID,
+                ClientID = entity.ClientID,
+                Name = entity.Name
+            };
+        }
+
+        public static ReviewBadgeTemplate ToEntity(this ReviewBadgeTemplateDTO dto)
+        {
+            return new ReviewBadgeTemplate()
+            {
+                ID = dto.ID,
+                ClientID = dto.ClientID,
+                Name = dto.Name
+            }.EnsureID();
         }
     }
 }

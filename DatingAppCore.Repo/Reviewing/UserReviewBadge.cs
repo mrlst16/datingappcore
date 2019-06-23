@@ -10,10 +10,11 @@ namespace DatingAppCore.Repo.Reviewing
 {
     public class UserReviewBadge : EntityBase
     {
-        public string Name { get; set; }
+        public Guid ReviewBadgeTemplateID { get; set; }
         public Guid ReviewID { get; set; }
 
         //Nav Props
         public Review Review { get; set; }
+        public ReviewBadgeTemplate ReviewBadgeTemplate { get; set; }
     }
 }

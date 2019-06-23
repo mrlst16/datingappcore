@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DatingAppCore.Dto.Reviewing
 {
-    public class UserReviewBadgeDTO: DtoBase
+    public class UserReviewBadgeDTO : DtoBase
     {
-        public string Name { get; set; }
+        public ReviewBadgeTemplateDTO Template { get; set; }
         public Guid ReviewID { get; set; }
     }
 }
