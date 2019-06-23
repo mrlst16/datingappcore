@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "d1ff4d87db07631c04eb3d5feaccd6aee5c4e648"
+    "signature": "8f343c532d7ef7a7a00160e9416bdcdb92c8bed4"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
         "dependencies": {
           "Autofac": "4.9.2",
           "Autofac.Extensions.DependencyInjection": "4.4.0",
+          "CommonCoreByMattyLantz": "1.0.5.1",
           "DatingAppCore.BLL": "1.0.0",
           "Microsoft.AspNet.Mvc": "5.2.7",
           "Microsoft.AspNetCore.App": "2.2.0",
@@ -70,6 +71,23 @@
         },
         "compile": {
           "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "CommonCoreByMattyLantz/1.0.5.1": {
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/CommonCore.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.1/CommonCore.dll": {}
         }
       },
       "Microsoft.AspNet.Mvc/5.2.7": {
@@ -1086,22 +1104,9 @@
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "CommonCoreByMattyLantz/1.0.5.1": {
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
-        },
-        "runtime": {
-          "CommonCore.dll": {}
-        },
-        "compile": {
-          "CommonCore.dll": {}
-        }
-      },
       "DatingAppCore.BLL/1.0.0": {
         "dependencies": {
+          "CommonCoreByMattyLantz": "1.0.5.1",
           "DatingAppCore.Interfaces": "1.0.0",
           "DatingAppCore.Repo": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
@@ -1130,6 +1135,7 @@
       },
       "DatingAppCore.Interfaces/1.0.0": {
         "dependencies": {
+          "CommonCoreByMattyLantz": "1.0.5.1",
           "DatingAppCore.Dto": "1.0.0"
         },
         "runtime": {
@@ -1141,6 +1147,7 @@
       },
       "DatingAppCore.Repo/1.0.0": {
         "dependencies": {
+          "CommonCoreByMattyLantz": "1.0.5.1",
           "DatingAppCore.Dto": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -4247,6 +4254,13 @@
       "path": "autofac.extensions.dependencyinjection/4.4.0",
       "hashPath": "autofac.extensions.dependencyinjection.4.4.0.nupkg.sha512"
     },
+    "CommonCoreByMattyLantz/1.0.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bYmepDpLeS+d/J+8Bl8PuHWuROvk31LDzJN5ZHrw1D3fL016v6C5WDJxR9cq3S0ImdR612oMiehq8eEAzx09HQ==",
+      "path": "commoncorebymattylantz/1.0.5.1",
+      "hashPath": "commoncorebymattylantz.1.0.5.1.nupkg.sha512"
+    },
     "Microsoft.AspNet.Mvc/5.2.7": {
       "type": "package",
       "serviceable": true,
@@ -4624,11 +4638,6 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
-    },
-    "CommonCoreByMattyLantz/1.0.5.1": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "DatingAppCore.BLL/1.0.0": {
       "type": "project",

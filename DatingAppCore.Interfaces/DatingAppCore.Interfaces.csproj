@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
   </ItemGroup>
 
