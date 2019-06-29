@@ -25,7 +25,7 @@ namespace DatingAppCore.BLL.Services
                 .Include(x => x.Data)
                 .FirstOrDefault();
 
-                if (photo == null || photo.Data == null)
+                if (photo == null)
                     return null;
 
                 var path = Path.Combine(SavePhotoToFileService.USER_PHOTOS_FOLDER, photo.UserID.ToString().ToLowerInvariant(), photo.FileName);

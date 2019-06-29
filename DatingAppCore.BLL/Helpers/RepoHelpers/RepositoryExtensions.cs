@@ -269,9 +269,11 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
             }
 
             var removeThese = repository.GetQuery().Where(x => x.UserID == request.UserID);
-            repository.RemoveRange(removeThese);
-            repository.AddRange(updateThis);
-            repository.Save();
+            repository
+                .RemoveRange(removeThese)
+                .Save()
+                .AddRange(updateThis)
+                .Save();
             return true;
         }
 
