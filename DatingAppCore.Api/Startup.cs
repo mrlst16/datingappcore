@@ -91,7 +91,7 @@ namespace DatingAppCore.Api
             builder.RegisterType<SendReviewService>().As<ISendReviewService>();
             builder.RegisterType<GetReviewService>().As<IGetReviewService>();
             builder.RegisterType<SetPhotosUpdateOrderOnlyService>().As<ISetPhotosService>();
-            builder.RegisterType<GetPhotosFromFileService>().As<IGetPhotoStreamService>();
+            builder.RegisterType<GetPhotosFromFileServiceV2>().As<IGetPhotoStreamService>();
             builder.RegisterType<SetProfileService>().As<ISetProfileService>();
             builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
             builder.RegisterType<SwipeService>().As<ISwipeService>();

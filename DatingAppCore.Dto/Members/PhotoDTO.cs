@@ -14,6 +14,8 @@ namespace DatingAppCore.Dto.Members
         public int Rank { get; set; }
         public string Url { get; set; }
         public string Caption { get; set; }
+        public string FileName { get; set; }
+        public string ContentType { get; set; }
         public PhotoAccessLevelEnum Access { get; set; } = PhotoAccessLevelEnum.Public;
     }
 }

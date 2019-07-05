@@ -26,7 +26,7 @@ namespace DatingAppCore.BLL.Services
                     new RunSprocRequest()
                     {
                         ContextType = typeof(Repo.AppContext),
-                        SprocName = "PotentialMatches",
+                        SprocName = "PotentialMatches2",
                         Parameters = new Dictionary<string, string>()
                         {
                             {"userid", request.UserID.ToString() },

@@ -1,6 +1,7 @@
 ﻿using CommonCore.Comparers;
 using CommonCore.Repo.Repository;
 using DatingAppCore.BLL.Adapters;
+using DatingAppCore.BLL.Services;
 using DatingAppCore.Dto.Matching;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Messages;
@@ -14,6 +15,7 @@ using DatingAppCore.Repo.Reviewing;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -67,7 +69,26 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
                 .FirstOrDefault()
                 ?.ToDto();
 
-            result.Photos = result.Photos?.OrderBy(x => x.Rank).ToList() ?? null;
+            result.Photos = result
+                .Photos
+                ?.OrderBy(x => x.Rank)
+                .ToList()
+                ?? null;
+
+            if (!result?.Photos?.Any() ?? false)
+            {
+                result.Photos = new List<PhotoDTO>()
+                {
+                    new PhotoDTO()
+                    {
+                        Access = Dto.PhotoAccessLevelEnum.Public,
+                        Rank = 0,
+                        Url = Path.Combine(SavePhotoToFileService.USER_PHOTOS_FOLDER, Guid.Empty.ToString(), $"{Guid.Empty}.jpg"),
+                        FileName = $"{Guid.Empty}.jpg",
+                        UserID = Guid.Empty
+                    }
+                };
+            }
 
             return result;
         }

@@ -51,22 +51,6 @@ namespace DatingAppCore.Api.Controllers
             _recordUserLocationService = recordUserLocationService;
         }
 
-        [HttpPost]
-        [Route("ping")]
-        public async Task<IActionResult> Ping()
-        {
-            var auth = Request.Headers["Authorization"];
-            return Json(new { Balls = "Hairy", Auth = auth });
-        }
-
-        [Authorize(AuthenticationSchemes = "Basic")]
-        [HttpPost("ping2")]
-        public async Task<IActionResult> Ping2()
-        {
-            var auth = Request.Headers["Authorization"];
-            return Json(new { Balls = "Hairy", Auth = auth });
-        }
-
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("login_or_signup")]
         public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
@@ -107,7 +91,6 @@ namespace DatingAppCore.Api.Controllers
             return Json(result);
         }
 
-
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("upload_photo")]
         public async Task<IActionResult> UploadPhoto(List<IFormFile> files)
@@ -128,11 +111,12 @@ namespace DatingAppCore.Api.Controllers
         }
 
         [HttpGet("get_photo")]
-        public async Task<IActionResult> ViewImage(Guid id)
+        public async Task<IActionResult> ViewImage(Guid userid, string filename)
         {
             var response = await _getPhotoStreamService.GetPhotoAsStream(new GetPhotoStreamRequest()
             {
-                PhotoID = id
+                UserID = userid,
+                FileName = filename
             });
             return File(response.Result.Stream, response.Result.ContentType);
         }

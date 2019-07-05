@@ -72,7 +72,9 @@ namespace DatingAppCore.BLL.Adapters
                 UserID = entity.UserID,
                 Access = entity.Access,
                 Caption = entity.Caption,
-                Rank = entity.Rank
+                Rank = entity.Rank,
+                FileName = entity.FileName,
+                ContentType = entity.ContentType
             };
         }
 

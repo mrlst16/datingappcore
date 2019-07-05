@@ -7,5 +7,7 @@ namespace DatingAppCore.Dto.Requests
     public class GetPhotoStreamRequest
     {
         public Guid PhotoID { get; set; }
+        public Guid UserID { get; set; }
+        public string FileName { get; set; }
     }
 }
