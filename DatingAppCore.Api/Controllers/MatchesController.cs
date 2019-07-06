@@ -43,7 +43,7 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("search_users")]
         public async Task<IActionResult> SearchUsers(SearchUserRequest request)
         {
-            var result = await _potentialMatchesService.FindPotentialMatches(request);
+            var result = await _searchUsersService.Search(request);
             return Json(result);
         }
 
