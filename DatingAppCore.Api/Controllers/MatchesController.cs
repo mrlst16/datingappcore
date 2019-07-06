@@ -16,20 +16,32 @@ namespace DatingAppCore.Api.Controllers
         private readonly IPotentialMatchesService _potentialMatchesService;
         private readonly ISwipeService _swipeService;
         private readonly IGetMatchesService _getMatchesService;
+        private readonly ISearchUsersService _searchUsersService;
 
         public MatchesController(
-            IPotentialMatchesService potentialMatchesService, 
+            IPotentialMatchesService potentialMatchesService,
             ISwipeService swipeService,
-            IGetMatchesService getMatchesService)
+            IGetMatchesService getMatchesService,
+            ISearchUsersService searchUsersService
+            )
         {
             _potentialMatchesService = potentialMatchesService;
             _swipeService = swipeService;
             _getMatchesService = getMatchesService;
+            _searchUsersService = searchUsersService;
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("potential_matches")]
         public async Task<IActionResult> PotentialMatches(FindMatchRequest request)
+        {
+            var result = await _potentialMatchesService.FindPotentialMatches(request);
+            return Json(result);
+        }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost("search_users")]
+        public async Task<IActionResult> SearchUsers(SearchUserRequest request)
         {
             var result = await _potentialMatchesService.FindPotentialMatches(request);
             return Json(result);

@@ -38,7 +38,7 @@ namespace DatingAppCore.Repo
         //Logging
         public DbSet<TraceLog> TraceLogs { get; set; }
 
-        public DbQuery<PotentialMatchDTO> PotentialMatchDTOs { get; set; }
+        public DbQuery<UserSearchDTO> PotentialMatchDTOs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

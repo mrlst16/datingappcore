@@ -388,5 +388,6 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
             return repository.GetQuery()
                 .Where(x => x.ClientID == clientID);
         }
+
     }
 }
