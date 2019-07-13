@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Autofac;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using CommonCore.IOC;
-using System.IO;
 using CommonCore.Responses;
-using DatingAppCore.Repo.Members;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Members;

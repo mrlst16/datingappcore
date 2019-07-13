@@ -13,8 +13,10 @@ namespace DatingAppCore.Repo.Configuration
         public static void Apply(ModelBuilder mb)
         {
             mb.Entity<TraceLog>().ToTable("TraceLogs");
+            mb.Entity<RequestLog>().ToTable("RequestLogs");
 
-            mb.Entity<TraceLog>().HasKey(x=>x.ID);
+            mb.Entity<TraceLog>().HasKey(x => x.ID);
+            mb.Entity<RequestLog>().HasKey(x => x.ID);
         }
     }
 }

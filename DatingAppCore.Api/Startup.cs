@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CommonCore.IOC;
 using CommonCore.Repo.Repository;
 using DatingApp.API.Services;
+using DatingAppCore.Api.Custom;
 using DatingAppCore.Api.MiddleWare;
 using DatingAppCore.BLL.Services;
 using DatingAppCore.Interfaces;
-using Microsoft.AspNetCore.Authorization;
+using DatingAppCore.Repo.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace DatingAppCore.Api
 {
@@ -71,11 +68,29 @@ namespace DatingAppCore.Api
                 .AllowAnyHeader()
                 .AllowCredentials());
 
+            app.UseMiddleware<RequestLogMiddleware>();
+            //app.Use(async (context, next) =>
+            //{
+            //    Do work that doesn't write to the Response.
+            //    context.Request.EnableRewind();
+            //    await next.Invoke();
+            //    // Do logging or other work that doesn't write to the Response.
+            //    try
+            //    {
+            //        ILogger logger = new ApiRequestLogger();
+            //        logger.Log<HttpContext>(LogLevel.Information, new EventId(Guid.NewGuid().GetHashCode()), context, null, null);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //    }
+            //});
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller}/{action}/{id?}");
             });
         }
+
 
         private IContainer SetupIOC(IServiceCollection services)
         {
@@ -98,6 +113,8 @@ namespace DatingAppCore.Api
             builder.RegisterType<SwipeService>().As<ISwipeService>();
             builder.RegisterType<GetMatchesService>().As<IGetMatchesService>();
             builder.RegisterType<RecordUserLocationService>().As<IRecordUserLocationService>();
+
+            builder.RegisterType<ApiRequestLogger>().As<ILogger>();
             builder.RegisterType<BasicAuthorizationService>().As<CommonCore.Services.Interfaces.IAuthorizationService>();
             var container = builder.Build();
             return container;

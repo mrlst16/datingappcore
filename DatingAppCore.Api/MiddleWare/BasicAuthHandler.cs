@@ -39,7 +39,7 @@ namespace DatingAppCore.Api.MiddleWare
                            new AuthenticationProperties(),
                            this.Scheme.Name)));
 
-            return Task.FromResult(AuthenticateResult.Fail(new Exception("401 Dude")));
+            return Task.FromResult(AuthenticateResult.Fail(new Exception("401")));
         }
     }
 }

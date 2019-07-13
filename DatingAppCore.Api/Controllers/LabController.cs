@@ -8,25 +8,20 @@ using System.Threading.Tasks;
 
 namespace DatingAppCore.Api.Controllers
 {
+    public class LabRequest
+    {
+        public string Value { get; set; }
+    }
+
+    [Route("api/[controller]")]
     public class LabController : Controller
     {
-        [HttpGet("")]
-        public async Task<IActionResult> LabAction()
+        [HttpPost("echo")]
+        public async Task<IActionResult> LabAction([FromBody]LabRequest request)
         {
-            Response<object> response =
-                new Response<bool>();
+            Response<string> response = request.Value;
 
-            var D = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            var F = Path.Combine(D, "");
-
-            response.Result = new
-            {
-                D = D,
-                F = F,
-
-            };
-
-            return Json("~/Views/Lab.cshtml");
+            return Json(response);
         }
     }
 }
