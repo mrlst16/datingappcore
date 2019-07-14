@@ -69,28 +69,11 @@ namespace DatingAppCore.Api
                 .AllowCredentials());
 
             app.UseMiddleware<RequestLogMiddleware>();
-            //app.Use(async (context, next) =>
-            //{
-            //    Do work that doesn't write to the Response.
-            //    context.Request.EnableRewind();
-            //    await next.Invoke();
-            //    // Do logging or other work that doesn't write to the Response.
-            //    try
-            //    {
-            //        ILogger logger = new ApiRequestLogger();
-            //        logger.Log<HttpContext>(LogLevel.Information, new EventId(Guid.NewGuid().GetHashCode()), context, null, null);
-            //    }
-            //    catch (Exception e)
-            //    {
-            //    }
-            //});
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller}/{action}/{id?}");
             });
         }
-
 
         private IContainer SetupIOC(IServiceCollection services)
         {

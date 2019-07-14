@@ -17,6 +17,7 @@ namespace DatingAppCore.Dto.Requests
 
         public string QueryString => Filter
             .Select(x => $"{x.Key}={x.Value}")
-            .Aggregate((x, y) => $"{x},{y}");
+            .Aggregate((x, y) => $"{x},{y}")
+            .Trim(' ', ',');
     }
 }

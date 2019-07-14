@@ -2,6 +2,7 @@
 using DatingAppCore.Dto.Matching;
 using DatingAppCore.Dto.Messages;
 using DatingAppCore.Dto.Reviewing;
+using System;
 using System.Collections.Generic;
 
 namespace DatingAppCore.Dto.Members
@@ -11,6 +12,7 @@ namespace DatingAppCore.Dto.Members
         public string UserName { get; set; }
         public string ExternalID { get; set; }
         public IDTypeEnum IdType { get; set; }
+        public Guid ClientID { get; set; }
 
         public Dictionary<string, string> Profile { get; set; } = new Dictionary<string, string>();
         public Dictionary<string, string> Settings { get; set; } = new Dictionary<string, string>();

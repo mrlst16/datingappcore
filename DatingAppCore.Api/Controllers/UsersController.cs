@@ -9,6 +9,7 @@ using CommonCore.Responses;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Members;
+using DatingAppCore.Dto.Responses;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -50,7 +51,12 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("login_or_signup")]
         public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
         {
-            var result = await _loginOrSignupService.LoginOrSignup(request);
+            Response<LoginOrSignupResponse> result = new Response<LoginOrSignupResponse>();
+            if(Guid.TryParse(Request.Headers["ClientID"], out Guid clientId))
+            {
+                request.User.ClientID = clientId;
+                result = await _loginOrSignupService.LoginOrSignup(request);
+            }
             return Json(result);
         }
 
