@@ -373,7 +373,9 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
                 return x.Name == y.Name && x.UserID == y.UserID && x.IsSetting == y.IsSetting;
             });
 
-            repository.AddRange(properties, comparer, true);
+            repository
+                .AddRange(properties, comparer)
+                .Save();
             return true;
         }
 

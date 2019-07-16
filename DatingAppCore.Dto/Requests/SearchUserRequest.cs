@@ -15,9 +15,22 @@ namespace DatingAppCore.Dto.Requests
     {
         public List<KVP> Filter { get; set; } = new List<KVP>();
 
-        public string QueryString => Filter
-            .Select(x => $"{x.Key}={x.Value}")
-            .Aggregate((x, y) => $"{x},{y}")
-            .Trim(' ', ',');
+        public string QueryString
+        {
+            get
+            {
+                string result = string.Empty;
+
+                if (Filter?.Any() ?? false)
+                {
+                    result = Filter
+                    .Select(x => $"{x.Key}={x.Value}")
+                    .Aggregate((x, y) => $"{x},{y}")
+                    .Trim(' ', ',');
+                }
+
+                return result;
+            }
+        }
     }
 }

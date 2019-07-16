@@ -1,14 +1,17 @@
 Begin Tran
 
-declare @userid uniqueidentifier = 'B720EFB5-6DBC-4F5D-8AA8-D1516158B207'
-declare @kvpString nvarchar(max) = 'sex=f, gender = f,   dogs=t';
+select * from Users
+
+declare @userid uniqueidentifier = 'C323CE57-A962-4BCD-903B-1F7A301A18D0'
+declare @kvpString nvarchar(max) = 'sex=f, gender = f,   dogs=n';
+--declare @kvpString nvarchar(max) = '';
 
 exec SearchUsers @userid, 0, 1000, @kvpString
 
-select *
-from UserProfileField
-where Name in ('sex', 'gender', 'dogs')
-and IsSetting = 0
-order by UserID, Name
+--select *
+--from UserProfileField
+--where Name in ('sex', 'gender', 'dogs')
+--and IsSetting = 0
+--order by UserID, Name
 
 Rollback Tran
