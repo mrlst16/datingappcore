@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Test", "Datin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Interfaces", "DatingAppCore.Interfaces\DatingAppCore.Interfaces.csproj", "{6EFA898E-882F-4487-8570-B248F8968B24}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore", "..\CommonCore\CommonCore\CommonCore.csproj", "{C280F617-20E6-4F71-8867-7AC06B978327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,9 +49,16 @@ Global
 		{6EFA898E-882F-4487-8570-B248F8968B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EFA898E-882F-4487-8570-B248F8968B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EFA898E-882F-4487-8570-B248F8968B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C280F617-20E6-4F71-8867-7AC06B978327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C280F617-20E6-4F71-8867-7AC06B978327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C280F617-20E6-4F71-8867-7AC06B978327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C280F617-20E6-4F71-8867-7AC06B978327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C280F617-20E6-4F71-8867-7AC06B978327} = {4904DC1F-DC36-4DA0-B7E1-7B8C46C6BE99}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21004B8A-131D-41B1-AC60-2C2838B2F978}

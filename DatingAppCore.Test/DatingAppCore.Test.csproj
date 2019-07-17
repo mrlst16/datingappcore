@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CommonCore\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.Api\DatingAppCore.Api.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.csproj" />
   </ItemGroup>

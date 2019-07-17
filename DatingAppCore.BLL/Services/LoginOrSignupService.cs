@@ -30,10 +30,16 @@ namespace DatingAppCore.BLL.Services
                 if (response.Existed)
                 {
                     response.User = user.ToDto();
+                    user.ClientID = request.User.ClientID;
+                    user.UserName = request.User.UserName;
+                    user.LastUpdated = DateTime.UtcNow;
+                    repo.Set().Update(user);
                 }
                 else
                 {
-                    var resultUser = request.User?.ToEntity().EnsureID();
+                    var resultUser = request.User?
+                        .ToEntity()
+                        .EnsureID();
                     repo.Add(resultUser);
                     response.User = resultUser.ToDto();
                 }

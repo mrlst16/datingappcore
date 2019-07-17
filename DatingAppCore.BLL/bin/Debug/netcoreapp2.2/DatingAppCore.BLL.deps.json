@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "ba5118939ec66a988f4943787e7b7838280db2e5"
+    "signature": "20920d33c7e8a62d38044504be9a7a4e15e9fd82"
   },
   "compilationOptions": {},
   "targets": {
@@ -24,20 +24,6 @@
           "lib/netstandard2.0/Autofac.dll": {
             "assemblyVersion": "4.9.2.0",
             "fileVersion": "4.9.2.0"
-          }
-        }
-      },
-      "CommonCoreByMattyLantz/1.0.5.1": {
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/CommonCore.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
           }
         }
       },
@@ -2805,6 +2791,17 @@
           }
         }
       },
+      "CommonCoreByMattyLantz/1.0.5.1": {
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+        },
+        "runtime": {
+          "CommonCore.dll": {}
+        }
+      },
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
           "CommonCoreByMattyLantz": "1.0.5.1",
@@ -2852,13 +2849,6 @@
       "sha512": "sha512-lfCcNOzU97f2WFtdo/+SkR0XtpdH20QA5Ob/T2Iv027wFMvDk7EZZ2oj6ERtWL+LBfPTOrbk9zyLj6Okx2CoHA==",
       "path": "autofac/4.9.2",
       "hashPath": "autofac.4.9.2.nupkg.sha512"
-    },
-    "CommonCoreByMattyLantz/1.0.5.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bYmepDpLeS+d/J+8Bl8PuHWuROvk31LDzJN5ZHrw1D3fL016v6C5WDJxR9cq3S0ImdR612oMiehq8eEAzx09HQ==",
-      "path": "commoncorebymattylantz/1.0.5.1",
-      "hashPath": "commoncorebymattylantz.1.0.5.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.2.0": {
       "type": "package",
@@ -2933,7 +2923,7 @@
     "Microsoft.AspNetCore.DataProtection.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-seANFXmp8mb5Y12m1ShiElJ3ZdOT3mBN3wA1GPhHJIvZ/BxOCPyqEOR+810OWsxEZwA5r5fDRNpG/CqiJmQnJg==",
+      "sha512": "sha512-1+LBptIMXgpm3PdzmkoGVMnTyuzeF4hRC310ZpJIl1XQrK2+ag6HuVosRkpjwMVd6/oe2UQrjxby4QpDYrM3lA==",
       "path": "microsoft.aspnetcore.dataprotection.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.dataprotection.abstractions.2.2.0.nupkg.sha512"
     },
@@ -4193,7 +4183,7 @@
     "System.Security.Cryptography.Cng/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
+      "sha512": "sha512-h39H2hJf+R5p6WUd+x2oz8qPwvDNm8Tf6eGByl0WdGUUkKyRDqhmpbHQup1DGjawXqGr150NSAdfrnyLjpRvvA==",
       "path": "system.security.cryptography.cng/4.5.0",
       "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
     },
@@ -4242,7 +4232,7 @@
     "System.Security.Cryptography.Xml/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i2Jn6rGXR63J0zIklImGRkDIJL4b1NfPSEbIVHBlqoIb12lfXIigCbDRpDmIEzwSo/v1U5y/rYJdzZYSyCWxvg==",
+      "sha512": "sha512-dwkEE77HbsV4ZCjc22AV9XlFH738c+lU+HQNSqLnAp8JbdwE5B+7OXkC90DG1hufrnc4kQMt9s+ZgiYZ7EcQew==",
       "path": "system.security.cryptography.xml/4.5.0",
       "hashPath": "system.security.cryptography.xml.4.5.0.nupkg.sha512"
     },
@@ -4392,6 +4382,11 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    },
+    "CommonCoreByMattyLantz/1.0.5.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "DatingAppCore.Dto/1.0.0": {
       "type": "project",

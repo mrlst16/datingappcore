@@ -65,9 +65,11 @@ namespace DatingAppCore.BLL.Services
 
             if (settings?.Any() ?? false)
             {
-                result = settings
-                    .Where(x => x.Value.ToLowerInvariant() != "off")
-                    .Select(x => $"{x.Key}={x.Value}")
+                var s = settings
+                    .Where(x => x.Value.ToLowerInvariant() != "off");
+                if (s?.Any() ?? false)
+                    result =
+                    s.Select(x => $"{x.Key}={x.Value}")
                     .Aggregate((x, y) => $"{x},{y}")
                     .Trim(' ', ',');
             }
