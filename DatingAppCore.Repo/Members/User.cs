@@ -19,6 +19,8 @@ namespace DatingAppCore.Repo.Members
         public IDTypeEnum IdType { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
+        public DateTime? Birthday { get; set; }
+
 
         //Nav Props
         public ICollection<Message> Inbox { get; set; }

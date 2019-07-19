@@ -57,6 +57,7 @@ namespace DatingAppCore.BLL.Adapters
                 ExternalID = entity.ExternalID,
                 IdType = entity.IdType,
                 ClientID = entity.ClientID,
+                Birthday = entity.Birthday,
                 UserName = entity.UserName,
                 Profile = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == false).ToDictionary(x => x.Name, field => field.Value),
                 Settings = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == true).ToDictionary(x => x.Name, field => field.Value),
@@ -90,6 +91,7 @@ namespace DatingAppCore.BLL.Adapters
                 ClientID = dto.ClientID,
                 IdType = dto.IdType,
                 UserName = dto.UserName,
+                Birthday = dto.Birthday
             }.EnsureID();
             result.Photos = dto.Photos?.Select(x => x.ToEntity(result.ID)).ToList();
             result.Profile = dto.Settings?.Select(x =>
