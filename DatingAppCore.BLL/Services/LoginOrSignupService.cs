@@ -33,6 +33,7 @@ namespace DatingAppCore.BLL.Services
                     user.ClientID = request.User.ClientID;
                     user.UserName = request.User.UserName;
                     user.LastUpdated = DateTime.UtcNow;
+                    user.Birthday = request.User.Birthday;
                     repo.Set().Update(user);
                 }
                 else
