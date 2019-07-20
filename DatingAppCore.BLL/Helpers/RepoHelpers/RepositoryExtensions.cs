@@ -95,11 +95,25 @@ namespace DatingAppCore.BLL.Helpers.RepoHelpers
 
         public static Conversation GetConversation(this Repository<Conversation> repo, GetConversationRequest request)
         {
-            return repo
+            var result = repo
                 .GetQuery()
                 .Where(x => Conversation.AreEqual(x, request.User1ID, request.User2ID))
                 .Include(x => x.Messages)
                 .FirstOrDefault();
+
+            if (result != null) return result;
+            result = new Conversation()
+            {
+                ID = Guid.NewGuid(),
+                CreateDate = DateTime.UtcNow,
+                LastUpdated = DateTime.UtcNow,
+                User1ID = request.User1ID,
+                User2ID = request.User2ID
+            };
+
+            repo.Add(result);
+
+            return result;
         }
 
         public static IEnumerable<Message> GetMessagesBetween(this Repository<Message> repo, LookupByUserIDRequest request)

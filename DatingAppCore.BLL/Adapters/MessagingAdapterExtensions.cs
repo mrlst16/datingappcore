@@ -40,6 +40,7 @@ namespace DatingAppCore.BLL.Adapters
             if (entity == null) return null;
             return new ConversationDTO()
             {
+                ID = entity.ID,
                 User1ID = entity.User1ID,
                 User2ID = entity.User2ID,
                 Messages = entity.Messages?.Select(x => x.ToDto()).ToList()
