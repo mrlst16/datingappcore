@@ -33,12 +33,21 @@ namespace DatingAppCore.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddAuthentication("Basic").AddScheme<BasicAuthOptions, BasicAuthHandler>("Basic", null, options =>
             {
 
             });
+
+            services.AddSignalR();
 
             SetupDbConexts();
             var container = SetupIOC(services);
@@ -63,10 +72,15 @@ namespace DatingAppCore.Api
 
             app.UseHttpsRedirection();
             app.UseCors(x => x
-                .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
+                .WithOrigins("http://localhost:3000")
                 .AllowCredentials());
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chatHub");
+            });
 
             app.UseMiddleware<RequestLogMiddleware>();
             app.UseMvc(routes =>
