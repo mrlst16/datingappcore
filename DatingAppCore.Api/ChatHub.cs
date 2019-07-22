@@ -20,8 +20,19 @@ namespace DatingAppCore.Api
         {
             try
             {
-                var conversation = await LoginOrRegisterConversation(from, to);
-                await Clients.Group(conversation.ID.ToString()).SendAsync($"ReceiveMessage", from, to, message);
+                if (Guid.TryParse(from, out Guid fromID) && Guid.TryParse(to, out Guid toID))
+                {
+                    var conversation = await LoginOrRegisterConversation(fromID, toID);
+                    await Clients.Group(conversation.ID.ToString()).SendAsync($"ReceiveMessage", from, to, message);
+                    ISendMessageService sendMessageService = new SendMessageService();
+                    await sendMessageService.Send(new MessageDTO()
+                    {
+                        From = fromID,
+                        To = toID,
+                        ID = Guid.NewGuid(),
+                        Message = message
+                    });
+                }
             }
             catch (Exception)
             {
@@ -33,9 +44,12 @@ namespace DatingAppCore.Api
         {
             try
             {
-                var conversation = await LoginOrRegisterConversation(from, to);
-                await Groups.AddToGroupAsync(Context.ConnectionId, conversation.ID.ToString());
-                await Clients.Group(conversation.ID.ToString()).SendAsync($"RegisterComplete", from, conversation.ID.ToString());
+                if (Guid.TryParse(from, out Guid fromID) && Guid.TryParse(to, out Guid toID))
+                {
+                    var conversation = await LoginOrRegisterConversation(fromID, toID);
+                    await Groups.AddToGroupAsync(Context.ConnectionId, conversation.ID.ToString());
+                    await Clients.Group(conversation.ID.ToString()).SendAsync($"RegisterComplete", from, conversation.ID.ToString());
+                }
             }
             catch (Exception)
             {
@@ -47,8 +61,11 @@ namespace DatingAppCore.Api
         {
             try
             {
-                var conversation = await LoginOrRegisterConversation(from, to);
-                await Groups.RemoveFromGroupAsync(Context.ConnectionId, conversation.ID.ToString());
+                if (Guid.TryParse(from, out Guid fromID) && Guid.TryParse(to, out Guid toID))
+                {
+                    var conversation = await LoginOrRegisterConversation(fromID, toID);
+                    await Groups.RemoveFromGroupAsync(Context.ConnectionId, conversation.ID.ToString());
+                }
             }
             catch (Exception)
             {
@@ -56,23 +73,20 @@ namespace DatingAppCore.Api
             }
         }
 
-        private async Task<ConversationDTO> LoginOrRegisterConversation(string from, string to)
+        private async Task<ConversationDTO> LoginOrRegisterConversation(Guid fromID, Guid toID)
         {
             ConversationDTO conversation = null;
-            if (Guid.TryParse(from, out Guid fromID) && Guid.TryParse(to, out Guid toID))
-            {
-                var lookupConversationService = new LookupConversationService();
-                Response<ConversationDTO> response = await lookupConversationService
-                    .Lookup(new Dto.Requests.GetConversationRequest()
-                    {
-                        User1ID = fromID,
-                        User2ID = toID
-                    });
-
-                if (response.Sucess)
+            var lookupConversationService = new LookupConversationService();
+            Response<ConversationDTO> response = await lookupConversationService
+                .Lookup(new Dto.Requests.GetConversationRequest()
                 {
-                    return response.Result;
-                }
+                    User1ID = fromID,
+                    User2ID = toID
+                });
+
+            if (response.Sucess)
+            {
+                return response.Result;
             }
 
             return conversation;
