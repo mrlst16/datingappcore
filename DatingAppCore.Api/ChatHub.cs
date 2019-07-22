@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace DatingAppCore.Api
 {
-    public class ChatHub : Hub
+    public class ChatHub<TLookupConversationService, TSendMessageService> : Hub
+        where TLookupConversationService : ILookupConversationService, new()
+        where TSendMessageService : ISendMessageService, new()
     {
         public ChatHub()
         {
@@ -24,8 +26,8 @@ namespace DatingAppCore.Api
                 {
                     var conversation = await LoginOrRegisterConversation(fromID, toID);
                     await Clients.Group(conversation.ID.ToString()).SendAsync($"ReceiveMessage", from, to, message);
-                    ISendMessageService sendMessageService = new SendMessageService();
-                    await sendMessageService.Send(new MessageDTO()
+                    ISendMessageService sendMessageService = new TSendMessageService();
+                    var response = await sendMessageService.Send(new MessageDTO()
                     {
                         From = fromID,
                         To = toID,
@@ -76,7 +78,7 @@ namespace DatingAppCore.Api
         private async Task<ConversationDTO> LoginOrRegisterConversation(Guid fromID, Guid toID)
         {
             ConversationDTO conversation = null;
-            var lookupConversationService = new LookupConversationService();
+            var lookupConversationService = new TLookupConversationService();
             Response<ConversationDTO> response = await lookupConversationService
                 .Lookup(new Dto.Requests.GetConversationRequest()
                 {

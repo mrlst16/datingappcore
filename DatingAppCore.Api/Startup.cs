@@ -79,7 +79,7 @@ namespace DatingAppCore.Api
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<ChatHub>("/chatHub");
+                routes.MapHub<ChatHub<LookupConversationService, SendMessageService>>("/chatHub");
             });
 
             app.UseMiddleware<RequestLogMiddleware>();
