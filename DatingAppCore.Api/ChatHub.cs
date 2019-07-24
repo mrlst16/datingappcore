@@ -50,7 +50,7 @@ namespace DatingAppCore.Api
                 {
                     var conversation = await LoginOrRegisterConversation(fromID, toID);
                     await Groups.AddToGroupAsync(Context.ConnectionId, conversation.ID.ToString());
-                    await Clients.Group(conversation.ID.ToString()).SendAsync($"RegisterComplete", from, conversation.ID.ToString());
+                    await Clients.Group(conversation.ID.ToString()).SendAsync($"RegisterComplete", conversation.ID.ToString());
                 }
             }
             catch (Exception)
