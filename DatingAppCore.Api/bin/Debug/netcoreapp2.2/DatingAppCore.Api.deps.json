@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "4d959a67ac1cadbd152706c104ec87d89e875c08"
+    "signature": "8ec49bf1c1539c15b38381b1c7e9c1af3362f2b8"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,7 @@
         "dependencies": {
           "Autofac": "4.9.2",
           "Autofac.Extensions.DependencyInjection": "4.4.0",
-          "CommonCoreByMattyLantz": "1.0.5.1",
+          "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.BLL": "1.0.0",
           "Microsoft.AspNet.Mvc": "5.2.7",
           "Microsoft.AspNetCore.App": "2.2.0",
@@ -71,6 +71,23 @@
         },
         "compile": {
           "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "CommonCoreByMattyLantz/1.0.6": {
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/CommonCore.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.1/CommonCore.dll": {}
         }
       },
       "Microsoft.AspNet.Mvc/5.2.7": {
@@ -603,23 +620,9 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "CommonCoreByMattyLantz/1.0.5.1": {
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
-        },
-        "runtime": {
-          "CommonCore.dll": {}
-        },
-        "compile": {
-          "CommonCore.dll": {}
-        }
-      },
       "DatingAppCore.BLL/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.5.1",
+          "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.Interfaces": "1.0.0",
           "DatingAppCore.Repo": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
@@ -635,7 +638,7 @@
       },
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.5.1",
+          "CommonCoreByMattyLantz": "1.0.6",
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.2"
         },
@@ -648,7 +651,7 @@
       },
       "DatingAppCore.Interfaces/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.5.1",
+          "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.Dto": "1.0.0"
         },
         "runtime": {
@@ -660,7 +663,7 @@
       },
       "DatingAppCore.Repo/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.5.1",
+          "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.Dto": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
@@ -3773,6 +3776,13 @@
       "path": "autofac.extensions.dependencyinjection/4.4.0",
       "hashPath": "autofac.extensions.dependencyinjection.4.4.0.nupkg.sha512"
     },
+    "CommonCoreByMattyLantz/1.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y2UIIeOKeGbWeOiZMdGkXiilZ4Y3rXA8ducYbK3ksBBvS1NPiJduPDJ2edsFY2o7NN14xu2jQkCieVhdmaHO9g==",
+      "path": "commoncorebymattylantz/1.0.6",
+      "hashPath": "commoncorebymattylantz.1.0.6.nupkg.sha512"
+    },
     "Microsoft.AspNet.Mvc/5.2.7": {
       "type": "package",
       "serviceable": true,
@@ -4017,11 +4027,6 @@
       "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
-    },
-    "CommonCoreByMattyLantz/1.0.5.1": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "DatingAppCore.BLL/1.0.0": {
       "type": "project",

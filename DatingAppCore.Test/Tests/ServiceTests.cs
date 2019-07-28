@@ -76,5 +76,13 @@ namespace DatingAppCore.Test.Tests
 
             });
         }
+
+        [TestMethod]
+        public void TestingRepository()
+        {
+            string h = "h";
+
+            h += "e";
+        }
     }
 }

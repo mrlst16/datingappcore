@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonCore.Repo.Repository;
+using System;
 
 namespace DatingAppCore.Test
 {
@@ -6,7 +7,6 @@ namespace DatingAppCore.Test
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }

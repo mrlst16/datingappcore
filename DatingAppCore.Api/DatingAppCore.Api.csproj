@@ -29,6 +29,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.2" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.6" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
@@ -42,7 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonCore\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.csproj" />
   </ItemGroup>
 </Project>

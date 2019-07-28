@@ -8,11 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.5.1" />
+    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonCore\CommonCore\CommonCore.csproj" />
     <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
   </ItemGroup>
 
