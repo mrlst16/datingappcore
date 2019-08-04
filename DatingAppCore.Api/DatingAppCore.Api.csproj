@@ -6,6 +6,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>4291ae9e-f35a-4cc3-9d43-52159bd2344b</UserSecretsId>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<LangVersion>7</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

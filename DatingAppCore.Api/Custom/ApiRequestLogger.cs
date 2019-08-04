@@ -26,8 +26,10 @@ namespace DatingAppCore.Api.Custom
         {
             try
             {
-                if (state is HttpContext context)
+                if (typeof(TState) == typeof(HttpContext))
                 {
+                    object obj = state;
+                    var context = (HttpContext)obj;
                     string requestBody = ReadRequestStream(context.Request.Body);
 
                     RequestLog log = new RequestLog()
