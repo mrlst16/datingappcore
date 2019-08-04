@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
@@ -28,6 +29,13 @@ namespace DatingAppCore.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureKestrel((context, options) =>
+                {
+                    options.Listen(IPAddress.Loopback, 5001, listenOptions =>
+                    {
+                        listenOptions.UseHttps("bundle.pfx", "Mayy30!");
+                    });
+                })
                 .UseStartup<Startup>();
     }
 }

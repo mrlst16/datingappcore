@@ -75,7 +75,7 @@ namespace DatingAppCore.Api
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 //.AllowAnyOrigin()
-                .WithOrigins("http://localhost:3000")
+                .WithOrigins("http://localhost:3000", "https://supercooldatingapp.com")
                 .AllowCredentials());
 
             app.UseSignalR(routes =>
