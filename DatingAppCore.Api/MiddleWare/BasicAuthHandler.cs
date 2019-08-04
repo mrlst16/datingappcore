@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using CommonCore.IOC;
+using DatingApp.API.Services;
 
 namespace DatingAppCore.Api.MiddleWare
 {
@@ -26,7 +27,7 @@ namespace DatingAppCore.Api.MiddleWare
 
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            var service = KeyedDependencyResolver.GetDefaultService<IAuthorizationService>();
+            var service = new BasicAuthorizationService();
             var response = service.Authorize(this.Context.Request.Headers);
             if (response.Result)
                 //THIS WORKS FOR SUCCESS!

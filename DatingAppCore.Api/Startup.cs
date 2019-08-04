@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using CommonCore.IOC;
 using CommonCore.Repo.Repository;
 using DatingApp.API.Services;
@@ -51,11 +50,10 @@ namespace DatingAppCore.Api
             services.AddSignalR();
 
             SetupDbConexts();
-            var container = SetupIOC(services);
-            var asp = new AutofacServiceProvider(container);
-            KeyedDependencyResolver.InitDefault(asp);
-
-            return asp;
+            SetupIOC(services);
+            var result = services.BuildServiceProvider();
+            KeyedDependencyResolver.InitDefault(result);
+            return result;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,7 +73,6 @@ namespace DatingAppCore.Api
             app.UseCors(x => x
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                //.AllowAnyOrigin()
                 .WithOrigins("http://localhost:3000", "https://supercooldatingapp.com")
                 .AllowCredentials());
 
@@ -96,33 +93,55 @@ namespace DatingAppCore.Api
             });
         }
 
-        private IContainer SetupIOC(IServiceCollection services)
+        private void SetupIOC(IServiceCollection services)
         {
-            var builder = new ContainerBuilder();
-            builder.Populate(services);
-            builder.RegisterType<GetUserService>().As<IGetUserService>();
-            builder.RegisterType<LoginOrSignupService>().As<ILoginOrSignupService>();
-            builder.RegisterType<PotentialMatchesServiceV2>().As<IPotentialMatchesService>();
-            builder.RegisterType<SearchUsersService>().As<ISearchUsersService>();
-            builder.RegisterType<SavePhotoToFileService>().As<ISaveFormFilesService>();
-            builder.RegisterType<GetClientReviewBadgesService>().As<IGetClientReviewBadgesService>();
-            builder.RegisterType<SendMessageService>().As<ISendMessageService>();
-            builder.RegisterType<LookupConversationService>().As<ILookupConversationService>();
-            builder.RegisterType<SendReviewService>().As<ISendReviewService>();
-            builder.RegisterType<GetReviewService>().As<IGetReviewService>();
-            builder.RegisterType<SetPhotosUpdateOrderOnlyService>().As<ISetPhotosService>();
-            builder.RegisterType<GetPhotosFromFileServiceV2>().As<IGetPhotoStreamService>();
-            builder.RegisterType<SetProfileService>().As<ISetProfileService>();
-            builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
-            builder.RegisterType<SwipeService>().As<ISwipeService>();
-            builder.RegisterType<GetMatchesService>().As<IGetMatchesService>();
-            builder.RegisterType<RecordUserLocationService>().As<IRecordUserLocationService>();
-
-            builder.RegisterType<ApiRequestLogger>().As<ILogger>();
-            builder.RegisterType<BasicAuthorizationService>().As<CommonCore.Services.Interfaces.IAuthorizationService>();
-            var container = builder.Build();
-            return container;
+            services.AddScoped<IGetUserService, GetUserService>();
+            services.AddScoped<ILoginOrSignupService, LoginOrSignupService>();
+            services.AddScoped<IPotentialMatchesService, PotentialMatchesServiceV2>();
+            services.AddScoped<ISearchUsersService, SearchUsersService>();
+            services.AddScoped<ISaveFormFilesService, SavePhotoToFileService>();
+            services.AddScoped<IGetClientReviewBadgesService, GetClientReviewBadgesService>();
+            services.AddScoped<ISendMessageService, SendMessageService>();
+            services.AddScoped<ILookupConversationService, LookupConversationService>();
+            services.AddScoped<ISendReviewService, SendReviewService>();
+            services.AddScoped<IGetReviewService, GetReviewService>();
+            services.AddScoped<ISetPhotosService, SetPhotosUpdateOrderOnlyService>();
+            services.AddScoped<IGetPhotoStreamService, GetPhotosFromFileServiceV2>();
+            services.AddScoped<ISetProfileService, SetProfileService>();
+            services.AddScoped<ISetSettingsService, SetSettingsService>();
+            services.AddScoped<ISwipeService, SwipeService>();
+            services.AddScoped<IGetMatchesService, GetMatchesService>();
+            services.AddScoped<IRecordUserLocationService, RecordUserLocationService>();
         }
+
+
+        //private IContainer SetupIOC2(IServiceCollection services)
+        //{
+        //    var builder = new ContainerBuilder();
+
+        //    builder.RegisterType<GetUserService>().As<IGetUserService>();
+        //    builder.RegisterType<LoginOrSignupService>().As<ILoginOrSignupService>();
+        //    builder.RegisterType<PotentialMatchesServiceV2>().As<IPotentialMatchesService>();
+        //    builder.RegisterType<SearchUsersService>().As<ISearchUsersService>();
+        //    builder.RegisterType<SavePhotoToFileService>().As<ISaveFormFilesService>();
+        //    builder.RegisterType<GetClientReviewBadgesService>().As<IGetClientReviewBadgesService>();
+        //    builder.RegisterType<SendMessageService>().As<ISendMessageService>();
+        //    builder.RegisterType<LookupConversationService>().As<ILookupConversationService>();
+        //    builder.RegisterType<SendReviewService>().As<ISendReviewService>();
+        //    builder.RegisterType<GetReviewService>().As<IGetReviewService>();
+        //    builder.RegisterType<SetPhotosUpdateOrderOnlyService>().As<ISetPhotosService>();
+        //    builder.RegisterType<GetPhotosFromFileServiceV2>().As<IGetPhotoStreamService>();
+        //    builder.RegisterType<SetProfileService>().As<ISetProfileService>();
+        //    builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
+        //    builder.RegisterType<SwipeService>().As<ISwipeService>();
+        //    builder.RegisterType<GetMatchesService>().As<IGetMatchesService>();
+        //    builder.RegisterType<RecordUserLocationService>().As<IRecordUserLocationService>();
+
+        //    builder.RegisterType<ApiRequestLogger>().As<ILogger>();
+        //    builder.RegisterType<BasicAuthorizationService>().As<CommonCore.Services.Interfaces.IAuthorizationService>();
+        //    var container = builder.Build();
+        //    return container;
+        //}
 
         private static void SetupDbConexts()
         {

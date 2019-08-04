@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "8ec49bf1c1539c15b38381b1c7e9c1af3362f2b8"
+    "signature": "c9d5975370fd94b5ba2d1b92e744bda672b4d60f"
   },
   "compilationOptions": {
     "defines": [
@@ -10,7 +10,7 @@
       "NETCOREAPP",
       "NETCOREAPP2_2"
     ],
-    "languageVersion": "",
+    "languageVersion": "7",
     "platform": "",
     "allowUnsafe": false,
     "warningsAsErrors": false,
@@ -24,8 +24,6 @@
     ".NETCoreApp,Version=v2.2": {
       "DatingAppCore.Api/1.0.0": {
         "dependencies": {
-          "Autofac": "4.9.2",
-          "Autofac.Extensions.DependencyInjection": "4.4.0",
           "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.BLL": "1.0.0",
           "Microsoft.AspNet.Mvc": "5.2.7",
@@ -56,21 +54,6 @@
         },
         "compile": {
           "lib/netstandard2.0/Autofac.dll": {}
-        }
-      },
-      "Autofac.Extensions.DependencyInjection/4.4.0": {
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {
-            "assemblyVersion": "4.4.0.0",
-            "fileVersion": "4.4.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
       "CommonCoreByMattyLantz/1.0.6": {
@@ -3768,13 +3751,6 @@
       "sha512": "sha512-lfCcNOzU97f2WFtdo/+SkR0XtpdH20QA5Ob/T2Iv027wFMvDk7EZZ2oj6ERtWL+LBfPTOrbk9zyLj6Okx2CoHA==",
       "path": "autofac/4.9.2",
       "hashPath": "autofac.4.9.2.nupkg.sha512"
-    },
-    "Autofac.Extensions.DependencyInjection/4.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tkNVcEVTG+asY338sZQNbWQIoCrb13I6qOxBrVX7aStu7SGskDDyGT0TrqiJdfEB48GbCd04ZcNz86TdD4cIHg==",
-      "path": "autofac.extensions.dependencyinjection/4.4.0",
-      "hashPath": "autofac.extensions.dependencyinjection.4.4.0.nupkg.sha512"
     },
     "CommonCoreByMattyLantz/1.0.6": {
       "type": "package",

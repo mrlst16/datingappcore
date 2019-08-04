@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using CommonCore.IOC;
 using CommonCore.Repo.Repository;
 using CommonCore.Services.Interfaces;

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "6180ced38d54ac125e478d82f844b9ffdf40a49f"
+    "signature": "04fc671f272e074f5627249e549464a975b0fbe5"
   },
   "compilationOptions": {},
   "targets": {
@@ -36,18 +36,6 @@
           "lib/netstandard2.0/Autofac.Configuration.dll": {
             "assemblyVersion": "4.1.0.0",
             "fileVersion": "4.1.0.0"
-          }
-        }
-      },
-      "Autofac.Extensions.DependencyInjection/4.4.0": {
-        "dependencies": {
-          "Autofac": "4.9.2",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {
-            "assemblyVersion": "4.4.0.0",
-            "fileVersion": "4.4.0.0"
           }
         }
       },
@@ -2650,8 +2638,6 @@
       },
       "DatingAppCore.Api/1.0.0": {
         "dependencies": {
-          "Autofac": "4.9.2",
-          "Autofac.Extensions.DependencyInjection": "4.4.0",
           "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.BLL": "1.0.0",
           "Microsoft.AspNet.Mvc": "5.2.7",
@@ -2732,13 +2718,6 @@
       "sha512": "sha512-0RBau4Z2V7BYkU3m62cMCOzKjPFakSDQ91aAvLxo/IeafS+2SdRh50B0dVpLYyOfk6JgX63eWvJJXOQ/VT/7Kw==",
       "path": "autofac.configuration/4.1.0",
       "hashPath": "autofac.configuration.4.1.0.nupkg.sha512"
-    },
-    "Autofac.Extensions.DependencyInjection/4.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tkNVcEVTG+asY338sZQNbWQIoCrb13I6qOxBrVX7aStu7SGskDDyGT0TrqiJdfEB48GbCd04ZcNz86TdD4cIHg==",
-      "path": "autofac.extensions.dependencyinjection/4.4.0",
-      "hashPath": "autofac.extensions.dependencyinjection.4.4.0.nupkg.sha512"
     },
     "CommonCoreByMattyLantz/1.0.6": {
       "type": "package",
