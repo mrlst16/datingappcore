@@ -33,13 +33,13 @@ namespace DatingAppCore.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                //.ConfigureKestrel((context, options) =>
-                //{
-                //    options.Listen(IPAddress.Loopback, 5001, listenOptions =>
-                //    {
-                //        listenOptions.UseHttps(Path.Combine(Directory.GetCurrentDirectory(), "cert.pfx"), "Matty30!");
-                //    });
-                //})
+                .ConfigureKestrel((context, options) =>
+                {
+                    options.Listen(IPAddress.Loopback, 5001, listenOptions =>
+                    {
+                        listenOptions.UseHttps(Path.Combine(Directory.GetCurrentDirectory(), "cert.pfx"), "Matty30!");
+                    });
+                })
                 .UseStartup<Startup>();
     }
 }
