@@ -19,12 +19,14 @@ namespace DatingAppCore.Api
 {
     public class Program
     {
+        static string CertPath = "bundle.pfx";
         public static void Main(string[] args)
         {
+            Console.WriteLine($"THis is the cert we are looking for: {CertPath}");
+            Console.WriteLine($"FileExists: {File.Exists(CertPath)}");
+            Console.WriteLine($"current directory: {Directory.GetCurrentDirectory()}");
 
-            var currentDirectory = Directory.GetCurrentDirectory();
-
-            Console.WriteLine($"current directory: {currentDirectory} : certExists: {File.Exists(Path.Combine(currentDirectory, "cert.pfx"))}");
+            PrintFileStructure(Directory.GetCurrentDirectory());
 
             CreateWebHostBuilder(args)
                 .Build()
@@ -33,13 +35,30 @@ namespace DatingAppCore.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureKestrel((context, options) =>
-                {
-                    options.Listen(IPAddress.Loopback, 5001, listenOptions =>
-                    {
-                        listenOptions.UseHttps(Path.Combine(Directory.GetCurrentDirectory(), "cert.pfx"), "Matty30!");
-                    });
-                })
+                //.ConfigureKestrel((context, options) =>
+                //{
+                //    options.Listen(IPAddress.Any, 5001, listenOptions =>
+                //    {
+                //        listenOptions.UseHttps(CertPath, "Matty30!");
+                //    });
+                //})
                 .UseStartup<Startup>();
+
+        public static void PrintFileStructure(string directory)
+        {
+            var subDirectories = Directory.GetDirectories(directory).OrderBy(x => x);
+            var files = Directory.GetFiles(directory).OrderBy(x => x);
+            if (files.Any())
+            {
+                Console.WriteLine($"exploring {directory}  files: {files.Aggregate((x, y) => $"{x}{System.Environment.NewLine}{y}") }");
+            }
+            if (subDirectories.Any())
+            {
+                Console.WriteLine($"exploring {directory} directories: {subDirectories.Aggregate((x, y) => $"{x}{System.Environment.NewLine}{y}")}");
+            }
+
+            foreach (var subDir in subDirectories)
+                PrintFileStructure(subDir);
+        }
     }
 }

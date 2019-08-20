@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using Autofac;
 using CommonCore.IOC;
 using CommonCore.Repo.Repository;
@@ -10,6 +12,9 @@ using DatingAppCore.BLL.Services;
 using DatingAppCore.Interfaces;
 using DatingAppCore.Repo.Logging;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.DataProtection.Repositories;
+using Microsoft.AspNetCore.DataProtection.XmlEncryption;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
@@ -47,9 +52,28 @@ namespace DatingAppCore.Api
 
             });
 
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+                options.KnownProxies.Add(IPAddress.Parse("127.0.0.1"));
+            });
+
+            IXmlEncryptor encryptor = new NullXmlEncryptor();
+            IXmlRepository xmlRepository = new FileSystemXmlRepository(
+                new DirectoryInfo(Directory.GetCurrentDirectory()),
+                new LoggerFactory()
+            );
+
+            services.Configure<KeyManagementOptions>(options =>
+            {
+                options.XmlEncryptor = encryptor;
+                options.XmlRepository = xmlRepository;
+            }
+            );
+
             services.AddSignalR();
 
-            SetupDbConexts();
+            SetupDbContexts();
             SetupIOC(services);
             var result = services.BuildServiceProvider();
             KeyedDependencyResolver.InitDefault(result);
@@ -83,8 +107,10 @@ namespace DatingAppCore.Api
 
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto,
             });
+
+            
 
             app.UseMiddleware<RequestLogMiddleware>();
             app.UseMvc(routes =>
@@ -95,55 +121,26 @@ namespace DatingAppCore.Api
 
         private void SetupIOC(IServiceCollection services)
         {
-            services.AddScoped<IGetUserService, GetUserService>();
-            services.AddScoped<ILoginOrSignupService, LoginOrSignupService>();
-            services.AddScoped<IPotentialMatchesService, PotentialMatchesServiceV2>();
-            services.AddScoped<ISearchUsersService, SearchUsersService>();
-            services.AddScoped<ISaveFormFilesService, SavePhotoToFileService>();
-            services.AddScoped<IGetClientReviewBadgesService, GetClientReviewBadgesService>();
-            services.AddScoped<ISendMessageService, SendMessageService>();
-            services.AddScoped<ILookupConversationService, LookupConversationService>();
-            services.AddScoped<ISendReviewService, SendReviewService>();
-            services.AddScoped<IGetReviewService, GetReviewService>();
-            services.AddScoped<ISetPhotosService, SetPhotosUpdateOrderOnlyService>();
-            services.AddScoped<IGetPhotoStreamService, GetPhotosFromFileServiceV2>();
-            services.AddScoped<ISetProfileService, SetProfileService>();
-            services.AddScoped<ISetSettingsService, SetSettingsService>();
-            services.AddScoped<ISwipeService, SwipeService>();
-            services.AddScoped<IGetMatchesService, GetMatchesService>();
-            services.AddScoped<IRecordUserLocationService, RecordUserLocationService>();
+            services.AddSingleton<IGetUserService, GetUserService>();
+            services.AddSingleton<ILoginOrSignupService, LoginOrSignupService>();
+            services.AddSingleton<IPotentialMatchesService, PotentialMatchesServiceV2>();
+            services.AddSingleton<ISearchUsersService, SearchUsersService>();
+            services.AddSingleton<ISaveFormFilesService, SavePhotoToFileService>();
+            services.AddSingleton<IGetClientReviewBadgesService, GetClientReviewBadgesService>();
+            services.AddSingleton<ISendMessageService, SendMessageService>();
+            services.AddSingleton<ILookupConversationService, LookupConversationService>();
+            services.AddSingleton<ISendReviewService, SendReviewService>();
+            services.AddSingleton<IGetReviewService, GetReviewService>();
+            services.AddSingleton<ISetPhotosService, SetPhotosUpdateOrderOnlyService>();
+            services.AddSingleton<IGetPhotoStreamService, GetPhotosFromFileServiceV2>();
+            services.AddSingleton<ISetProfileService, SetProfileService>();
+            services.AddSingleton<ISetSettingsService, SetSettingsService>();
+            services.AddSingleton<ISwipeService, SwipeService>();
+            services.AddSingleton<IGetMatchesService, GetMatchesService>();
+            services.AddSingleton<IRecordUserLocationService, RecordUserLocationService>();
         }
 
-
-        //private IContainer SetupIOC2(IServiceCollection services)
-        //{
-        //    var builder = new ContainerBuilder();
-
-        //    builder.RegisterType<GetUserService>().As<IGetUserService>();
-        //    builder.RegisterType<LoginOrSignupService>().As<ILoginOrSignupService>();
-        //    builder.RegisterType<PotentialMatchesServiceV2>().As<IPotentialMatchesService>();
-        //    builder.RegisterType<SearchUsersService>().As<ISearchUsersService>();
-        //    builder.RegisterType<SavePhotoToFileService>().As<ISaveFormFilesService>();
-        //    builder.RegisterType<GetClientReviewBadgesService>().As<IGetClientReviewBadgesService>();
-        //    builder.RegisterType<SendMessageService>().As<ISendMessageService>();
-        //    builder.RegisterType<LookupConversationService>().As<ILookupConversationService>();
-        //    builder.RegisterType<SendReviewService>().As<ISendReviewService>();
-        //    builder.RegisterType<GetReviewService>().As<IGetReviewService>();
-        //    builder.RegisterType<SetPhotosUpdateOrderOnlyService>().As<ISetPhotosService>();
-        //    builder.RegisterType<GetPhotosFromFileServiceV2>().As<IGetPhotoStreamService>();
-        //    builder.RegisterType<SetProfileService>().As<ISetProfileService>();
-        //    builder.RegisterType<SetSettingsService>().As<ISetSettingsService>();
-        //    builder.RegisterType<SwipeService>().As<ISwipeService>();
-        //    builder.RegisterType<GetMatchesService>().As<IGetMatchesService>();
-        //    builder.RegisterType<RecordUserLocationService>().As<IRecordUserLocationService>();
-
-        //    builder.RegisterType<ApiRequestLogger>().As<ILogger>();
-        //    builder.RegisterType<BasicAuthorizationService>().As<CommonCore.Services.Interfaces.IAuthorizationService>();
-        //    var container = builder.Build();
-        //    return container;
-        //}
-
-        private static void SetupDbConexts()
+        private static void SetupDbContexts()
         {
             RepoCache.Initialize(typeof(DatingAppCore.Repo.AppContext));
         }
