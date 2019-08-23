@@ -22,11 +22,12 @@ namespace DatingAppCore.Api
         static string CertPath = "bundle.pfx";
         public static void Main(string[] args)
         {
+            Console.WriteLine($"THis is run {0}");
             Console.WriteLine($"THis is the cert we are looking for: {CertPath}");
             Console.WriteLine($"FileExists: {File.Exists(CertPath)}");
             Console.WriteLine($"current directory: {Directory.GetCurrentDirectory()}");
 
-            PrintFileStructure(Directory.GetCurrentDirectory());
+            //PrintFileStructure(Directory.GetCurrentDirectory());
 
             CreateWebHostBuilder(args)
                 .Build()
@@ -35,13 +36,6 @@ namespace DatingAppCore.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                //.ConfigureKestrel((context, options) =>
-                //{
-                //    options.Listen(IPAddress.Any, 5001, listenOptions =>
-                //    {
-                //        listenOptions.UseHttps(CertPath, "Matty30!");
-                //    });
-                //})
                 .UseStartup<Startup>();
 
         public static void PrintFileStructure(string directory)

@@ -16,12 +16,18 @@ namespace DatingAppCore.Api.Controllers
     [Route("api/[controller]")]
     public class LabController : Controller
     {
-        [HttpPost("echo")]
-        public async Task<IActionResult> LabAction([FromBody]LabRequest request)
+        [HttpPost("post_echo")]
+        public async Task<IActionResult> PostEcho([FromBody]LabRequest request)
         {
             Response<string> response = request.Value;
 
             return Json(response);
+        }
+
+        [HttpGet("get_echo")]
+        public async Task<IActionResult> GetEcho([FromQuery]string request)
+        {
+            return Json(request);
         }
     }
 }
