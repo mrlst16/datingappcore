@@ -20,7 +20,7 @@ namespace DatingAppCore.Dto
         Female = 1
     }
 
-    public enum PhotoAccessLevelEnum
+    public enum AccessLevelEnum
     {
         Public = 1,
         Private = 2,

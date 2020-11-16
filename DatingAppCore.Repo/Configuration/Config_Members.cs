@@ -1,4 +1,5 @@
-﻿using DatingAppCore.Repo.Matching;
+﻿using DatingAppCore.Repo.EF.Matching;
+using DatingAppCore.Repo.EF.Members;
 using DatingAppCore.Repo.Members;
 using Microsoft.EntityFrameworkCore;
 using System;

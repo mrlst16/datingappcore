@@ -6,7 +6,7 @@ using System.Web;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using CommonCore.Services.Interfaces;
-using DatingAppCore.Repo.Clients;
+using DatingAppCore.Repo.EF.Clients;
 using Microsoft.AspNetCore.Http;
 
 namespace DatingApp.API.Services

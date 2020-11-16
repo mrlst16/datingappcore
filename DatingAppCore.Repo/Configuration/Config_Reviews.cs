@@ -1,4 +1,4 @@
-﻿using DatingAppCore.Repo.Reviewing;
+﻿using DatingAppCore.Repo.EF.Reviewing;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

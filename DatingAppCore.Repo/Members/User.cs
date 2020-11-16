@@ -1,15 +1,16 @@
-﻿using DatingAppCore.Repo.Messaging;
-using DatingAppCore.Repo.Reviewing;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DatingAppCore.Repo.Matching;
 using CommonCore.Repo.Entities;
 using DatingAppCore.Dto;
+using DatingAppCore.Repo.EF.Matching;
+using DatingAppCore.Repo.EF.Messaging;
+using DatingAppCore.Repo.EF.Reviewing;
+using DatingAppCore.Repo.Members;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Repo.EF.Members
 {
     public class User : EntityBase
     {

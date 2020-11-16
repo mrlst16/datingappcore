@@ -1,4 +1,5 @@
 ﻿using CommonCore.Repo.Entities;
+using DatingAppCore.Repo.EF.Members;
 using DatingAppCore.Repo.Members;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Repo.Matching
+namespace DatingAppCore.Repo.EF.Matching
 {
     public class Match : EntityBase
     {

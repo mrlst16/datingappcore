@@ -9,15 +9,13 @@ using DatingApp.API.Services;
 using DatingAppCore.Api.Custom;
 using DatingAppCore.Api.MiddleWare;
 using DatingAppCore.BLL.Services;
-using DatingAppCore.Interfaces;
-using DatingAppCore.Repo.Logging;
+using DatingAppCore.BLL.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.DataProtection.XmlEncryption;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -121,28 +119,28 @@ namespace DatingAppCore.Api
 
         private void SetupIOC(IServiceCollection services)
         {
-            services.AddSingleton<IGetUserService, GetUserService>();
-            services.AddSingleton<ILoginOrSignupService, LoginOrSignupService>();
-            services.AddSingleton<IPotentialMatchesService, PotentialMatchesServiceV2>();
-            services.AddSingleton<ISearchUsersService, SearchUsersService>();
-            services.AddSingleton<ISaveFormFilesService, SavePhotoToFileService>();
-            services.AddSingleton<IGetClientReviewBadgesService, GetClientReviewBadgesService>();
-            services.AddSingleton<ISendMessageService, SendMessageService>();
-            services.AddSingleton<ILookupConversationService, LookupConversationService>();
-            services.AddSingleton<ISendReviewService, SendReviewService>();
-            services.AddSingleton<IGetReviewService, GetReviewService>();
-            services.AddSingleton<ISetPhotosService, SetPhotosUpdateOrderOnlyService>();
-            services.AddSingleton<IGetPhotoStreamService, GetPhotosFromFileServiceV2>();
-            services.AddSingleton<ISetProfileService, SetProfileService>();
-            services.AddSingleton<ISetSettingsService, SetSettingsService>();
-            services.AddSingleton<ISwipeService, SwipeService>();
-            services.AddSingleton<IGetMatchesService, GetMatchesService>();
-            services.AddSingleton<IRecordUserLocationService, RecordUserLocationService>();
+            services.AddTransient<IGetUserService, GetUserService>();
+            services.AddTransient<ILoginOrSignupService, LoginOrSignupService>();
+            services.AddTransient<IPotentialMatchesService, PotentialMatchesServiceV2>();
+            services.AddTransient<ISearchUsersService, SearchUsersService>();
+            services.AddTransient<ISaveFormFilesService, SavePhotoToFileService>();
+            services.AddTransient<IGetClientReviewBadgesService, GetClientReviewBadgesService>();
+            services.AddTransient<ISendMessageService, SendMessageService>();
+            services.AddTransient<ILookupConversationService, LookupConversationService>();
+            services.AddTransient<ISendReviewService, SendReviewService>();
+            services.AddTransient<IGetReviewService, GetReviewService>();
+            services.AddTransient<ISetPhotosService, SetPhotosUpdateOrderOnlyService>();
+            services.AddTransient<IGetPhotoStreamService, GetPhotosFromFileServiceV2>();
+            services.AddTransient<ISetProfileService, SetProfileService>();
+            services.AddTransient<ISetSettingsService, SetSettingsService>();
+            services.AddTransient<ISwipeService, SwipeService>();
+            services.AddTransient<IGetMatchesService, GetMatchesService>();
+            services.AddTransient<IRecordUserLocationService, RecordUserLocationService>();
         }
 
         private static void SetupDbContexts()
         {
-            RepoCache.Initialize(typeof(DatingAppCore.Repo.AppContext));
+            RepoCache.Initialize(typeof(DatingAppCore.Repo.EF.AppContext));
         }
     }
 }

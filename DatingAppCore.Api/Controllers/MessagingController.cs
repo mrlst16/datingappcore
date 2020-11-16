@@ -9,8 +9,8 @@ using Autofac;
 using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Messages;
+using DatingAppCore.BLL.Services.Interfaces;
 
 namespace DatingAppCore.Api.Controllers
 {

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using DatingAppCore.Dto.Members;
-using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Matching;
+using DatingAppCore.BLL.Services.Interfaces;
 
 namespace DatingAppCore.Api.Controllers
 {

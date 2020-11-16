@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingAppCore.Repo.Reviewing
+namespace DatingAppCore.Repo.EF.Reviewing
 {
     public class ReviewBadgeTemplate : EntityBase
     {

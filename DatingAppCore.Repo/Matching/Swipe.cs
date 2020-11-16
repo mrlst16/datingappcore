@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo.Entities;
+using DatingAppCore.Repo.EF.Members;
 using DatingAppCore.Repo.Members;
 
-namespace DatingAppCore.Repo.Matching
+namespace DatingAppCore.Repo.EF.Matching
 {
     public class Swipe : EntityBase
     {

@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Extensions;
 using CommonCore.Repo;
-using DatingAppCore.BLL.Helpers;
 using DatingAppCore.Dto.Members;
+using DatingAppCore.Repo.EF.Members;
 using DatingAppCore.Repo.Members;
 using UserDTO = DatingAppCore.Dto.Members.UserDTO;
 
@@ -50,20 +50,20 @@ namespace DatingAppCore.BLL.Adapters
 
         public static UserDTO ToDto(this User entity)
         {
-            var userProfileComparer = new UserProfileComparer();
-            var result = new UserDTO()
-            {
-                ID = entity.ID,
-                ExternalID = entity.ExternalID,
-                IdType = entity.IdType,
-                ClientID = entity.ClientID,
-                Birthday = entity.Birthday,
-                UserName = entity.UserName,
-                Profile = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == false).ToDictionary(x => x.Name, field => field.Value),
-                Settings = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == true).ToDictionary(x => x.Name, field => field.Value),
-                Photos = entity.Photos?.Select(x => x.ToDto()).ToList()
-            };
-            return result;
+            //var userProfileComparer = new UserProfileComparer();
+            //var result = new UserDTO()
+            //{
+            //    ID = entity.ID,
+            //    ExternalID = entity.ExternalID,
+            //    IdType = entity.IdType,
+            //    ClientID = entity.ClientID,
+            //    Birthday = entity.Birthday,
+            //    UserName = entity.UserName,
+            //    Profile = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == false).ToDictionary(x => x.Name, field => field.Value),
+            //    Settings = entity.Profile?.Distinct(userProfileComparer)?.Where(x => x.IsSetting == true).ToDictionary(x => x.Name, field => field.Value),
+            //    Photos = entity.Photos?.Select(x => x.ToDto()).ToList()
+            //};
+            return null;
         }
 
         public static PhotoDTO ToDto(this Photo entity)
@@ -93,7 +93,7 @@ namespace DatingAppCore.BLL.Adapters
                 UserName = dto.UserName,
                 Birthday = dto.Birthday
             }.EnsureID();
-            result.Photos = dto.Photos?.Select(x => x.ToEntity(result.ID)).ToList();
+            //result.Photos = dto.Photos?.Select(x => x.ToEntity(result.ID)).ToList();
             result.Profile = dto.Settings?.Select(x =>
             {
                 return new UserProfileField()
@@ -114,12 +114,12 @@ namespace DatingAppCore.BLL.Adapters
                     IsSetting = false
                 }.EnsureID();
             }).ToList());
-            result.Inbox = dto.Inbox?.Select(x => x.ToEntity()).ToList();
-            result.Sent = dto.Sent?.Select(x => x.ToEntity()).ToList();
-            result.SwipesReceived = dto.SwipesReceived?.Select(x => x.ToEntity()).ToList();
-            result.SwipesSent = dto.SwipesSent?.Select(x => x.ToEntity()).ToList();
-            result.ReviewReceived = dto.ReviewReceived?.Select(x => x.ToEntity()).ToList();
-            result.ReviewsSent = dto.ReviewsSent?.Select(x => x.ToEntity()).ToList();
+            //result.Inbox = dto.Inbox?.Select(x => x.ToEntity()).ToList();
+            //result.Sent = dto.Sent?.Select(x => x.ToEntity()).ToList();
+            //result.SwipesReceived = dto.SwipesReceived?.Select(x => x.ToEntity()).ToList();
+            //result.SwipesSent = dto.SwipesSent?.Select(x => x.ToEntity()).ToList();
+            //result.ReviewReceived = dto.ReviewReceived?.Select(x => x.ToEntity()).ToList();
+            //result.ReviewsSent = dto.ReviewsSent?.Select(x => x.ToEntity()).ToList();
             result.AsGrantee = dto.AsGrantee?.Select(x => x.ToEntity()).ToList();
             result.AsGrantor = dto.AsGrantor?.Select(x => x.ToEntity()).ToList();
 

@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using CommonCore.Responses;
-using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Responses;
+using DatingAppCore.BLL.Services.Interfaces;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -24,7 +24,7 @@ namespace DatingAppCore.Api.Controllers
         private readonly ISetPhotosService _setPhotosService;
         private readonly ISaveFormFilesService _saveFormFilesService;
         private readonly IGetPhotoStreamService _getPhotoStreamService;
-        private readonly Interfaces.IRecordUserLocationService _recordUserLocationService;
+        private readonly IRecordUserLocationService _recordUserLocationService;
 
         public UsersController(
             ILoginOrSignupService loginOrSignupService,
@@ -34,7 +34,7 @@ namespace DatingAppCore.Api.Controllers
             ISetPhotosService setPhotosService,
             ISaveFormFilesService saveFormFilesService,
             IGetPhotoStreamService getPhotoStreamService,
-            Interfaces.IRecordUserLocationService recordUserLocationService
+            IRecordUserLocationService recordUserLocationService
             )
         {
             _loginOrSignupService = loginOrSignupService;

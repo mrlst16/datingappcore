@@ -1,4 +1,4 @@
-﻿using DatingAppCore.Repo.Matching;
+﻿using DatingAppCore.Repo.EF.Matching;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

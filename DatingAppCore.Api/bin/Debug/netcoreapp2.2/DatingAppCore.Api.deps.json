@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "c9d5975370fd94b5ba2d1b92e744bda672b4d60f"
+    "signature": ""
   },
   "compilationOptions": {
     "defines": [
@@ -4195,14 +4195,14 @@
     "Microsoft.AspNetCore.DataProtection.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1+LBptIMXgpm3PdzmkoGVMnTyuzeF4hRC310ZpJIl1XQrK2+ag6HuVosRkpjwMVd6/oe2UQrjxby4QpDYrM3lA==",
+      "sha512": "sha512-seANFXmp8mb5Y12m1ShiElJ3ZdOT3mBN3wA1GPhHJIvZ/BxOCPyqEOR+810OWsxEZwA5r5fDRNpG/CqiJmQnJg==",
       "path": "microsoft.aspnetcore.dataprotection.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.dataprotection.abstractions.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.DataProtection.Extensions/2.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lpPXsCr9W3/n7g/bm2eqSbp0lprYjWVpGYY5HoxxoNu5v4p7H1fDFPgVzVG9wUerLEul4LbPVvNJhHpizAt8Aw==",
+      "sha512": "sha512-Goo1xU9WJnEJ0dKDgYFF+hFQqRMLKjf9zc8Bu3PaBdGncR7QwDMeFIkO7FEM6izaC38QjYrs1Q5AsmljkPyOrw==",
       "path": "microsoft.aspnetcore.dataprotection.extensions/2.2.0",
       "hashPath": "microsoft.aspnetcore.dataprotection.extensions.2.2.0.nupkg.sha512"
     },
@@ -5392,7 +5392,7 @@
     "System.Diagnostics.Contracts/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kG9jC+UAA/gdWx7eAABV5ILegmsNXBXM4khqNrrLM3+ikYTN+v7/cOZvwraNCsw+fidFE/NDu9y92RR1MDQV5w==",
+      "sha512": "sha512-eelRRbnm+OloiQvp9CXS0ixjNQldjjkHO4iIkR5XH2VIP8sUB/SIpa1TdUW6/+HDcQ+MlhP3pNa1u5SbzYuWGA==",
       "path": "system.diagnostics.contracts/4.3.0",
       "hashPath": "system.diagnostics.contracts.4.3.0.nupkg.sha512"
     },
@@ -5420,7 +5420,7 @@
     "System.Diagnostics.StackTrace/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lZsY3tGUpANINAKp1L9nW9mbMsH/OTQcmWiKo1iCWyI/MyFL2oK/gay1CuoF2ESujUWY94ewEDjwavPvCrsSEQ==",
+      "sha512": "sha512-BiHg0vgtd35/DM9jvtaC1eKRpWZxr0gcQd643ABG7GnvSlf5pOkY2uyd42mMOJoOmKvnpNj0F4tuoS1pacTwYw==",
       "path": "system.diagnostics.stacktrace/4.3.0",
       "hashPath": "system.diagnostics.stacktrace.4.3.0.nupkg.sha512"
     },
@@ -5721,7 +5721,7 @@
     "System.Security.Cryptography.Cng/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-h39H2hJf+R5p6WUd+x2oz8qPwvDNm8Tf6eGByl0WdGUUkKyRDqhmpbHQup1DGjawXqGr150NSAdfrnyLjpRvvA==",
+      "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
       "path": "system.security.cryptography.cng/4.5.0",
       "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
     },
@@ -5770,7 +5770,7 @@
     "System.Security.Cryptography.Xml/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dwkEE77HbsV4ZCjc22AV9XlFH738c+lU+HQNSqLnAp8JbdwE5B+7OXkC90DG1hufrnc4kQMt9s+ZgiYZ7EcQew==",
+      "sha512": "sha512-i2Jn6rGXR63J0zIklImGRkDIJL4b1NfPSEbIVHBlqoIb12lfXIigCbDRpDmIEzwSo/v1U5y/rYJdzZYSyCWxvg==",
       "path": "system.security.cryptography.xml/4.5.0",
       "hashPath": "system.security.cryptography.xml.4.5.0.nupkg.sha512"
     },

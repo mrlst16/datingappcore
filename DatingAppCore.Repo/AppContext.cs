@@ -1,16 +1,16 @@
 ﻿using System;
 using DatingAppCore.Dto.Members;
-using DatingAppCore.Repo.Clients;
 using DatingAppCore.Repo.Configuration;
-using DatingAppCore.Repo.Logging;
-using DatingAppCore.Repo.Matching;
+using DatingAppCore.Repo.EF.Clients;
+using DatingAppCore.Repo.EF.Logging;
+using DatingAppCore.Repo.EF.Matching;
+using DatingAppCore.Repo.EF.Members;
+using DatingAppCore.Repo.EF.Messaging;
+using DatingAppCore.Repo.EF.Reviewing;
 using DatingAppCore.Repo.Members;
-using DatingAppCore.Repo.Messaging;
-using DatingAppCore.Repo.Reviewing;
 using Microsoft.EntityFrameworkCore;
-using Match = DatingAppCore.Repo.Matching.Match;
 
-namespace DatingAppCore.Repo
+namespace DatingAppCore.Repo.EF
 {
     public class AppContext : DbContext
     {

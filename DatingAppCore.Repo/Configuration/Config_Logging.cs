@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DatingAppCore.Repo.Logging;
+using DatingAppCore.Repo.EF.Logging;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingAppCore.Repo.Configuration

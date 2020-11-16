@@ -1,4 +1,4 @@
-﻿using DatingAppCore.Repo.Messaging;
+﻿using DatingAppCore.Repo.EF.Messaging;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

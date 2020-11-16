@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingAppCore.Repo.Logging
+namespace DatingAppCore.Repo.EF.Logging
 {
     public class RequestLog : EntityBase
     {

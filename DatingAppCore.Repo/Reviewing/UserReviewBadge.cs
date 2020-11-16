@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CommonCore.Repo.Entities;
 using DatingAppCore.Repo.Members;
 
-namespace DatingAppCore.Repo.Reviewing
+namespace DatingAppCore.Repo.EF.Reviewing
 {
     public class UserReviewBadge : EntityBase
     {

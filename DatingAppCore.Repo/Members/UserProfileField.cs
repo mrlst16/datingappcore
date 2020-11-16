@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Repo.EF.Members
 {
     public class UserProfileField : EntityBase
     {

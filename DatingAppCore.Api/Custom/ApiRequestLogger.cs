@@ -1,12 +1,9 @@
 ﻿using CommonCore.Repo.Repository;
-using DatingAppCore.Repo.Logging;
+using DatingAppCore.Repo.EF.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DatingAppCore.Api.Custom
 {

@@ -1,9 +1,10 @@
 ﻿using CommonCore.Repo.Entities;
+using DatingAppCore.Repo.Members;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Repo.EF.Members
 {
     public class PhotoData : EntityBase
     {

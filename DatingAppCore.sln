@@ -3,17 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Repo", "DatingAppCore.Repo\DatingAppCore.Repo.csproj", "{12070BD8-D7CC-49BE-AB15-DADF81ABBDBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Repo.EF", "DatingAppCore.Repo\DatingAppCore.Repo.EF.csproj", "{12070BD8-D7CC-49BE-AB15-DADF81ABBDBE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Dto", "DatingAppCore.Dto\DatingAppCore.Dto.csproj", "{6A34EF1B-146A-4C49-B265-56B38720F6E5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.BLL", "DatingAppCore.BLL\DatingAppCore.BLL.csproj", "{0848752E-15FD-4090-9D32-E10E515CC586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.BLL.Common", "DatingAppCore.BLL\DatingAppCore.BLL.Common.csproj", "{0848752E-15FD-4090-9D32-E10E515CC586}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Api", "DatingAppCore.Api\DatingAppCore.Api.csproj", "{29853505-DCCC-4896-9D36-B7780D9D98D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Test", "DatingAppCore.Test\DatingAppCore.Test.csproj", "{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Api.Tests", "DatingAppCore.Api.Tests\DatingAppCore.Api.Tests.csproj", "{5F8D3C23-11F9-4182-BD24-BB4F9EFD17ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Interfaces", "DatingAppCore.Interfaces\DatingAppCore.Interfaces.csproj", "{6EFA898E-882F-4487-8570-B248F8968B24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.BLL.Services.Interfaces", "DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Services.Interfaces.csproj", "{F892C4BE-2A03-4D5B-9CD1-E15951ECBDC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.BLL.Services", "DatingAppCore.BLL.Services\DatingAppCore.BLL.Services.csproj", "{1FD6F494-0E43-4CF9-87F0-E938B28AEBB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.BLL.Extensions", "DatingAppCore.BLL.Extensions\DatingAppCore.BLL.Extensions.csproj", "{02780747-5C59-407C-A2C6-73EE43231760}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.Models", "DatingAppCore.Models\DatingAppCore.Models.csproj", "{7087674B-83D5-4EA2-AC3F-63267B77DDFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalProjects", "ExternalProjects", "{677212FA-53C2-4B46-8017-02481ED844F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore", "..\CommonCore\CommonCore\CommonCore.csproj", "{1B94B97D-249E-4FDA-B2F0-9D6A5420CD44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.Repo.MongoDb", "DatingAppCore.Repo.MongoDb\DatingAppCore.Repo.MongoDb.csproj", "{42AAC16A-9620-4436-A6DE-9A1B9C93F54C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.Repo.Intefaces", "DatingAppCore.Repo.Intefaces\DatingAppCore.Repo.Intefaces.csproj", "{FEF334B3-E09B-41CF-B5A8-9C529E8EE59A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.BLL.ServiceFactories.Interfaces", "DatingAppCore.BLL.ServiceFactories.Interfaces\DatingAppCore.BLL.ServiceFactories.Interfaces.csproj", "{84CDB1D4-8D23-4445-8E31-02E7955C4BC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppCore.BLL.ServiceFactories", "DatingAppCore.BLL.ServiceFactories\DatingAppCore.BLL.ServiceFactories.csproj", "{041BC45D-C77A-4DC2-A5CA-E70BC744AE50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,17 +55,52 @@ Global
 		{29853505-DCCC-4896-9D36-B7780D9D98D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29853505-DCCC-4896-9D36-B7780D9D98D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29853505-DCCC-4896-9D36-B7780D9D98D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A31FD7A-09D7-43C1-B0F6-9BBB1ADC187F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EFA898E-882F-4487-8570-B248F8968B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EFA898E-882F-4487-8570-B248F8968B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EFA898E-882F-4487-8570-B248F8968B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EFA898E-882F-4487-8570-B248F8968B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F8D3C23-11F9-4182-BD24-BB4F9EFD17ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F8D3C23-11F9-4182-BD24-BB4F9EFD17ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F8D3C23-11F9-4182-BD24-BB4F9EFD17ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F8D3C23-11F9-4182-BD24-BB4F9EFD17ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F892C4BE-2A03-4D5B-9CD1-E15951ECBDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F892C4BE-2A03-4D5B-9CD1-E15951ECBDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F892C4BE-2A03-4D5B-9CD1-E15951ECBDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F892C4BE-2A03-4D5B-9CD1-E15951ECBDC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD6F494-0E43-4CF9-87F0-E938B28AEBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD6F494-0E43-4CF9-87F0-E938B28AEBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD6F494-0E43-4CF9-87F0-E938B28AEBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD6F494-0E43-4CF9-87F0-E938B28AEBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02780747-5C59-407C-A2C6-73EE43231760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02780747-5C59-407C-A2C6-73EE43231760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02780747-5C59-407C-A2C6-73EE43231760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02780747-5C59-407C-A2C6-73EE43231760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7087674B-83D5-4EA2-AC3F-63267B77DDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7087674B-83D5-4EA2-AC3F-63267B77DDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7087674B-83D5-4EA2-AC3F-63267B77DDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7087674B-83D5-4EA2-AC3F-63267B77DDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B94B97D-249E-4FDA-B2F0-9D6A5420CD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B94B97D-249E-4FDA-B2F0-9D6A5420CD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B94B97D-249E-4FDA-B2F0-9D6A5420CD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B94B97D-249E-4FDA-B2F0-9D6A5420CD44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42AAC16A-9620-4436-A6DE-9A1B9C93F54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42AAC16A-9620-4436-A6DE-9A1B9C93F54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42AAC16A-9620-4436-A6DE-9A1B9C93F54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42AAC16A-9620-4436-A6DE-9A1B9C93F54C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF334B3-E09B-41CF-B5A8-9C529E8EE59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF334B3-E09B-41CF-B5A8-9C529E8EE59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF334B3-E09B-41CF-B5A8-9C529E8EE59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF334B3-E09B-41CF-B5A8-9C529E8EE59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CDB1D4-8D23-4445-8E31-02E7955C4BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CDB1D4-8D23-4445-8E31-02E7955C4BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CDB1D4-8D23-4445-8E31-02E7955C4BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CDB1D4-8D23-4445-8E31-02E7955C4BC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{041BC45D-C77A-4DC2-A5CA-E70BC744AE50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041BC45D-C77A-4DC2-A5CA-E70BC744AE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041BC45D-C77A-4DC2-A5CA-E70BC744AE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041BC45D-C77A-4DC2-A5CA-E70BC744AE50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1B94B97D-249E-4FDA-B2F0-9D6A5420CD44} = {677212FA-53C2-4B46-8017-02481ED844F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21004B8A-131D-41B1-AC60-2C2838B2F978}

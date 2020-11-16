@@ -1,7 +1,7 @@
 ﻿using CommonCore.Responses;
 using DatingAppCore.BLL.Services;
+using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Messages;
-using DatingAppCore.Interfaces;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;

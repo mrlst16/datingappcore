@@ -8,10 +8,10 @@ using Newtonsoft.Json;
 using Autofac;
 using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
-using DatingAppCore.Interfaces;
 using DatingAppCore.Dto.Reviewing;
 using CommonCore.Responses;
 using DatingAppCore.Dto.Requests;
+using DatingAppCore.BLL.Services.Interfaces;
 
 namespace DatingAppCore.Api.Controllers
 {

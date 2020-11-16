@@ -1,6 +1,5 @@
 ﻿using DatingAppCore.Api.Custom;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -19,7 +18,6 @@ namespace DatingAppCore.Api.MiddleWare
 
         public async Task InvokeAsync(HttpContext context)
         {
-            context.Request.EnableRewind();
             await _next(context);
             // Do logging or other work that doesn't write to the Response.
             try

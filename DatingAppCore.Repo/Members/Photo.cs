@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo.Entities;
 using DatingAppCore.Dto;
+using DatingAppCore.Repo.EF.Members;
 
 namespace DatingAppCore.Repo.Members
 {
@@ -14,7 +15,7 @@ namespace DatingAppCore.Repo.Members
         public int Rank { get; set; }
         public string Caption { get; set; }
         public string FileName { get; set; }
-        public PhotoAccessLevelEnum Access { get; set; } = PhotoAccessLevelEnum.Public;
+        public AccessLevelEnum Access { get; set; } = AccessLevelEnum.Public;
         public string ContentType { get; set; }
 
         //Nav Props

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using CommonCore.Repo.Entities;
+using DatingAppCore.Repo.EF.Members;
 using DatingAppCore.Repo.Members;
 
-namespace DatingAppCore.Repo.Messaging
+namespace DatingAppCore.Repo.EF.Messaging
 {
     public class Conversation : EntityBase
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo;
 using DatingAppCore.Dto.Messages;
-using DatingAppCore.Repo.Messaging;
+using DatingAppCore.Repo.EF.Messaging;
 
 namespace DatingAppCore.BLL.Adapters
 {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Repo.Clients
+namespace DatingAppCore.Repo.EF.Clients
 {
     public class ClientAuth : EntityBase
     {
