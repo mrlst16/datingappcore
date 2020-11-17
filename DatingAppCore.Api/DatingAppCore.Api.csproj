@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.6" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
@@ -42,8 +41,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DatingAppCore.BLL.ServiceFactories.Interfaces\DatingAppCore.BLL.ServiceFactories.Interfaces.csproj" />
+    <ProjectReference Include="..\DatingAppCore.BLL.ServiceFactories\DatingAppCore.BLL.ServiceFactories.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Services.Interfaces.csproj" />
-    <ProjectReference Include="..\DatingAppCore.BLL.Services\DatingAppCore.BLL.Services.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.Common.csproj" />
+    <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
+    <ProjectReference Include="..\DatingAppCore.Models\DatingAppCore.Entities.csproj" />
   </ItemGroup>
 </Project>

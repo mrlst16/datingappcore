@@ -24,10 +24,12 @@
     ".NETCoreApp,Version=v3.1": {
       "DatingAppCore.Api/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.BLL.Common": "1.0.0",
-          "DatingAppCore.BLL.Services": "1.0.0",
+          "DatingAppCore.BLL.ServiceFactories": "1.0.0",
+          "DatingAppCore.BLL.ServiceFactories.Interfaces": "1.0.0",
           "DatingAppCore.BLL.Services.Interfaces": "1.0.0",
+          "DatingAppCore.Dto": "1.0.0",
+          "DatingAppCore.Entities": "1.0.0",
           "Microsoft.AspNet.Mvc": "5.2.7",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0",
@@ -2482,10 +2484,17 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "CommonCore.Models/1.0.0": {
+        "runtime": {
+          "CommonCore.Models.dll": {}
+        },
+        "compile": {
+          "CommonCore.Models.dll": {}
+        }
+      },
       "DatingAppCore.BLL.Common/1.0.0": {
         "dependencies": {
-          "DatingAppCore.BLL.Services.Interfaces": "1.0.0",
-          "DatingAppCore.Repo.EF": "1.0.0"
+          "DatingAppCore.BLL.Services.Interfaces": "1.0.0"
         },
         "runtime": {
           "DatingAppCore.BLL.Common.dll": {}
@@ -2494,18 +2503,27 @@
           "DatingAppCore.BLL.Common.dll": {}
         }
       },
-      "DatingAppCore.BLL.Services/1.0.0": {
+      "DatingAppCore.BLL.ServiceFactories/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.6",
-          "DatingAppCore.BLL.Common": "1.0.0",
-          "DatingAppCore.BLL.Services.Interfaces": "1.0.0",
-          "DatingAppCore.Repo.EF": "1.0.0"
+          "DatingAppCore.BLL.ServiceFactories.Interfaces": "1.0.0",
+          "DatingAppCore.BLL.Services.Interfaces": "1.0.0"
         },
         "runtime": {
-          "DatingAppCore.BLL.Services.dll": {}
+          "DatingAppCore.BLL.ServiceFactories.dll": {}
         },
         "compile": {
-          "DatingAppCore.BLL.Services.dll": {}
+          "DatingAppCore.BLL.ServiceFactories.dll": {}
+        }
+      },
+      "DatingAppCore.BLL.ServiceFactories.Interfaces/1.0.0": {
+        "dependencies": {
+          "DatingAppCore.BLL.Services.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "DatingAppCore.BLL.ServiceFactories.Interfaces.dll": {}
+        },
+        "compile": {
+          "DatingAppCore.BLL.ServiceFactories.Interfaces.dll": {}
         }
       },
       "DatingAppCore.BLL.Services.Interfaces/1.0.0": {
@@ -2523,6 +2541,7 @@
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
           "CommonCoreByMattyLantz": "1.0.6",
+          "DatingAppCore.Entities": "1.0.0",
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.2"
         },
@@ -2533,19 +2552,15 @@
           "DatingAppCore.Dto.dll": {}
         }
       },
-      "DatingAppCore.Repo.EF/1.0.0": {
+      "DatingAppCore.Entities/1.0.0": {
         "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.6",
-          "DatingAppCore.Dto": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "2.2.4",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+          "CommonCore.Models": "1.0.0"
         },
         "runtime": {
-          "DatingAppCore.Repo.EF.dll": {}
+          "DatingAppCore.Entities.dll": {}
         },
         "compile": {
-          "DatingAppCore.Repo.EF.dll": {}
+          "DatingAppCore.Entities.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery.Reference/3.1.0.0": {
@@ -5865,12 +5880,22 @@
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
+    "CommonCore.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "DatingAppCore.BLL.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "DatingAppCore.BLL.Services/1.0.0": {
+    "DatingAppCore.BLL.ServiceFactories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DatingAppCore.BLL.ServiceFactories.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -5885,7 +5910,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DatingAppCore.Repo.EF/1.0.0": {
+    "DatingAppCore.Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using CommonCore.Repo.Entities;
-using DatingAppCore.Repo.Members;
+using DatingAppCore.Entities.Members;
 
-namespace DatingAppCore.Repo.Messaging
+namespace DatingAppCore.Entities.Messaging
 {
     public class Conversation : EntityBase
     {
         public Guid User1ID { get; set; }
         public Guid User2ID { get; set; }
-
-        public User User1 { get; set; }
-        public User User2 { get; set; }
-
-        public List<Message> Messages { get; set; }
 
         public override bool Equals(object obj)
         {

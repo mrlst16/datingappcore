@@ -11,9 +11,9 @@ using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.Repo;
-using DatingAppCore.Repo.EF.Members;
-using DatingAppCore.Repo.Members;
+//using DatingAppCore.Repo;
+//using DatingAppCore.Repo.EF.Members;
+//using DatingAppCore.Repo.Members;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingAppCore.BLL.Services

@@ -9,10 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DatingAppCore.BLL.Services\DatingAppCore.BLL.Services.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.Common.csproj" />
-    <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
-    <ProjectReference Include="..\DatingAppCore.Repo\DatingAppCore.Repo.EF.csproj" />
   </ItemGroup>
 
 </Project>

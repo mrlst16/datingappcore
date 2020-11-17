@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo.Entities;
-using DatingAppCore.Models.Enum;
+using DatingAppCore.Entities.Enum;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Entities.Members
 {
     public class Photo : EntityBase
     {

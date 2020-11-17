@@ -9,8 +9,8 @@ using Autofac;
 using Microsoft.AspNetCore.Authorization;
 using CommonCore.IOC;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.Dto.Messages;
 using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Entities.Messaging;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -32,7 +32,7 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("send")]
-        public async Task<IActionResult> Send(MessageDTO request)
+        public async Task<IActionResult> Send(Message request)
         {
             var result = await _sendMessageService.Send(request);
             return Json(result);

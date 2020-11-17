@@ -7,12 +7,12 @@ using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Members;
-using DatingAppCore.Repo.Members;
+//using DatingAppCore.Repo.Members;
 using Microsoft.EntityFrameworkCore;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.BLL.Adapters;
 using System.IO;
-using DatingAppCore.Repo.EF.Members;
+//using DatingAppCore.Repo.EF.Members;
 
 namespace DatingAppCore.BLL.Services
 {

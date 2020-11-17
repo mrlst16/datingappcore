@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Responses;
-using DatingAppCore.Dto.Matching;
+using DatingAppCore.Entities.Matching;
 
 namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface ISwipeService
     {
-        Task<Response<bool>> Swipe(SwipeDTO request);
+        Task<Response<bool>> Swipe(Swipe request);
     }
 }

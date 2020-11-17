@@ -1,4 +1,4 @@
-﻿using DatingAppCore.Dto.Reviewing;
+﻿using DatingAppCore.Entities.Reviewing;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +11,6 @@ namespace DatingAppCore.Dto.Requests
         public Guid ReceiverID { get; set; }
         public double Rating { get; set; }
 
-        public ICollection<ReviewBadgeTemplateDTO> Badges { get; set; }
+        public ICollection<ReviewBadgeTemplate> Badges { get; set; }
     }
 }

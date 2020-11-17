@@ -9,7 +9,7 @@ using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Matching;
-using DatingAppCore.Repo.EF.Matching;
+////using DatingAppCore.Repo.EF.Matching;
 
 namespace DatingAppCore.BLL.Services
 {
@@ -17,7 +17,7 @@ namespace DatingAppCore.BLL.Services
     {
         public  async Task<Response<bool>> Swipe(SwipeDTO request)
         {
-            return Response<bool>.Wrap(() => RepoCache.Get<Swipe>().AddSwipe(request));
+            //return Response<bool>.Wrap(() => RepoCache.Get<Swipe>().AddSwipe(request));
         }
     }
 }

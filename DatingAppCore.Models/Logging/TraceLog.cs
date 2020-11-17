@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Models
+namespace DatingAppCore.Entities.Logging
 {
     public class TraceLog : EntityBase
     {

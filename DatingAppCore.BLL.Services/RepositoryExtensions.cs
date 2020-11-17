@@ -8,17 +8,17 @@ using DatingAppCore.Dto.Messages;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Responses;
 using DatingAppCore.Dto.Reviewing;
-using DatingAppCore.Repo.EF.Matching;
-using DatingAppCore.Repo.Members;
-using DatingAppCore.Repo.EF.Messaging;
-using DatingAppCore.Repo.EF.Reviewing;
+//using DatingAppCore.Repo.EF.Matching;
+//using DatingAppCore.Repo.Members;
+//using DatingAppCore.Repo.EF.Messaging;
+//using DatingAppCore.Repo.EF.Reviewing;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using DatingAppCore.Repo.EF.Members;
+//using DatingAppCore.Repo.EF.Members;
 
 namespace DatingAppCore.BLL.Helpers.RepoHelpers
 {

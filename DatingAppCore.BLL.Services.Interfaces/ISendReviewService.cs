@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Responses;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.Dto.Reviewing;
 
 namespace DatingAppCore.BLL.Services.Interfaces
 {

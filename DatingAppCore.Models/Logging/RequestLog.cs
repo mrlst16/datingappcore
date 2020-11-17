@@ -1,10 +1,6 @@
 ﻿using CommonCore.Repo.Entities;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace DatingAppCore.Models
+namespace DatingAppCore.Entities.Logging
 {
     public class RequestLog : EntityBase
     {

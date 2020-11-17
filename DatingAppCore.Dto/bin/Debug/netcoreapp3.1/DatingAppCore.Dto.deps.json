@@ -9,6 +9,7 @@
       "DatingAppCore.Dto/1.0.0": {
         "dependencies": {
           "CommonCoreByMattyLantz": "1.0.6",
+          "DatingAppCore.Entities": "1.0.0",
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.2"
         },
@@ -2246,6 +2247,19 @@
           "System.Xml.XDocument": "4.3.0",
           "System.Xml.XPath": "4.3.0"
         }
+      },
+      "CommonCore.Models/1.0.0": {
+        "runtime": {
+          "CommonCore.Models.dll": {}
+        }
+      },
+      "DatingAppCore.Entities/1.0.0": {
+        "dependencies": {
+          "CommonCore.Models": "1.0.0"
+        },
+        "runtime": {
+          "DatingAppCore.Entities.dll": {}
+        }
       }
     }
   },
@@ -3703,6 +3717,16 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "CommonCore.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DatingAppCore.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -1,10 +1,8 @@
-﻿using DatingAppCore.Repo.Members;
+﻿using DatingAppCore.Entities.Members;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Repo.Intefaces
+namespace DatingAppCore.Entities.Intefaces
 {
     public interface IUserContext
     {

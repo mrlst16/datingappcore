@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingAppCore.Models.Enum
+namespace DatingAppCore.Entities.Enum
 {
     public enum AccessLevelEnum
     {

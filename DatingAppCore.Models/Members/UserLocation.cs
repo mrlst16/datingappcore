@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Repo.Entities;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Entities.Members
 {
     public class UserLocation : EntityBase
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Entities.Members
 {
     public class PhotoData : EntityBase
     {

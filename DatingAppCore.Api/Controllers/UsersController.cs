@@ -10,6 +10,9 @@ using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Responses;
 using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.BLL.ServiceFactories.Interfaces;
+using DatingAppCore.BLL.ServiceFactories;
+using DatingAppCore.Entities.Members;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -17,7 +20,7 @@ namespace DatingAppCore.Api.Controllers
     [ApiController]
     public class UsersController : Controller
     {
-        private readonly ILoginOrSignupService _loginOrSignupService;
+        private readonly ILoginServiceFactory<int> _loginServiceFactory;
         private readonly IGetUserService _getUserService;
         private readonly ISetSettingsService _setSettingsService;
         private readonly ISetProfileService _setProfileService;
@@ -27,7 +30,7 @@ namespace DatingAppCore.Api.Controllers
         private readonly IRecordUserLocationService _recordUserLocationService;
 
         public UsersController(
-            ILoginOrSignupService loginOrSignupService,
+            ILoginServiceFactory<int> loginServiceFactory,
             IGetUserService getUserService,
             ISetSettingsService setSettingsService,
             ISetProfileService setProfileService,
@@ -37,7 +40,7 @@ namespace DatingAppCore.Api.Controllers
             IRecordUserLocationService recordUserLocationService
             )
         {
-            _loginOrSignupService = loginOrSignupService;
+            _loginServiceFactory = loginServiceFactory;
             _getUserService = getUserService;
             _setSettingsService = setSettingsService;
             _setProfileService = setProfileService;
@@ -45,19 +48,6 @@ namespace DatingAppCore.Api.Controllers
             _saveFormFilesService = saveFormFilesService;
             _getPhotoStreamService = getPhotoStreamService;
             _recordUserLocationService = recordUserLocationService;
-        }
-
-        [Authorize(AuthenticationSchemes = "Basic")]
-        [HttpPost("login_or_signup")]
-        public async Task<IActionResult> LoginOrSignup(LoginOrSignupRequest request)
-        {
-            Response<LoginOrSignupResponse> result = new Response<LoginOrSignupResponse>();
-            if(Guid.TryParse(Request.Headers["ClientID"], out Guid clientId))
-            {
-                request.User.ClientID = clientId;
-                result = await _loginOrSignupService.LoginOrSignup(request);
-            }
-            return Json(result);
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]
@@ -124,7 +114,7 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("record_user_location")]
-        public async Task<IActionResult> RecordUserLocation(UserLocationDTO request)
+        public async Task<IActionResult> RecordUserLocation(UserLocation request)
         {
             var result = await _recordUserLocationService.Record(request);
             return Json(result);

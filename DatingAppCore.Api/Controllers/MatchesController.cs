@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.Dto.Matching;
 using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Members;
+using DatingAppCore.Entities.Matching;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -49,7 +49,7 @@ namespace DatingAppCore.Api.Controllers
 
         [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("swipe")]
-        public async Task<IActionResult> Swipe(SwipeDTO request)
+        public async Task<IActionResult> Swipe(Swipe request)
         {
             var result = await _swipeService.Swipe(request);
             return Json(result);

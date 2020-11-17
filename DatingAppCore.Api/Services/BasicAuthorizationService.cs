@@ -6,7 +6,7 @@ using System.Web;
 using CommonCore.Repo.Repository;
 using CommonCore.Responses;
 using CommonCore.Services.Interfaces;
-using DatingAppCore.Repo.EF.Clients;
+//using DatingAppCore.Repo.EF.Clients;
 using Microsoft.AspNetCore.Http;
 
 namespace DatingApp.API.Services
@@ -32,12 +32,12 @@ namespace DatingApp.API.Services
                 string username = decoded.Split(':').First();
                 string password = decoded.Split(':').Last();
 
-                ClientAuth auth = RepoCache
-                    .Get<ClientAuth>()
-                    .GetQuery()
-                    .FirstOrDefault(x => x.ClientID == clientid);
+                //ClientAuth auth = RepoCache
+                //    .Get<ClientAuth>()
+                //    .GetQuery()
+                //    .FirstOrDefault(x => x.ClientID == clientid);
 
-                response.Result = auth.UserName == username && auth.Password == password;
+                //response.Result = auth.UserName == username && auth.Password == password;
             }
             catch (Exception e)
             {

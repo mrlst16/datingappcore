@@ -100,7 +100,7 @@ namespace DatingAppCore.Api
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<ChatHub<LookupConversationService, SendMessageService>>("/chatHub");
+                //routes.MapHub<ChatHub<LookupConversationService, SendMessageService>>("/chatHub");
             });
 
             app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -119,28 +119,28 @@ namespace DatingAppCore.Api
 
         private void SetupIOC(IServiceCollection services)
         {
-            services.AddTransient<IGetUserService, GetUserService>();
-            services.AddTransient<ILoginOrSignupService, LoginOrSignupService>();
-            services.AddTransient<IPotentialMatchesService, PotentialMatchesServiceV2>();
-            services.AddTransient<ISearchUsersService, SearchUsersService>();
-            services.AddTransient<ISaveFormFilesService, SavePhotoToFileService>();
-            services.AddTransient<IGetClientReviewBadgesService, GetClientReviewBadgesService>();
-            services.AddTransient<ISendMessageService, SendMessageService>();
-            services.AddTransient<ILookupConversationService, LookupConversationService>();
-            services.AddTransient<ISendReviewService, SendReviewService>();
-            services.AddTransient<IGetReviewService, GetReviewService>();
-            services.AddTransient<ISetPhotosService, SetPhotosUpdateOrderOnlyService>();
-            services.AddTransient<IGetPhotoStreamService, GetPhotosFromFileServiceV2>();
-            services.AddTransient<ISetProfileService, SetProfileService>();
-            services.AddTransient<ISetSettingsService, SetSettingsService>();
-            services.AddTransient<ISwipeService, SwipeService>();
-            services.AddTransient<IGetMatchesService, GetMatchesService>();
-            services.AddTransient<IRecordUserLocationService, RecordUserLocationService>();
+            //services.AddTransient<IGetUserService, GetUserService>();
+            //services.AddTransient<ILoginOrSignupService, LoginOrSignupService>();
+            //services.AddTransient<IPotentialMatchesService, PotentialMatchesServiceV2>();
+            //services.AddTransient<ISearchUsersService, SearchUsersService>();
+            //services.AddTransient<ISaveFormFilesService, SavePhotoToFileService>();
+            //services.AddTransient<IGetClientReviewBadgesService, GetClientReviewBadgesService>();
+            //services.AddTransient<ISendMessageService, SendMessageService>();
+            //services.AddTransient<ILookupConversationService, LookupConversationService>();
+            //services.AddTransient<ISendReviewService, SendReviewService>();
+            //services.AddTransient<IGetReviewService, GetReviewService>();
+            //services.AddTransient<ISetPhotosService, SetPhotosUpdateOrderOnlyService>();
+            //services.AddTransient<IGetPhotoStreamService, GetPhotosFromFileServiceV2>();
+            //services.AddTransient<ISetProfileService, SetProfileService>();
+            //services.AddTransient<ISetSettingsService, SetSettingsService>();
+            //services.AddTransient<ISwipeService, SwipeService>();
+            //services.AddTransient<IGetMatchesService, GetMatchesService>();
+            //services.AddTransient<IRecordUserLocationService, RecordUserLocationService>();
         }
 
         private static void SetupDbContexts()
         {
-            RepoCache.Initialize(typeof(DatingAppCore.Repo.EF.AppContext));
+            //RepoCache.Initialize(typeof(DatingAppCore.Repo.EF.AppContext));
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Services.Interfaces;
-using DatingAppCore.Repo.EF.Reviewing;
+//using DatingAppCore.Repo.EF.Reviewing;
 
 namespace DatingAppCore.BLL.Services
 {

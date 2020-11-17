@@ -8,13 +8,13 @@ using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Responses;
-using DatingAppCore.Repo.EF.Members;
+//using DatingAppCore.Repo.EF.Members;
 
 namespace DatingAppCore.BLL.Services
 {
     public class LoginOrSignupService : ILoginOrSignupService
     {
-        public async Task<Response<LoginOrSignupResponse>> LoginOrSignup(LoginOrSignupRequest request)
+        public async Task<Response<LoginOrSignupResponse>> Process(LoginOrSignupRequest request)
         {
             
             return Response<LoginOrSignupResponse>.Wrap(() =>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Entities.Members
 {
     public class UserProfileField : EntityBase
     {
@@ -13,9 +13,6 @@ namespace DatingAppCore.Repo.Members
         public string Name { get; set; }
         public string Value { get; set; }
         public bool IsSetting { get; set; } = false;
-        
-        //Nav Props
-        public User User { get; set; }
 
         public override bool Equals(object obj)
         {

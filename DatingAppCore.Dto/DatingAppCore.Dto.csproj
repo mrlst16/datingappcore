@@ -9,8 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Messages\**" />
+    <Compile Remove="Reviewing\**" />
+    <EmbeddedResource Remove="Messages\**" />
+    <EmbeddedResource Remove="Reviewing\**" />
+    <None Remove="Messages\**" />
+    <None Remove="Reviewing\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.6" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DatingAppCore.Models\DatingAppCore.Entities.csproj" />
   </ItemGroup>
 </Project>

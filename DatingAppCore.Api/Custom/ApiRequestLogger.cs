@@ -1,5 +1,6 @@
 ﻿using CommonCore.Repo.Repository;
-using DatingAppCore.Repo.EF.Logging;
+using DatingAppCore.Entities;
+using DatingAppCore.Entities.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
@@ -39,9 +40,9 @@ namespace DatingAppCore.Api.Custom
                         LastUpdated = DateTime.UtcNow
                     };
 
-                    RepoCache.Get<RequestLog>()
-                        .Add(log)
-                        .Save();
+                    //RepoCache.Get<RequestLog>()
+                    //    .Add(log)
+                    //    .Save();
                 }
             }
             catch (Exception)

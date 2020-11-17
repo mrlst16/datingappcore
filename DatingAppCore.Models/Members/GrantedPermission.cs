@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingAppCore.Models
+namespace DatingAppCore.Entities
 {
     public class GrantedPermission : EntityBase
     {

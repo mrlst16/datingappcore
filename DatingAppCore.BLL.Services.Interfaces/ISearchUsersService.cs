@@ -1,15 +1,13 @@
 ﻿using CommonCore.Responses;
-using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
-using System;
+using DatingAppCore.Entities.Members;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface ISearchUsersService
     {
-        Task<Response<IEnumerable<UserDTO>>> Search(SearchUserRequest request);
+        Task<Response<IEnumerable<User>>> Search(SearchUserRequest request);
     }
 }

@@ -1,12 +1,12 @@
 ﻿using CommonCore.Repo.Entities;
-using DatingAppCore.Repo.Members;
+using DatingAppCore.Entities.Members;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Models
+namespace DatingAppCore.Entities.Matching
 {
     public class Match : EntityBase
     {

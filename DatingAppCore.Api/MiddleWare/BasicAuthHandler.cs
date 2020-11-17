@@ -25,22 +25,22 @@ namespace DatingAppCore.Api.MiddleWare
         public BasicAuthHandler(IOptionsMonitor<BasicAuthOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
         : base(options, logger, encoder, clock) { }
 
-        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        protected async override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             var service = new BasicAuthorizationService();
             var response = service.Authorize(this.Context.Request.Headers);
             if (response.Result)
                 //THIS WORKS FOR SUCCESS!
-                return Task.FromResult(
+                return 
                     AuthenticateResult.Success(
                        new AuthenticationTicket(
                            new ClaimsPrincipal(new ClaimsIdentity("Basic")
                            {
                            }),
                            new AuthenticationProperties(),
-                           this.Scheme.Name)));
+                           this.Scheme.Name));
 
-            return Task.FromResult(AuthenticateResult.Fail(new Exception("401")));
+            return AuthenticateResult.Fail(new Exception("401"));
         }
     }
 }

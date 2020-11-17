@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using CommonCore.Extensions;
 using CommonCore.Repo;
 using DatingAppCore.Dto.Members;
-using DatingAppCore.Repo.EF.Members;
-using DatingAppCore.Repo.Members;
+//using DatingAppCore.Repo.EF.Members;
+//using DatingAppCore.Repo.Members;
 using UserDTO = DatingAppCore.Dto.Members.UserDTO;
 
 namespace DatingAppCore.BLL.Adapters

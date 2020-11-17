@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CommonCore.Repo;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Reviewing;
-using DatingAppCore.Repo.EF.Reviewing;
+//using DatingAppCore.Repo.EF.Reviewing;
 
 namespace DatingAppCore.BLL.Adapters
 {

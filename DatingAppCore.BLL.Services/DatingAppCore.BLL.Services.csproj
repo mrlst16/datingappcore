@@ -11,7 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Services.Interfaces.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.Common.csproj" />
-    <ProjectReference Include="..\DatingAppCore.Repo\DatingAppCore.Repo.EF.csproj" />
   </ItemGroup>
 
 </Project>

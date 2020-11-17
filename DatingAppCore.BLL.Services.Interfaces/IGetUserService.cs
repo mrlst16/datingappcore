@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonCore.Responses;
-using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Requests;
+using DatingAppCore.Entities.Members;
 
 namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface IGetUserService
     {
-        Task<Response<UserDTO>> GetUser(GetUserRequest request);
+        Task<Response<User>> GetUser(GetUserRequest request);
     }
 }

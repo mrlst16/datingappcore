@@ -1,5 +1,5 @@
 ﻿using CommonCore.Responses;
-using DatingAppCore.Dto.Reviewing;
+using DatingAppCore.Entities.Reviewing;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +9,6 @@ namespace DatingAppCore.BLL.Services.Interfaces
 {
     public interface IGetClientReviewBadgesService
     {
-        Task<Response<IEnumerable<ReviewBadgeTemplateDTO>>> GetClientReviewBadges(Guid clientID);
+        Task<Response<IEnumerable<ReviewBadgeTemplate>>> GetClientReviewBadges(Guid clientID);
     }
 }

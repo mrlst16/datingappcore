@@ -4,7 +4,7 @@ using CommonCore.Responses;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Requests;
-using DatingAppCore.Repo.EF.Members;
+//using DatingAppCore.Repo.EF.Members;
 
 namespace DatingAppCore.BLL.Services
 {

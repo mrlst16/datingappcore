@@ -1,8 +1,8 @@
 ﻿using System;
 using CommonCore.Repo.Entities;
-using DatingAppCore.Models.Enum;
+using DatingAppCore.Entities.Enum;
 
-namespace DatingAppCore.Repo.Members
+namespace DatingAppCore.Entities.Members
 {
     public class User : EntityBase
     {

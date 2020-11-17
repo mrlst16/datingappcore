@@ -9,7 +9,7 @@ using DatingAppCore.BLL.Adapters;
 using DatingAppCore.BLL.Helpers.RepoHelpers;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Messages;
-using DatingAppCore.Repo.EF.Messaging;
+//using DatingAppCore.Repo.EF.Messaging;
 
 namespace DatingAppCore.BLL.Services
 {
