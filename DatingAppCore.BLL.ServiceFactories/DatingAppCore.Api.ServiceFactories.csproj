@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DatingAppCore.BLL.ServiceFactories.Interfaces\DatingAppCore.BLL.ServiceFactories.Interfaces.csproj" />
+    <ProjectReference Include="..\DatingAppCore.BLL.ServiceFactories.Interfaces\DatingAppCore.Api.ServiceFactories.Interfaces.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\DatingAppCore.BLL.Services\DatingAppCore.BLL.Services.csproj" />
   </ItemGroup>
 
 </Project>

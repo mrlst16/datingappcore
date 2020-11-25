@@ -10,9 +10,9 @@ using DatingAppCore.Dto.Requests;
 using DatingAppCore.Dto.Members;
 using DatingAppCore.Dto.Responses;
 using DatingAppCore.BLL.Services.Interfaces;
-using DatingAppCore.BLL.ServiceFactories.Interfaces;
-using DatingAppCore.BLL.ServiceFactories;
 using DatingAppCore.Entities.Members;
+using DatingAppCore.Api.ServiceFactories.Interfaces;
+using CommonCore.Models.Responses;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -20,8 +20,8 @@ namespace DatingAppCore.Api.Controllers
     [ApiController]
     public class UsersController : Controller
     {
-        private readonly ILoginServiceFactory<int> _loginServiceFactory;
-        private readonly IGetUserService _getUserService;
+        private readonly IUserServiceFactory<int> _userServiceFactory;
+
         private readonly ISetSettingsService _setSettingsService;
         private readonly ISetProfileService _setProfileService;
         private readonly ISetPhotosService _setPhotosService;
@@ -30,8 +30,7 @@ namespace DatingAppCore.Api.Controllers
         private readonly IRecordUserLocationService _recordUserLocationService;
 
         public UsersController(
-            ILoginServiceFactory<int> loginServiceFactory,
-            IGetUserService getUserService,
+            IUserServiceFactory<int> userServiceFactory,
             ISetSettingsService setSettingsService,
             ISetProfileService setProfileService,
             ISetPhotosService setPhotosService,
@@ -40,8 +39,7 @@ namespace DatingAppCore.Api.Controllers
             IRecordUserLocationService recordUserLocationService
             )
         {
-            _loginServiceFactory = loginServiceFactory;
-            _getUserService = getUserService;
+            _userServiceFactory = userServiceFactory;
             _setSettingsService = setSettingsService;
             _setProfileService = setProfileService;
             _setPhotosService = setPhotosService;
@@ -50,12 +48,31 @@ namespace DatingAppCore.Api.Controllers
             _recordUserLocationService = recordUserLocationService;
         }
 
-        [Authorize(AuthenticationSchemes = "Basic")]
-        [HttpPost("get_user")]
-        public async Task<IActionResult> GetUser(GetUserRequest request)
+        ///[Authorize(AuthenticationSchemes = "Basic")]
+        [HttpGet("get_user")]
+        public async Task<IActionResult> GetUser([FromQuery] Guid? id)
         {
-            var result = await _getUserService.GetUser(request);
-            return Ok(JsonConvert.SerializeObject(result));
+            if (!id.HasValue || id.Value == Guid.Empty)
+                return StatusCode(
+                    400,
+                    new SimpleResponse<User>()
+                    {
+                        Data = null,
+                        Messages = new List<string>() {
+                            "id must be provided"
+                        }
+                    }
+                );
+
+            var service = _userServiceFactory.GetUserService(1);
+
+            var result = await service.Process(id.Value);
+            return Ok(new SimpleResponse<User>()
+            {
+                Data = result,
+                Messages = new List<string>() { "" },
+                Sucess = true
+            });
         }
 
         [Authorize(AuthenticationSchemes = "Basic")]

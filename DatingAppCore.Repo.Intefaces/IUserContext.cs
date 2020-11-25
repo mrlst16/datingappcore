@@ -2,10 +2,12 @@
 using System;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.Entities.Intefaces
+namespace DatingAppCore.Repo.Intefaces
 {
     public interface IUserContext
     {
         Task<User> GetUser(Guid id);
+
+        Task AddUser(User user);
     }
 }

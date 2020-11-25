@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CommonCore.Repo.Entities;
 using DatingAppCore.Entities.Enum;
 
@@ -14,5 +15,6 @@ namespace DatingAppCore.Entities.Members
         public double Lon { get; set; }
         public DateTime? Birthday { get; set; }
 
+        public IEnumerable<Photo> Photos { get; set; }
     }
 }

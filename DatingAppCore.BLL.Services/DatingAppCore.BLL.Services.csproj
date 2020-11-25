@@ -1,8 +1,34 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="GetClientReviewBadgesService.cs" />
+    <Compile Remove="GetMatchesService.cs" />
+    <Compile Remove="GetPhotosFromFileService.cs" />
+    <Compile Remove="GetPhotosFromFileServiceV2.cs" />
+    <Compile Remove="GetPhotoStreamFromContextService.cs" />
+    <Compile Remove="GetReviewService.cs" />
+    <Compile Remove="HaversineDistanceService.cs" />
+    <Compile Remove="LookupConversationService.cs" />
+    <Compile Remove="PotentialMatchesService.cs" />
+    <Compile Remove="PotentialMatchesServiceV2.cs" />
+    <Compile Remove="RecordUserLocationService.cs" />
+    <Compile Remove="RepositoryExtensions.cs" />
+    <Compile Remove="SaveFormFilesToDatabaseService.cs" />
+    <Compile Remove="SavePhotoToFileService.cs" />
+    <Compile Remove="SearchUsersService.cs" />
+    <Compile Remove="SendMessageService.cs" />
+    <Compile Remove="SendReviewService.cs" />
+    <Compile Remove="SetPhotosService.cs" />
+    <Compile Remove="SetPhotosUpdateOrderOnlyService.cs" />
+    <Compile Remove="SetProfileService.cs" />
+    <Compile Remove="SetPropertiesService.cs" />
+    <Compile Remove="SetSettingsService.cs" />
+    <Compile Remove="SwipeService.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommonCoreByMattyLantz" Version="1.0.6" />
@@ -11,6 +37,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Services.Interfaces.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.Common.csproj" />
+    <ProjectReference Include="..\DatingAppCore.Repo.Intefaces\DatingAppCore.Repo.Intefaces.csproj" />
   </ItemGroup>
 
 </Project>
