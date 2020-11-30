@@ -70,7 +70,13 @@ namespace DatingAppCore.BLL.Loaders
         {
             var potentialMatchUser = await _usersRepository.Read(potentialMatchUserId);
             
-            return null;
+            foreach(var searchParam in potentialMatchUser.SearchParameters)
+            {
+                var userParam = searchingUser.SearchParameters.FirstOrDefault(x => x.Key == searchParam.Key);
+                if (userParam == null || !userParam.Match(searchParam))
+                    return null;
+            }
+            return potentialMatchUser;
         }
     }
 }

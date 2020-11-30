@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CommonCore.Repo.Entities;
 using DatingAppCore.Entities.Enum;
+using DatingAppCore.Entities.Matching;
 
 namespace DatingAppCore.Entities.Members
 {
@@ -18,7 +19,6 @@ namespace DatingAppCore.Entities.Members
         public string About { get; set; }
         public Dictionary<string, string> Profile { get; set; }
         public IEnumerable<Photo> Photos { get; set; }
-        public UserSettings Settings { get; set; }
-        public UserPreferences Preferences { get; set; }
+        public IEnumerable<SearchParameter> SearchParameters { get; set; }
     }
 }
