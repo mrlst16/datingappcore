@@ -10,7 +10,7 @@ namespace DatingAppCore.Entities.Matching
 {
     public class Match : EntityBase
     {
-        public Guid LeftID { get; set; }
-        public Guid RightID { get; set; }
+        public Guid Swiper { get; set; }
+        public Guid Swipee { get; set; }
     }
 }

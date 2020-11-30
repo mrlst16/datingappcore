@@ -11,7 +11,7 @@ namespace DatingAppCore.Dto.Requests
         public string Value { get; set; }
     }
 
-    public class SearchUserRequest : FindMatchRequest
+    public class SearchUserRequest : FindMatchesRequest
     {
         public List<KVP> Filter { get; set; } = new List<KVP>();
 

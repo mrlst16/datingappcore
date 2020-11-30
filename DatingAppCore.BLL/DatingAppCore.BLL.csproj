@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CommonCore\CommonCore.Interfaces\CommonCore.Interfaces.csproj" />
+    <ProjectReference Include="..\..\CommonCore\CommonCore2\CommonCore2.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Interfaces.csproj" />
   </ItemGroup>
 </Project>

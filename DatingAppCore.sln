@@ -17,13 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Dto", "Dating
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatingAppCore.Entities", "DatingAppCore.Models\DatingAppCore.Entities.csproj", "{9C49E08A-3412-4DB9-BE05-CD3FEA99518C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore", "..\CommonCore\CommonCore\CommonCore.csproj", "{480792AE-74A5-4DFD-9963-8509CF0BD715}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore.Interfaces", "..\CommonCore\CommonCore.Interfaces\CommonCore.Interfaces.csproj", "{33AB4A11-DD91-4F23-8E9C-6EAAE3B3C041}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore.Models", "..\CommonCore\CommonCore.Models\CommonCore.Models.csproj", "{58A492A6-C098-4F16-AD6B-23A62CB323FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore.Api", "..\CommonCore\CommonCore.Api\CommonCore.Api.csproj", "{7BA903E8-75A9-4EBA-9780-1C5EA35E1646}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCore2", "..\CommonCore\CommonCore2\CommonCore2.csproj", "{A57679D3-2631-4A28-A136-71C8C11FCC5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +55,6 @@ Global
 		{9C49E08A-3412-4DB9-BE05-CD3FEA99518C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C49E08A-3412-4DB9-BE05-CD3FEA99518C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C49E08A-3412-4DB9-BE05-CD3FEA99518C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{480792AE-74A5-4DFD-9963-8509CF0BD715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{480792AE-74A5-4DFD-9963-8509CF0BD715}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{480792AE-74A5-4DFD-9963-8509CF0BD715}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{480792AE-74A5-4DFD-9963-8509CF0BD715}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33AB4A11-DD91-4F23-8E9C-6EAAE3B3C041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33AB4A11-DD91-4F23-8E9C-6EAAE3B3C041}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33AB4A11-DD91-4F23-8E9C-6EAAE3B3C041}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -71,14 +67,19 @@ Global
 		{7BA903E8-75A9-4EBA-9780-1C5EA35E1646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA903E8-75A9-4EBA-9780-1C5EA35E1646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA903E8-75A9-4EBA-9780-1C5EA35E1646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57679D3-2631-4A28-A136-71C8C11FCC5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57679D3-2631-4A28-A136-71C8C11FCC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57679D3-2631-4A28-A136-71C8C11FCC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57679D3-2631-4A28-A136-71C8C11FCC5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{480792AE-74A5-4DFD-9963-8509CF0BD715} = {677212FA-53C2-4B46-8017-02481ED844F6}
 		{33AB4A11-DD91-4F23-8E9C-6EAAE3B3C041} = {677212FA-53C2-4B46-8017-02481ED844F6}
+		{58A492A6-C098-4F16-AD6B-23A62CB323FA} = {677212FA-53C2-4B46-8017-02481ED844F6}
 		{7BA903E8-75A9-4EBA-9780-1C5EA35E1646} = {677212FA-53C2-4B46-8017-02481ED844F6}
+		{A57679D3-2631-4A28-A136-71C8C11FCC5E} = {677212FA-53C2-4B46-8017-02481ED844F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21004B8A-131D-41B1-AC60-2C2838B2F978}

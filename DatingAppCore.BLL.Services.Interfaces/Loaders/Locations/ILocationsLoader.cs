@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatingAppCore.BLL.Interfaces.Services
+namespace DatingAppCore.BLL.Interfaces.Loaders.Locations
 {
-    public interface IMatchesService
+    public interface ILocationsLoader
     {
-        Task<IEnumerable<User>> FindPotentialMatches(FindMatchesRequest request);
+        Task<IEnumerable<UserLocation>> UsersWithinLocation(FindMatchesRequest request);
     }
 }

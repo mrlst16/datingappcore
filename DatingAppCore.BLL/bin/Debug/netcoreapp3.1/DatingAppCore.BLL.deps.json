@@ -9,6 +9,7 @@
       "DatingAppCore.BLL/1.0.0": {
         "dependencies": {
           "CommonCore.Interfaces": "1.0.0",
+          "CommonCore2": "1.0.0",
           "DatingAppCore.BLL.Interfaces": "1.0.0"
         },
         "runtime": {
@@ -2259,6 +2260,11 @@
           "CommonCore.Models.dll": {}
         }
       },
+      "CommonCore2/1.0.0": {
+        "runtime": {
+          "CommonCore2.dll": {}
+        }
+      },
       "DatingAppCore.BLL.Interfaces/1.0.0": {
         "dependencies": {
           "CommonCoreByMattyLantz": "1.0.6",
@@ -3749,6 +3755,11 @@
       "sha512": ""
     },
     "CommonCore.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CommonCore2/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
