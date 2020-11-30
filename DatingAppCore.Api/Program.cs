@@ -20,11 +20,8 @@ namespace DatingAppCore.Api
 {
     public class Program
     {
-        static string CertPath = "bundle.pfx";
         public static void Main(string[] args)
         {
-
-            //PrintFileStructure(Directory.GetCurrentDirectory());
 
             // NLog: setup the logger first to catch all errors
             var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
@@ -53,22 +50,5 @@ namespace DatingAppCore.Api
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseNLog();
-
-        public static void PrintFileStructure(string directory)
-        {
-            var subDirectories = Directory.GetDirectories(directory).OrderBy(x => x);
-            var files = Directory.GetFiles(directory).OrderBy(x => x);
-            if (files.Any())
-            {
-                Console.WriteLine($"exploring {directory}  files: {files.Aggregate((x, y) => $"{x}{System.Environment.NewLine}{y}") }");
-            }
-            if (subDirectories.Any())
-            {
-                Console.WriteLine($"exploring {directory} directories: {subDirectories.Aggregate((x, y) => $"{x}{System.Environment.NewLine}{y}")}");
-            }
-
-            foreach (var subDir in subDirectories)
-                PrintFileStructure(subDir);
-        }
     }
 }

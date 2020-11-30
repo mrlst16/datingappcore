@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "DatingAppCore.BLL.Common/1.0.0": {
         "dependencies": {
-          "DatingAppCore.BLL.Services.Interfaces": "1.0.0"
+          "DatingAppCore.BLL.Interfaces": "1.0.0"
         },
         "runtime": {
           "DatingAppCore.BLL.Common.dll": {}
@@ -2250,13 +2250,13 @@
           "CommonCore.Models.dll": {}
         }
       },
-      "DatingAppCore.BLL.Services.Interfaces/1.0.0": {
+      "DatingAppCore.BLL.Interfaces/1.0.0": {
         "dependencies": {
           "CommonCoreByMattyLantz": "1.0.6",
           "DatingAppCore.Dto": "1.0.0"
         },
         "runtime": {
-          "DatingAppCore.BLL.Services.Interfaces.dll": {}
+          "DatingAppCore.BLL.Interfaces.dll": {}
         }
       },
       "DatingAppCore.Dto/1.0.0": {
@@ -3740,7 +3740,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DatingAppCore.BLL.Services.Interfaces/1.0.0": {
+    "DatingAppCore.BLL.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

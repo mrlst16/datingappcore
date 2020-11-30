@@ -34,24 +34,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="FluentValidation" Version="9.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.4.10" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DatingAppCore.BLL.ServiceFactories.Interfaces\DatingAppCore.Api.ServiceFactories.Interfaces.csproj" />
-    <ProjectReference Include="..\DatingAppCore.BLL.ServiceFactories\DatingAppCore.Api.ServiceFactories.csproj" />
-    <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Services.Interfaces.csproj" />
-    <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.Common.csproj" />
+    <ProjectReference Include="..\..\CommonCore\CommonCore.Api\CommonCore.Api.csproj" />
+    <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Interfaces.csproj" />
     <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
     <ProjectReference Include="..\DatingAppCore.Models\DatingAppCore.Entities.csproj" />
   </ItemGroup>

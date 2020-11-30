@@ -4,51 +4,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using CommonCore.Responses;
-using DatingAppCore.Dto.Requests;
-using DatingAppCore.Dto.Members;
-using DatingAppCore.Dto.Responses;
-using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Entities.Members;
-using DatingAppCore.Api.ServiceFactories.Interfaces;
+using FluentValidation;
+using FluentValidation.Results;
 using CommonCore.Models.Responses;
+using DatingAppCore.Dto.Requests;
+using DatingAppCore.BLL.Services.Interfaces;
+using CommonCore.Extensions;
+using CommonCore.Api.Extensions;
 
 namespace DatingAppCore.Api.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Basic")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : Controller
     {
-        private readonly IUserServiceFactory<int> _userServiceFactory;
-
-        private readonly ISetSettingsService _setSettingsService;
-        private readonly ISetProfileService _setProfileService;
-        private readonly ISetPhotosService _setPhotosService;
-        private readonly ISaveFormFilesService _saveFormFilesService;
-        private readonly IGetPhotoStreamService _getPhotoStreamService;
-        private readonly IRecordUserLocationService _recordUserLocationService;
+        private readonly IUserService _userService;
+        private readonly IValidator<User> _userValidator;
 
         public UsersController(
-            IUserServiceFactory<int> userServiceFactory,
-            ISetSettingsService setSettingsService,
-            ISetProfileService setProfileService,
-            ISetPhotosService setPhotosService,
-            ISaveFormFilesService saveFormFilesService,
-            IGetPhotoStreamService getPhotoStreamService,
-            IRecordUserLocationService recordUserLocationService
+            IUserService userService,
+            IValidator<User> userValidator
             )
         {
-            _userServiceFactory = userServiceFactory;
-            _setSettingsService = setSettingsService;
-            _setProfileService = setProfileService;
-            _setPhotosService = setPhotosService;
-            _saveFormFilesService = saveFormFilesService;
-            _getPhotoStreamService = getPhotoStreamService;
-            _recordUserLocationService = recordUserLocationService;
+            _userService = userService;
+            _userValidator = userValidator;
         }
 
-        ///[Authorize(AuthenticationSchemes = "Basic")]
         [HttpGet("get_user")]
         public async Task<IActionResult> GetUser([FromQuery] Guid? id)
         {
@@ -58,83 +41,69 @@ namespace DatingAppCore.Api.Controllers
                     new SimpleResponse<User>()
                     {
                         Data = null,
-                        Messages = new List<string>() {
-                            "id must be provided"
-                        }
+                        FailureMessage = "id must be provided"
                     }
                 );
 
-            var service = _userServiceFactory.GetUserService(1);
+            var result = await _userService.GetUser(id.Value);
 
-            var result = await service.Process(id.Value);
             return Ok(new SimpleResponse<User>()
             {
                 Data = result,
-                Messages = new List<string>() { "" },
+                SuccessMessage = $"User {id} found",
                 Sucess = true
             });
         }
 
-        [Authorize(AuthenticationSchemes = "Basic")]
-        [HttpPost("set_user_settings")]
-        public async Task<IActionResult> SetUserSettings(SetPropertiesRequest request)
+        [HttpPost("add_user")]
+        public async Task<IActionResult> AddUser([FromBody] User user)
         {
-            var result = await _setSettingsService.Set(request);
+            ValidationResult validationResult = _userValidator.Validate(user);
+            if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
+            await _userService.AddUser(user);
+
+            return Ok(new SimpleResponse<User>()
+            {
+                Data = user,
+                SuccessMessage = $"User added",
+                Sucess = true
+            });
+        }
+
+        [HttpPost("set_user_settings")]
+        public async Task<IActionResult> SetUserSettings(UserSettings request)
+        {
+            var result = await _userService.SetUserSettings(request);
             return Json(result);
         }
 
-        [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("set_user_profile")]
         public async Task<IActionResult> SetUserProfile(SetPropertiesRequest request)
         {
-            var result = await _setProfileService.Set(request);
+            var result = await _userService.SetUserProperties(request);
             return Json(result);
         }
 
-        [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("set_photos")]
         public async Task<IActionResult> SetPhotos(SetPhotosRequest request)
         {
-            var result = await _setPhotosService.Set(request);
+            var result = await _userService.SetUserPhotos(request);
             return Json(result);
         }
 
-        [Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost("upload_photo")]
         public async Task<IActionResult> UploadPhoto(List<IFormFile> files)
         {
-            Response<bool> result =
-                new Response<bool>()
-                .IsUnSuccessful();
-
-            if (Guid.TryParse(Request.Headers["userid"], out Guid userid))
-            {
-                result = await _saveFormFilesService.Save(new SaveFilesRequest()
-                {
-                    Files = files,
-                    UserID = userid
-                });
-            }
-            return Json(result);
+            //if (Guid.TryParse(Request.Headers["userid"], out Guid userid))
+            //{
+            //    result = await _saveFormFilesService.Save(new SaveFilesRequest()
+            //    {
+            //        Files = files,
+            //        UserID = userid
+            //    });
+            //}
+            return Json(null);
         }
 
-        [HttpGet("get_photo")]
-        public async Task<IActionResult> ViewImage(Guid userid, string filename)
-        {
-            var response = await _getPhotoStreamService.GetPhotoAsStream(new GetPhotoStreamRequest()
-            {
-                UserID = userid,
-                FileName = filename
-            });
-            return File(response.Result.Stream, response.Result.ContentType);
-        }
-
-        [Authorize(AuthenticationSchemes = "Basic")]
-        [HttpPost("record_user_location")]
-        public async Task<IActionResult> RecordUserLocation(UserLocation request)
-        {
-            var result = await _recordUserLocationService.Record(request);
-            return Json(result);
-        }
     }
 }

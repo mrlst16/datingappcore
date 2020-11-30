@@ -9,6 +9,7 @@ namespace DatingAppCore.Entities.Enum
         Internal = 0,
         Facebook = 1,
         Twitter = 2,
-        Gmail = 3
+        Gmail = 3,
+        Parler = 4
     }
 }

@@ -1,6 +1,4 @@
-﻿using CommonCore.Repo.Repository;
-using DatingAppCore.Entities;
-using DatingAppCore.Entities.Logging;
+﻿using DatingAppCore.Entities.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;

@@ -15,6 +15,10 @@ namespace DatingAppCore.Entities.Members
         public double Lon { get; set; }
         public DateTime? Birthday { get; set; }
 
+        public string About { get; set; }
+        public Dictionary<string, string> Profile { get; set; }
         public IEnumerable<Photo> Photos { get; set; }
+        public UserSettings Settings { get; set; }
+        public UserPreferences Preferences { get; set; }
     }
 }

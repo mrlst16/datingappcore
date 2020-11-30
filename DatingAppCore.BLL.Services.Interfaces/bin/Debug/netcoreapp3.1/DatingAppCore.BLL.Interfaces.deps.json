@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "DatingAppCore.BLL/1.0.0": {
+      "DatingAppCore.BLL.Interfaces/1.0.0": {
         "dependencies": {
-          "CommonCore.Interfaces": "1.0.0",
-          "DatingAppCore.BLL.Interfaces": "1.0.0"
+          "CommonCoreByMattyLantz": "1.0.6",
+          "DatingAppCore.Dto": "1.0.0"
         },
         "runtime": {
-          "DatingAppCore.BLL.dll": {}
+          "DatingAppCore.BLL.Interfaces.dll": {}
         }
       },
       "Autofac/4.9.2": {
@@ -2246,26 +2246,9 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
-      "CommonCore.Interfaces/1.0.0": {
-        "dependencies": {
-          "CommonCore.Models": "1.0.0"
-        },
-        "runtime": {
-          "CommonCore.Interfaces.dll": {}
-        }
-      },
       "CommonCore.Models/1.0.0": {
         "runtime": {
           "CommonCore.Models.dll": {}
-        }
-      },
-      "DatingAppCore.BLL.Interfaces/1.0.0": {
-        "dependencies": {
-          "CommonCoreByMattyLantz": "1.0.6",
-          "DatingAppCore.Dto": "1.0.0"
-        },
-        "runtime": {
-          "DatingAppCore.BLL.Interfaces.dll": {}
         }
       },
       "DatingAppCore.Dto/1.0.0": {
@@ -2289,7 +2272,7 @@
     }
   },
   "libraries": {
-    "DatingAppCore.BLL/1.0.0": {
+    "DatingAppCore.BLL.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -3743,17 +3726,7 @@
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
-    "CommonCore.Interfaces/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "CommonCore.Models/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "DatingAppCore.BLL.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
