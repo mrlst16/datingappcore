@@ -5,10 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Autofac;
 using Microsoft.AspNetCore.Authorization;
-using CommonCore.IOC;
-using CommonCore.Responses;
 using DatingAppCore.BLL.Services.Interfaces;
 using DatingAppCore.Dto.Requests;
 

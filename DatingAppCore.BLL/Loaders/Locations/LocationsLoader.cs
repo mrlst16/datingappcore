@@ -1,7 +1,6 @@
 ﻿using CommonCore.Interfaces.Repository;
-using CommonCore.Mathematics;
-using CommonCore.Models.Repo;
 using CommonCore2.Mathematics;
+using CommonCore.Models.Repo;
 using DatingAppCore.BLL.Interfaces.Loaders.Locations;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.Entities.Members;
@@ -52,7 +51,8 @@ namespace DatingAppCore.BLL.Loaders.Locations
             return result;
         }
 
-        public async Task<bool> LocationsInSquare(FindMatchesRequest request,
+        private async Task<bool> LocationsInSquare(
+            FindMatchesRequest request,
             IEnumerable<UserLocation> inSquare,
             double latNorth,
             double latSouth,
@@ -69,7 +69,7 @@ namespace DatingAppCore.BLL.Loaders.Locations
                     && x.Lat > latSouth
                     && x.Lon > lonWest
                     && x.Lon < lonEast
-                    && !request.AlreadyMatched.Contains(x.ID)
+                    && !request.AlreadySwiped.Contains(x.ID)
             });
 
             return inSquare.Any();

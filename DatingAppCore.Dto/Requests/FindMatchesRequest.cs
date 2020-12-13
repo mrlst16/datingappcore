@@ -10,6 +10,6 @@ namespace DatingAppCore.Dto.Requests
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public double SurfaceRadius { get; set; }
-        public IEnumerable<Guid> AlreadyMatched { get; set; }
+        public IEnumerable<Guid> AlreadySwiped { get; set; }
     }
 }

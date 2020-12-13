@@ -1,5 +1,7 @@
-﻿using DatingAppCore.BLL.Interfaces.Services;
+﻿using DatingAppCore.BLL.Interfaces.Loaders;
+using DatingAppCore.BLL.Interfaces.Services;
 using DatingAppCore.Dto.Requests;
+using DatingAppCore.Entities.Matching;
 using DatingAppCore.Entities.Members;
 using System;
 using System.Collections.Generic;
@@ -10,20 +12,19 @@ namespace DatingAppCore.BLL.Services
 {
     public class MatchesService : IMatchesService
     {
+        private readonly IMatchesLoader _matchesLoader;
 
-
-
-        public async Task<IEnumerable<User>> FindPotentialMatches(User user)
+        public MatchesService(
+            IMatchesLoader matchesLoader
+            )
         {
-            IEnumerable<User> results = new List<User>();
-
-
-            return results;
+            _matchesLoader = matchesLoader;
         }
 
-        public Task<IEnumerable<User>> FindPotentialMatches(FindMatchesRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<User>> FindPotentialMatches(FindMatchesRequest request)
+            => await _matchesLoader.FindPotentialMatches(request);
+
+        public async Task Swipe(Swipe swipe)
+            => await _matchesLoader.Swipe(swipe);
     }
 }

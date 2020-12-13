@@ -1,11 +1,7 @@
-﻿using CommonCore.Responses;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
+using CommonCore.Models.Responses;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -27,15 +23,18 @@ namespace DatingAppCore.Api.Controllers
         }
 
         [HttpPost("post_echo")]
-        public async Task<IActionResult> PostEcho([FromBody]LabRequest request)
+        public async Task<IActionResult> PostEcho([FromBody] LabRequest request)
         {
-            Response<string> response = request.Value;
+            SimpleResponse<string> response = new SimpleResponse<string>()
+            {
+                Data = request.Value
+            };
 
             return Json(response);
         }
 
         [HttpGet("get_echo")]
-        public async Task<IActionResult> GetEcho([FromQuery]string request)
+        public async Task<IActionResult> GetEcho([FromQuery] string request)
         {
             _logger.LogInformation(request);
             return Json(request);

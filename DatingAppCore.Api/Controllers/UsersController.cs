@@ -10,7 +10,6 @@ using FluentValidation.Results;
 using CommonCore.Models.Responses;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
-using CommonCore.Extensions;
 using CommonCore.Api.Extensions;
 
 namespace DatingAppCore.Api.Controllers
@@ -22,14 +21,23 @@ namespace DatingAppCore.Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly IValidator<User> _userValidator;
+        private readonly IValidator<UserSettings> _userSettingsValidator;
+        private readonly IValidator<SetPhotosRequest> _setPhotosRequestValidator;
+        private readonly IValidator<SetPropertiesRequest> _setPropertiesRequestValidator;
 
         public UsersController(
             IUserService userService,
-            IValidator<User> userValidator
+            IValidator<User> userValidator,
+            IValidator<UserSettings> userSettingsValidator,
+            IValidator<SetPhotosRequest> setPhotosRequestValidator,
+            IValidator<SetPropertiesRequest> setPropertiesRequestValidator
             )
         {
             _userService = userService;
             _userValidator = userValidator;
+            _userSettingsValidator = userSettingsValidator;
+            _setPhotosRequestValidator = setPhotosRequestValidator;
+            _setPropertiesRequestValidator = setPropertiesRequestValidator;
         }
 
         [HttpGet("get_user")]
@@ -73,13 +81,26 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_user_settings")]
         public async Task<IActionResult> SetUserSettings(UserSettings request)
         {
-            var result = await _userService.SetUserSettings(request);
-            return Json(result);
+            var validationResult = _userSettingsValidator.Validate(request);
+            if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
+
+            var (success, result) = await _userService.SetUserSettings(request);
+            if (success)
+            {
+                return StatusCode(200, result);
+            }
+            else
+            {
+                return StatusCode(500, result);
+            }
         }
 
         [HttpPost("set_user_profile")]
         public async Task<IActionResult> SetUserProfile(SetPropertiesRequest request)
         {
+            var validationResult = _setPropertiesRequestValidator.Validate(request);
+            if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
+
             var result = await _userService.SetUserProperties(request);
             return Json(result);
         }
@@ -87,23 +108,18 @@ namespace DatingAppCore.Api.Controllers
         [HttpPost("set_photos")]
         public async Task<IActionResult> SetPhotos(SetPhotosRequest request)
         {
-            var result = await _userService.SetUserPhotos(request);
-            return Json(result);
-        }
+            var validationResult = _setPhotosRequestValidator.Validate(request);
+            if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
 
-        [HttpPost("upload_photo")]
-        public async Task<IActionResult> UploadPhoto(List<IFormFile> files)
-        {
-            //if (Guid.TryParse(Request.Headers["userid"], out Guid userid))
-            //{
-            //    result = await _saveFormFilesService.Save(new SaveFilesRequest()
-            //    {
-            //        Files = files,
-            //        UserID = userid
-            //    });
-            //}
-            return Json(null);
+            var (success, result) = await _userService.SetUserPhotos(request);
+            if (success)
+            {
+                return StatusCode(200, result);
+            }
+            else
+            {
+                return StatusCode(500, result);
+            }
         }
-
     }
 }

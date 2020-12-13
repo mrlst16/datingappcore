@@ -1,4 +1,6 @@
 ﻿using CommonCore.Interfaces.Repository;
+using CommonCore2.RuleTrees;
+using DatingAppCore.BLL.Interfaces.Loaders;
 using DatingAppCore.BLL.Interfaces.Loaders.Locations;
 using DatingAppCore.BLL.Interfaces.Services;
 using DatingAppCore.Dto.Requests;
@@ -7,61 +9,70 @@ using DatingAppCore.Entities.Members;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DatingAppCore.BLL.Loaders
 {
-    public class MatchesLoader : IMatchesService
+    public class MatchesLoader : IMatchesLoader
     {
         private readonly ILocationsLoader _locationsLoader;
         private readonly IEntityRepository<User> _usersRepository;
         private readonly IEntityRepository<Match> _matchRepository;
+        private readonly IEntityRepository<Swipe> _swipesRepository;
 
         public MatchesLoader(
             ILocationsLoader locationsLoader,
             IEntityRepository<User> usersRepository,
-            IEntityRepository<Match> matchRepository
+            IEntityRepository<Match> matchRepository,
+            IEntityRepository<Swipe> swipesRepository
             )
         {
             _locationsLoader = locationsLoader;
             _usersRepository = usersRepository;
             _matchRepository = matchRepository;
+            _swipesRepository = swipesRepository;
         }
 
         public async Task<IEnumerable<User>> FindPotentialMatches(FindMatchesRequest request)
         {
-            request.AlreadyMatched = (await _matchRepository.Read(x => x.Swiper == request.UserID)).Select(x => x.Swipee);
+            request.AlreadySwiped = (await _matchRepository.Read(x => x.Swiper == request.UserID)).Select(x => x.Swipee);
             List<User> result = new List<User>();
 
-            while (result.Count() < request.Take && await Chunk(request, result)){
+            while (result.Count() < request.Take && await FindPtentialMatches(request, result))
+            {
                 result.AddRange(result);
             }
 
             return result;
         }
 
-        private async Task<bool> Chunk(FindMatchesRequest request, List<User> result)
+        public async Task Swipe(Swipe swipe)
+        {
+            var existingSwipe = await _swipesRepository.Read(x=> x.UserFromID == swipe.UserFromID);
+            if (existingSwipe != null) return;
+            await _swipesRepository.Create(swipe);
+        }
+
+        private async Task<bool> FindPtentialMatches(FindMatchesRequest request, List<User> result)
         {
             var user = await _usersRepository.Read(request.UserID);
             var usersWithinLocation = await _locationsLoader.UsersWithinLocation(request);
 
-            var tasks = new List<Task<User>>();
+            var tasks = new Queue<Task<User>>();
 
             while (result.Count() < request.Take && usersWithinLocation.Any())
             {
                 var userWithinLocation = usersWithinLocation.First();
                 var task = MatchExcludingLocation(user, userWithinLocation.ID);
-                tasks.Add(task);
+                tasks.Enqueue(task);
             }
 
-            while(tasks.Any())
+            while (tasks.TryDequeue(out Task<User> task))
             {
-                var task = await Task.WhenAny<User>(tasks);
                 var match = await task;
                 if (match != null)
                     result.Add(match);
-            }    
+            }
 
             return result.Any();
         }
@@ -69,14 +80,11 @@ namespace DatingAppCore.BLL.Loaders
         private async Task<User> MatchExcludingLocation(User searchingUser, Guid potentialMatchUserId)
         {
             var potentialMatchUser = await _usersRepository.Read(potentialMatchUserId);
-            
-            foreach(var searchParam in potentialMatchUser.SearchParameters)
-            {
-                var userParam = searchingUser.SearchParameters.FirstOrDefault(x => x.Key == searchParam.Key);
-                if (userParam == null || !userParam.Match(searchParam))
-                    return null;
-            }
-            return potentialMatchUser;
+            DictionaryValueProvider dictionaryValueProvider = new DictionaryValueProvider(potentialMatchUser.Profile);
+            RuleTreeAssembler ruleTreeAssembler = new RuleTreeAssembler(dictionaryValueProvider);
+            await ruleTreeAssembler.Assemble(searchingUser.SearchParameters);
+            var result = await searchingUser.SearchParameters.Passes();
+            return result ? potentialMatchUser : null;
         }
     }
 }

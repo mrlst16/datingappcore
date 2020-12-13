@@ -1,11 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CommonCore\CommonCore.Interfaces\CommonCore.Interfaces.csproj" />
     <ProjectReference Include="..\..\CommonCore\CommonCore.Models\CommonCore.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Matching\SearchParameters\" />
   </ItemGroup>
 
 </Project>

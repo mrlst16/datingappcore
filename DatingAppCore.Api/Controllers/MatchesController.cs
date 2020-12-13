@@ -1,74 +1,73 @@
-﻿//using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.Authorization;
-//using DatingAppCore.Dto.Requests;
-//using DatingAppCore.BLL.Services.Interfaces;
-//using DatingAppCore.Dto.Members;
-//using DatingAppCore.Entities.Matching;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using DatingAppCore.Dto.Requests;
+using DatingAppCore.BLL.Services.Interfaces;
+using DatingAppCore.Dto.Members;
+using DatingAppCore.Entities.Matching;
+using DatingAppCore.BLL.Interfaces.Services;
+using DatingAppCore.Api.Extensions;
+using FluentValidation;
+using CommonCore.Models.Responses;
+using CommonCore.Api.Extensions;
 
-//namespace DatingAppCore.Api.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class MatchesController : Controller
-//    {
-//        private readonly IPotentialMatchesService _potentialMatchesService;
-//        private readonly ISwipeService _swipeService;
-//        private readonly IGetMatchesService _getMatchesService;
-//        private readonly ISearchUsersService _searchUsersService;
+namespace DatingAppCore.Api.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class MatchesController : Controller
+    {
 
-//        public MatchesController(
-//            IPotentialMatchesService potentialMatchesService,
-//            ISwipeService swipeService,
-//            IGetMatchesService getMatchesService,
-//            ISearchUsersService searchUsersService
-//            )
-//        {
-//            _potentialMatchesService = potentialMatchesService;
-//            _swipeService = swipeService;
-//            _getMatchesService = getMatchesService;
-//            _searchUsersService = searchUsersService;
-//        }
+        private readonly IMatchesService _matchesService;
+        private readonly IValidator<Swipe> _swipeValidator;
 
-//        [Authorize(AuthenticationSchemes = "Basic")]
-//        [HttpPost("potential_matches")]
-//        public async Task<IActionResult> PotentialMatches(FindMatchRequest request)
-//        {
-//            var result = await _potentialMatchesService.FindPotentialMatches(request);
-//            return Json(result);
-//        }
+        public MatchesController(
+            IMatchesService matchesService,
+            IValidator<Swipe> swipeValidator
+            )
+        {
+            _matchesService = matchesService;
+            _swipeValidator = swipeValidator;
+        }
 
-//        [Authorize(AuthenticationSchemes = "Basic")]
-//        [HttpPost("search_users")]
-//        public async Task<IActionResult> SearchUsers(SearchUserRequest request)
-//        {
-//            var result = await _searchUsersService.Search(request);
-//            return Json(result);
-//        }
+        [HttpPost("potential_matches")]
+        public async Task<IActionResult> PotentialMatches(FindMatchesRequest request)
+        {
+            var result = await _matchesService.FindPotentialMatches(request);
+            return Json(result);
+        }
 
-//        [Authorize(AuthenticationSchemes = "Basic")]
-//        [HttpPost("swipe")]
-//        public async Task<IActionResult> Swipe(Swipe request)
-//        {
-//            var result = await _swipeService.Swipe(request);
-//            return Json(result);
-//        }
 
-//        [Authorize(AuthenticationSchemes = "Basic")]
-//        [HttpPost("matches")]
-//        public async Task<IActionResult> Matches(LookupByUserIDRequest request)
-//        {
-//            var result = await _getMatchesService.GetMatches(request);
-//            return Json(result);
-//        }
+        [HttpPost("swipe")]
+        public async Task<IActionResult> Swipe(Swipe request)
+        {
+            var validationResult = _swipeValidator.Validate(request);
+            if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
 
-//        [Authorize(AuthenticationSchemes = "Basic")]
-//        [HttpPost("is_match")]
-//        public async Task<IActionResult> IsMatch(IsMatchRequest request)
-//        {
-//            var result = await _getMatchesService.IsMatch(request.User1ID, request.User2ID);
-//            return Json(result);
-//        }
-//    }
-//}
+            await _matchesService.Swipe(request);
+            return this.Return200Or500(new SimpleResponse<bool>()
+            {
+                Data = true,
+                SuccessMessage = "Successfully saved swipe",
+                Sucess = true
+            });
+        }
+
+        //[Authorize(AuthenticationSchemes = "Basic")]
+        //[HttpPost("matches")]
+        //public async Task<IActionResult> Matches(LookupByUserIDRequest request)
+        //{
+        //    var result = await _getMatchesService.GetMatches(request);
+        //    return Json(result);
+        //}
+
+        //[Authorize(AuthenticationSchemes = "Basic")]
+        //[HttpPost("is_match")]
+        //public async Task<IActionResult> IsMatch(IsMatchRequest request)
+        //{
+        //    var result = await _getMatchesService.IsMatch(request.User1ID, request.User2ID);
+        //    return Json(result);
+        //}
+    }
+}

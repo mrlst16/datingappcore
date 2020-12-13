@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using CommonCore.Interfaces.RuleTrees;
 using CommonCore.Repo.Entities;
 using DatingAppCore.Entities.Enum;
-using DatingAppCore.Entities.Matching;
 
 namespace DatingAppCore.Entities.Members
 {
@@ -17,8 +17,9 @@ namespace DatingAppCore.Entities.Members
         public DateTime? Birthday { get; set; }
 
         public string About { get; set; }
-        public Dictionary<string, string> Profile { get; set; }
+        public IDictionary<string, object> Profile { get; set; }
         public IEnumerable<Photo> Photos { get; set; }
-        public IEnumerable<SearchParameter> SearchParameters { get; set; }
+        public IRuleTree SearchParameters { get; set; }
+        public UserSettings Settings { get; set; }
     }
 }
