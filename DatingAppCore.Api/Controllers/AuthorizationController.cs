@@ -36,7 +36,7 @@ namespace DatingAppCore.Api.Controllers
 
             var data = await _authenticationService.SetupPassword(request);
 
-            var response = new ApiResponse()
+            var response = new ApiResponse<bool>()
             {
                 SuccessMessage = $"Successfully registered user {request}",
                 FailureMessage = $"Failed to register user {request}",
@@ -53,8 +53,6 @@ namespace DatingAppCore.Api.Controllers
 
             var data = await _authenticationService.Authenticate(request);
 
-            JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
-            var token = jwtSecurityTokenHandler.ReadJwtToken(data.Data);
             var response = new ApiResponse<string>()
             {
                 Data = data.Data,

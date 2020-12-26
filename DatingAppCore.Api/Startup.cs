@@ -21,31 +21,6 @@ using MongoDB.Bson.Serialization;
 
 namespace DatingAppCore.Api
 {
-
-    public static class JwtTokenMiddleware
-    {
-        public static IApplicationBuilder UseJwtTokenMiddleware(
-          this IApplicationBuilder app,
-          string schema = "Bearer")
-        {
-            return app.Use((async (ctx, next) =>
-            {
-                IIdentity identity = ctx.User.Identity;
-                if ((identity != null ? (!identity.IsAuthenticated ? 1 : 0) : 1) != 0)
-                {
-                    AuthenticateResult authenticateResult = await ctx.AuthenticateAsync(schema);
-                    if (authenticateResult.Succeeded && authenticateResult.Principal != null)
-                        ctx.User = authenticateResult.Principal;
-                }
-                await next();
-            }));
-        }
-    }
-
-    public class JwtIdentityUser : IdentityUser
-    {
-
-    }
     public class Startup
     {
         private ILogger<Startup> _logger;
@@ -77,10 +52,6 @@ namespace DatingAppCore.Api
 
             services.AddTransient<IConfiguration>(x => Configuration);
 
-            services.AddIdentity<JwtIdentityUser, IdentityUser>(setupAction =>
-            {
-            }).AddDefaultTokenProviders();
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -91,8 +62,11 @@ namespace DatingAppCore.Api
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateAudience = false,
-                    ValidateIssuer = false,
+                    ValidateIssuer = true,
+                    ValidIssuer = issuer,
+                    ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
+                    ValidateLifetime = true,
                     NameClaimType = ClaimTypes.Name,
                     TokenReader = (token, parameters) =>
                     {
@@ -127,13 +101,11 @@ namespace DatingAppCore.Api
             {
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseJwtTokenMiddleware();
             app.UseAuthorization();
 
             app.Use(async (context, next) =>

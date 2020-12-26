@@ -53,13 +53,15 @@ namespace DatingAppCore.Api.Controllers
             {
                 Data = result,
                 SuccessMessage = $"User {username} found",
-                Sucess = true
+                FailureMessage = $"User {username} has not yet setup their profile",
+                Sucess = result != null
             });
         }
 
         [HttpPost("add_user")]
         public async Task<IActionResult> AddUser([FromBody] User user)
         {
+            user.UserName = User?.Identity?.Name;
             ValidationResult validationResult = _userValidator.Validate(user);
             if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
             await _userService.AddUser(user);
