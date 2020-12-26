@@ -1,17 +1,15 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Text;
 using CommonCore.Models.Authentication;
+using CommonCore.Repo.Entities;
 using DatingAppCore.Api.MiddleWare;
 using DatingAppCore.Api.ServiceRegistration;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -39,6 +37,13 @@ namespace DatingAppCore.Api
             BsonClassMap.RegisterClassMap<PasswordRecord>(x =>
             {
                 x.AutoMap();
+                x.SetIgnoreExtraElements(true);
+            });
+
+            BsonClassMap.RegisterClassMap<EntityBase>(x =>
+            {
+                x.AutoMap();
+                x.SetIgnoreExtraElementsIsInherited(true);
                 x.SetIgnoreExtraElements(true);
             });
 

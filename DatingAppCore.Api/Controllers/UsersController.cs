@@ -62,6 +62,7 @@ namespace DatingAppCore.Api.Controllers
         public async Task<IActionResult> AddUser([FromBody] User user)
         {
             user.UserName = User?.Identity?.Name;
+            
             ValidationResult validationResult = _userValidator.Validate(user);
             if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
             await _userService.AddUser(user);
@@ -72,6 +73,23 @@ namespace DatingAppCore.Api.Controllers
                 SuccessMessage = $"User added",
                 Sucess = true
             });
+        }
+
+        [HttpPost("set_user")]
+        public async Task<IActionResult> SetUser(UserSettings request)
+        {
+            var validationResult = _userSettingsValidator.Validate(request);
+            if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
+
+            var (success, result) = await _userService.SetUserSettings(request);
+            if (success)
+            {
+                return StatusCode(200, result);
+            }
+            else
+            {
+                return StatusCode(500, result);
+            }
         }
 
         [HttpPost("set_user_settings")]

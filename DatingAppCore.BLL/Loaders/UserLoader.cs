@@ -50,5 +50,8 @@ namespace DatingAppCore.BLL.Loaders
 
         public async Task<User> GetUser(string username)
             => await _repository.First(x => x.UserName == username);
+
+        public async Task<(bool, User)> SetUser(User user)
+            => await _repository.Update(user, x=> x.ID == user.ID);
     }
 }

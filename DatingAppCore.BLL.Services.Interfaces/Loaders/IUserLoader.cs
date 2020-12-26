@@ -9,6 +9,7 @@ namespace DatingAppCore.BLL.Interfaces.Loaders
     {
         Task<User> GetUser(Guid id);
         Task<User> GetUser(string username);
+        Task<(bool, User)> SetUser(User user);
         Task AddUser(User user);
         Task<(bool, User)> SetUserSettings(UserSettings request);
         Task<(bool, User)> SetUserProperties(SetPropertiesRequest request);

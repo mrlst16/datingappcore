@@ -27,19 +27,16 @@ namespace DatingAppCore.BLL.Services
         public async Task<User> GetUser(string username)
             => await _loader.GetUser(username);
 
-        public Task<(bool, User)> SetUserPhotos(SetPhotosRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<(bool, User)> SetUser(User user)
+            => await _loader.SetUser(user);
 
-        public Task<(bool, User)> SetUserProperties(SetPropertiesRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<(bool, User)> SetUserPhotos(SetPhotosRequest request)
+            => await _loader.SetUserPhotos(request);
 
-        public Task<(bool, UserSettings)> SetUserSettings(UserSettings request)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<(bool, User)> SetUserProperties(SetPropertiesRequest request)
+            => await _loader.SetUserProperties(request);
+
+        public async Task<(bool, User)> SetUserSettings(UserSettings request)
+            => await _loader.SetUserSettings(request);
     }
 }
