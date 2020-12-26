@@ -8,6 +8,7 @@ namespace DatingAppCore.BLL.Services.Interfaces
     public interface IUserService
     {
         Task<User> GetUser(Guid id);
+        Task<User> GetUser(string username);
         Task AddUser(User user);
         Task<(bool, UserSettings)> SetUserSettings(UserSettings request);
         Task<(bool, User)> SetUserProperties(SetPropertiesRequest request);

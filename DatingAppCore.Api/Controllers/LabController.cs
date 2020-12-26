@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using CommonCore.Models.Responses;
+using CommonCore.Interfaces.Repository;
+using DatingAppCore.Entities.Members;
 
 namespace DatingAppCore.Api.Controllers
 {
@@ -14,18 +16,20 @@ namespace DatingAppCore.Api.Controllers
     public class LabController : Controller
     {
         private readonly ILogger<LabController> _logger;
-
+        private readonly ICrudRepositoryFactory _crudRepository;
         public LabController(
-            ILogger<LabController> logger
+            ILogger<LabController> logger,
+            ICrudRepositoryFactory crudRepository
             )
         {
             _logger = logger;
+            _crudRepository = crudRepository;
         }
 
         [HttpPost("post_echo")]
         public async Task<IActionResult> PostEcho([FromBody] LabRequest request)
         {
-            SimpleResponse<string> response = new SimpleResponse<string>()
+            ApiResponse<string> response = new ApiResponse<string>()
             {
                 Data = request.Value
             };

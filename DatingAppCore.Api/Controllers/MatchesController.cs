@@ -46,7 +46,7 @@ namespace DatingAppCore.Api.Controllers
             if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
 
             await _matchesService.Swipe(request);
-            return this.Return200Or500(new SimpleResponse<bool>()
+            return this.Return200Or500(new ApiResponse<bool>()
             {
                 Data = true,
                 SuccessMessage = "Successfully saved swipe",

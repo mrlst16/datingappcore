@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="9.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
@@ -45,7 +46,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CommonCore\CommonCore.Api\CommonCore.Api.csproj" />
+    <ProjectReference Include="..\..\CommonCore\CommonCore2\CommonCore2.csproj" />
     <ProjectReference Include="..\DatingAppCore.BLL.Services.Interfaces\DatingAppCore.BLL.Interfaces.csproj" />
+    <ProjectReference Include="..\DatingAppCore.BLL\DatingAppCore.BLL.csproj" />
     <ProjectReference Include="..\DatingAppCore.Dto\DatingAppCore.Dto.csproj" />
     <ProjectReference Include="..\DatingAppCore.Models\DatingAppCore.Entities.csproj" />
   </ItemGroup>

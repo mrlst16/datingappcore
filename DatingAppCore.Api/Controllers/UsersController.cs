@@ -11,10 +11,12 @@ using CommonCore.Models.Responses;
 using DatingAppCore.Dto.Requests;
 using DatingAppCore.BLL.Services.Interfaces;
 using CommonCore.Api.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Linq;
 
 namespace DatingAppCore.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = "Basic")]
+    [Authorize(JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : Controller
@@ -41,24 +43,16 @@ namespace DatingAppCore.Api.Controllers
         }
 
         [HttpGet("get_user")]
-        public async Task<IActionResult> GetUser([FromQuery] Guid? id)
+        public async Task<IActionResult> GetUser()
         {
-            if (!id.HasValue || id.Value == Guid.Empty)
-                return StatusCode(
-                    400,
-                    new SimpleResponse<User>()
-                    {
-                        Data = null,
-                        FailureMessage = "id must be provided"
-                    }
-                );
+            var username = User.Identity.Name;
 
-            var result = await _userService.GetUser(id.Value);
+            var result = await _userService.GetUser(username);
 
-            return Ok(new SimpleResponse<User>()
+            return Ok(new ApiResponse<User>()
             {
                 Data = result,
-                SuccessMessage = $"User {id} found",
+                SuccessMessage = $"User {username} found",
                 Sucess = true
             });
         }
@@ -70,7 +64,7 @@ namespace DatingAppCore.Api.Controllers
             if (!validationResult.IsValid) return StatusCode(400, validationResult.To400<bool>());
             await _userService.AddUser(user);
 
-            return Ok(new SimpleResponse<User>()
+            return Ok(new ApiResponse<User>()
             {
                 Data = user,
                 SuccessMessage = $"User added",

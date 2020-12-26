@@ -16,6 +16,13 @@ namespace DatingAppCore.BLL.Loaders.Locations
     {
         private readonly ICrudRepository<UserLocation> _repository;
 
+        public LocationsLoader(
+            ICrudRepositoryFactory crudRepositoryFactory
+            )
+        {
+            _repository = crudRepositoryFactory.Get<UserLocation>();
+        }
+
         public async Task<IEnumerable<UserLocation>> UsersWithinLocation(FindMatchesRequest request)
         {
             HaversineCalculator haversineCalculator = new HaversineCalculator();

@@ -9,7 +9,7 @@ namespace DatingAppCore.Api.Extensions
 {
     public static class ControllerExtensions
     {
-        public static IActionResult Return200Or500<T>(this Controller controller, SimpleResponse<T> response)
+        public static IActionResult Return200Or500<T>(this Controller controller, ApiResponse<T> response)
             => response.Sucess ? controller.StatusCode(500, response) : controller.StatusCode(500, response);
 
     }

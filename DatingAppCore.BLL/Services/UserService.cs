@@ -24,6 +24,9 @@ namespace DatingAppCore.BLL.Services
         public async Task<User> GetUser(Guid id)
             => await _loader.GetUser(id);
 
+        public async Task<User> GetUser(string username)
+            => await _loader.GetUser(username);
+
         public Task<(bool, User)> SetUserPhotos(SetPhotosRequest request)
         {
             throw new NotImplementedException();

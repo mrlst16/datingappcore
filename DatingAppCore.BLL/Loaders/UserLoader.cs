@@ -9,40 +9,46 @@ namespace DatingAppCore.BLL.Loaders
 {
     public class UserLoader : IUserLoader
     {
-        private readonly IEntityRepository<User> _repository;
+        private readonly ICrudRepository<User> _repository;
 
         public UserLoader(
-            IEntityRepository<User> repository
+            ICrudRepositoryFactory crudRepositoryFactory
             )
         {
-            _repository = repository;
+            _repository = crudRepositoryFactory.Get<User>();
         }
 
         public async Task AddUser(User user)
             => await _repository.Create(user);
 
         public async Task<User> GetUser(Guid id)
-            => await _repository.Read(id);
+            => await _repository.First(x => x.ID == id);
+
+        private async Task<(bool, User)> Update(User user)
+            => await _repository.Update(user, x => x.ID == user.ID);
 
         public async Task<(bool, User)> SetUserPhotos(SetPhotosRequest request)
         {
-            var user = await _repository.Read(request.UserID);
+            var user = await GetUser(request.UserID);
             user.Photos = request.Photos;
-            return await _repository.Update(user);
+            return await Update(user);
         }
 
         public async Task<(bool, User)> SetUserProperties(SetPropertiesRequest request)
         {
-            var user = await _repository.Read(request.UserID);
+            var user = await GetUser(request.UserID);
             user.Profile = request.Properties;
-            return await _repository.Update(user);
+            return await Update(user);
         }
 
         public async Task<(bool, User)> SetUserSettings(UserSettings request)
         {
-            var user = await _repository.Read(request.UserID);
+            var user = await GetUser(request.UserID);
             user.Settings = request;
-            return await _repository.Update(user);
+            return await Update(user);
         }
+
+        public async Task<User> GetUser(string username)
+            => await _repository.First(x => x.UserName == username);
     }
 }

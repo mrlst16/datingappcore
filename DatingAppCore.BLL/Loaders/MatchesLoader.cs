@@ -16,21 +16,16 @@ namespace DatingAppCore.BLL.Loaders
     public class MatchesLoader : IMatchesLoader
     {
         private readonly ILocationsLoader _locationsLoader;
-        private readonly IEntityRepository<User> _usersRepository;
-        private readonly IEntityRepository<Match> _matchRepository;
-        private readonly IEntityRepository<Swipe> _swipesRepository;
+        private readonly ICrudRepository<User> _usersRepository;
+        private readonly ICrudRepository<Match> _matchRepository;
+        private readonly ICrudRepository<Swipe> _swipesRepository;
 
         public MatchesLoader(
             ILocationsLoader locationsLoader,
-            IEntityRepository<User> usersRepository,
-            IEntityRepository<Match> matchRepository,
-            IEntityRepository<Swipe> swipesRepository
+            ICrudRepositoryFactory crudRepositoryFactory
             )
         {
             _locationsLoader = locationsLoader;
-            _usersRepository = usersRepository;
-            _matchRepository = matchRepository;
-            _swipesRepository = swipesRepository;
         }
 
         public async Task<IEnumerable<User>> FindPotentialMatches(FindMatchesRequest request)
@@ -55,7 +50,8 @@ namespace DatingAppCore.BLL.Loaders
 
         private async Task<bool> FindPtentialMatches(FindMatchesRequest request, List<User> result)
         {
-            var user = await _usersRepository.Read(request.UserID);
+            var users = await _usersRepository.Read(x=> x.ID == request.UserID);
+            var user = users.FirstOrDefault();
             var usersWithinLocation = await _locationsLoader.UsersWithinLocation(request);
 
             var tasks = new Queue<Task<User>>();
@@ -79,7 +75,8 @@ namespace DatingAppCore.BLL.Loaders
 
         private async Task<User> MatchExcludingLocation(User searchingUser, Guid potentialMatchUserId)
         {
-            var potentialMatchUser = await _usersRepository.Read(potentialMatchUserId);
+            var potentialMatchUsers = await _usersRepository.Read(x=> x.ID == potentialMatchUserId);
+            var potentialMatchUser = potentialMatchUsers.FirstOrDefault();
             DictionaryValueProvider dictionaryValueProvider = new DictionaryValueProvider(potentialMatchUser.Profile);
             RuleTreeAssembler ruleTreeAssembler = new RuleTreeAssembler(dictionaryValueProvider);
             await ruleTreeAssembler.Assemble(searchingUser.SearchParameters);

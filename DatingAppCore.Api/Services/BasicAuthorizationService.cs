@@ -12,7 +12,7 @@ namespace DatingApp.API.Services
 {
     public class BasicAuthorizationService: IAuthorizationService
     {
-        public SimpleResponse<bool> Authorize(IHeaderDictionary headers)
+        public ApiResponse<bool> Authorize(IHeaderDictionary headers)
         {
 
             var str = headers?["Authorization"].FirstOrDefault()?
