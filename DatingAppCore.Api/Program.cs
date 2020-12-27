@@ -5,9 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using DatingApp.API.Services;
+using DatingAppCore.Api.Extensions;
 using DatingAppCore.BLL.Services;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
@@ -45,6 +47,7 @@ namespace DatingAppCore.Api
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseKestrel(options=> ((KestrelServerOptions)options).ConfigureHttpsForKestral())
                 .UseNLog();
     }
 }

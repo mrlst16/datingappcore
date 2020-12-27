@@ -107,7 +107,7 @@ namespace DatingAppCore.Api
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-
+            
             app.UseRouting();
 
             app.UseAuthentication();
